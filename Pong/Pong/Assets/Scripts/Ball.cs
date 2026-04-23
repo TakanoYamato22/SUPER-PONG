@@ -9,6 +9,11 @@ public class Ball : MonoBehaviour
     public float maxSpeed = 25f;     // 加速の上限
     public float currentSpeed { get; set; }
 
+    [SerializeField] private float centerRange = 0.2f;
+    private int centerHitCount = 0;
+
+    private GameManager gm;
+
     // パドルに当たるたびに加速
     public void IncreaseSpeed(float amount)
     {
@@ -26,6 +31,7 @@ public class Ball : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     public void ResetPosition()
@@ -55,5 +61,46 @@ public class Ball : MonoBehaviour
             rb.linearVelocity = dir * currentSpeed;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Paddle")) return;
 
+        Collider2D paddle = collision.collider;
+
+        // パドル中心からどれくらいズレてるか（-1〜1）
+        float offset = (transform.position.y - paddle.bounds.center.y)
+                       / (paddle.bounds.size.y / 2f);
+
+        // ============================
+        // 🧪 デバッグ用ログ
+        // ============================
+
+        Debug.Log("offset: " + offset);
+
+        // ============================
+        // 🎯 中央ヒット判定
+        // ============================
+
+        if (Mathf.Abs(offset) < centerRange)
+        {
+            centerHitCount++;
+
+            Debug.Log("🔥 中央ヒット！ count = " + centerHitCount);
+
+            if (gm != null)
+                gm.OnCenterHit(centerHitCount);
+        }
+        else
+        {
+            Debug.Log("通常ヒット");
+
+            centerHitCount = 0;
+        }
+
+        // 壁ダメージ
+        if (collision.gameObject.TryGetComponent(out WallBlock wall))
+        {
+            wall.TakeDamage();
+        }
+    }
 }
