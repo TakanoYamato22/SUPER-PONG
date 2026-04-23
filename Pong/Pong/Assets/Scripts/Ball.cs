@@ -78,29 +78,25 @@ public class Ball : MonoBehaviour
         Debug.Log("offset: " + offset);
 
         // ============================
-        // 🎯 中央ヒット判定
+        // 🎯 中央ヒット判定（ログだけ）
         // ============================
 
         if (Mathf.Abs(offset) < centerRange)
         {
-            centerHitCount++;
-
-            Debug.Log("🔥 中央ヒット！ count = " + centerHitCount);
-
-            if (gm != null)
-                gm.OnCenterHit(centerHitCount);
+            Debug.Log("🔥 中央ヒット！（Ball側ログ）");
         }
         else
         {
-            Debug.Log("通常ヒット");
-
-            centerHitCount = 0;
+            Debug.Log("通常ヒット（Ball側ログ）");
         }
 
-        // 壁ダメージ
+        // ============================
+        // 🧱 壁ダメージ
+        // ============================
+
         if (collision.gameObject.TryGetComponent(out WallBlock wall))
         {
             wall.TakeDamage();
         }
     }
-}
+    }

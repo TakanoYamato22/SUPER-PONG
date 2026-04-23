@@ -83,12 +83,12 @@ public class GameManager : MonoBehaviour
     }
     private void CheckPhase()
     {
-        if (totalScore == 5)
+        if (totalScore == 2)
         {
             SpawnWall();
         }
 
-        if (totalScore >= 10)
+        if (totalScore >= 5)
         {
             SpawnWall();
         }
@@ -100,11 +100,23 @@ public class GameManager : MonoBehaviour
         Instantiate(wallPrefab, pos, Quaternion.identity);
     }
 
-    public void OnCenterHit(int count)
+  
+    // 🔽 誰のヒットか判定して処理
+    public void OnCenterHit(Paddle paddle, int count)
     {
-        if (count >= 3)
+        // プレイヤーのときだけリスク発動
+        if (paddle == playerPaddle)
         {
-            playerPaddle.Shrink(3f);
+            if (count >= 3)
+            {
+                playerPaddle.Shrink(3f);
+            }
         }
+
+        // CPU側にも将来拡張できる
+       // if (paddle == computerPaddle && count >= 3)
+       // {
+         //   computerPaddle.Shrink(2f);
+        //}
     }
 }
