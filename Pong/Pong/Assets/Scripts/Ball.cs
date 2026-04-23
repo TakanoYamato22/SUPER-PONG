@@ -5,9 +5,23 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    public float baseSpeed = 5f;
-    public float maxSpeed = Mathf.Infinity;
+    public float baseSpeed = 7f;     // 初速
+    public float maxSpeed = 25f;     // 加速の上限
     public float currentSpeed { get; set; }
+
+    // パドルに当たるたびに加速
+    public void IncreaseSpeed(float amount)
+    {
+        currentSpeed = Mathf.Min(currentSpeed + amount, maxSpeed);
+        velocity = velocity.normalized * currentSpeed;
+    }
+
+    // velocity プロパティ（Rigidbody2D の linearVelocity をラップ）
+    public Vector2 velocity
+    {
+        get => rb.linearVelocity;
+        set => rb.linearVelocity = value;
+    }
 
     private void Awake()
     {
@@ -22,26 +36,24 @@ public class Ball : MonoBehaviour
 
     public void AddStartingForce()
     {
-        // Flip a coin to determine if the ball starts left or right
         float x = Random.value < 0.5f ? -1f : 1f;
-
-        // Flip a coin to determine if the ball goes up or down. Set the range
-        // between 0.5 -> 1.0 to ensure it does not move completely horizontal.
         float y = Random.value < 0.5f ? Random.Range(-1f, -0.5f)
                                       : Random.Range(0.5f, 1f);
 
-        // Apply the initial force and set the current speed
         Vector2 direction = new Vector2(x, y).normalized;
+
         rb.AddForce(direction * baseSpeed, ForceMode2D.Impulse);
         currentSpeed = baseSpeed;
     }
 
     private void FixedUpdate()
     {
-        // Clamp the velocity of the ball to the max speed
-        Vector2 direction = rb.linearVelocity.normalized;
-        currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
-        rb.linearVelocity = direction * currentSpeed;
+        // 速度が0にならないようにだけ補正
+        if (rb.linearVelocity.sqrMagnitude > 0.01f)
+        {
+            Vector2 dir = rb.linearVelocity.normalized;
+            rb.linearVelocity = dir * currentSpeed;
+        }
     }
 
 }

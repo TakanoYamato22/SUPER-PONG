@@ -6,20 +6,29 @@ public class PlayerPaddle : Paddle
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
             direction = Vector2.up;
-        } else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
             direction = Vector2.down;
-        } else {
+        }
+        else
+        {
             direction = Vector2.zero;
         }
     }
 
     private void FixedUpdate()
     {
-        if (direction.sqrMagnitude != 0) {
-            rb.AddForce(direction * speed);
+        // 慣性ゼロのクラシック操作
+        if (direction.sqrMagnitude != 0)
+        {
+            transform.position += (Vector3)(direction * speed * Time.fixedDeltaTime);
         }
-    }
 
+        // --- パドルの特殊効果があれば適用 ---
+        //activeEffect?.UpdateEffect(this);
+    }
 }

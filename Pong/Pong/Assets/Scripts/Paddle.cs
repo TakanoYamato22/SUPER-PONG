@@ -1,47 +1,45 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public abstract class Paddle : MonoBehaviour
 {
-    protected Rigidbody2D rb;
-
-    public float speed = 8f;
-    [Tooltip("Changes how the ball bounces off the paddle depending on where it hits the paddle. The further from the center of the paddle, the steeper the bounce angle.")]
+    public float speed = 5f;
     public bool useDynamicBounce = false;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    // --- 将来の特殊効果用 ---
+    //public IPaddleEffect activeEffect;
 
     public void ResetPosition()
     {
-        rb.linearVelocity = Vector2.zero;
-        rb.position = new Vector2(rb.position.x, 0f);
+        transform.position = new Vector2(transform.position.x, 0f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (useDynamicBounce && collision.gameObject.CompareTag("Ball"))
-        {
-            Rigidbody2D ball = collision.rigidbody;
-            Collider2D paddle = collision.otherCollider;
+        if (!collision.gameObject.CompareTag("Ball")) return;
 
-            // Gather information about the collision
-            Vector2 ballDirection = ball.linearVelocity.normalized;
-            Vector2 contactDistance = ball.transform.position - paddle.bounds.center;
-            Vector2 surfaceNormal = collision.GetContact(0).normal;
-            Vector3 rotationAxis = Vector3.Cross(Vector3.up, surfaceNormal);
+        Ball ball = collision.gameObject.GetComponent<Ball>();
+        Collider2D paddle = collision.otherCollider;
 
-            // Rotate the direction of the ball based on the contact distance
-            // to make the gameplay more dynamic and interesting
-            float maxBounceAngle = 75f;
-            float bounceAngle = contactDistance.y / paddle.bounds.size.y * maxBounceAngle;
-            ballDirection = Quaternion.AngleAxis(bounceAngle, rotationAxis) * ballDirection;
+        // パドル中心からの距離（-1〜1）
+        float contactY = (ball.transform.position.y - paddle.bounds.center.y)
+                         / (paddle.bounds.size.y / 2f);
 
-            // Re-apply the new direction to the ball
-            ball.linearVelocity = ballDirection * ball.linearVelocity.magnitude;
-        }
+        float maxBounceAngle = 75f;
+        float bounceAngle = contactY * maxBounceAngle;
+
+        // 角度から新しい方向ベクトルを作る
+        float rad = bounceAngle * Mathf.Deg2Rad;
+        Vector2 newDir = new Vector2(
+            Mathf.Sign(ball.velocity.x) * Mathf.Cos(rad),
+            Mathf.Sin(rad)
+        ).normalized;
+
+        // 加速
+        ball.IncreaseSpeed(1.5f);
+
+        // 新しい速度を適用
+        ball.velocity = newDir * ball.currentSpeed;
     }
+
 
 }
