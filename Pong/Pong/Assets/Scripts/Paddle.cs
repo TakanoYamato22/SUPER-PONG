@@ -39,11 +39,38 @@ public abstract class Paddle : MonoBehaviour
 
         // 新しい速度を適用
         ball.velocity = newDir * ball.currentSpeed;
+
+     
+        // 🔽 中央ヒット判定（各パドルごと）
+        // パドル中心からのズレ（-1〜1）
+        float offset = contactY;
+
+        // 中央ヒット範囲（調整可能）
+        float centerRange = 0.2f;
+
+        if (Mathf.Abs(offset) < centerRange)
+        {
+            centerHitCount++;
+
+            // GameManagerに通知（誰がヒットしたかも渡す）
+            GameManager gm = FindObjectOfType<GameManager>();
+            if (gm != null)
+            {
+                gm.OnCenterHit(this, centerHitCount);
+            }
+        }
+        else
+        {
+            // 中央外したらリセット
+            centerHitCount = 0;
+        }
     }
     // ===============================
     // 🔽 パドル縮小システム（リスク要素）
     // ===============================
-
+    
+    // 🔽 中央ヒットカウント（各パドル専用）
+    protected int centerHitCount = 0;
     // 現在縮小中かどうか（連続発動防止）
     private bool isShrinking = false;
 
