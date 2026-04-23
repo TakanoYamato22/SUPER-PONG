@@ -9,7 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Paddle computerPaddle;
     [SerializeField] private Text playerScoreText;
     [SerializeField] private Text computerScoreText;
+    [SerializeField] private GameObject wallPrefab;
+    [SerializeField] private Transform wallSpawnPoint;
 
+    private int totalScore = 0;
     private int playerScore;
     private int computerScore;
 
@@ -40,6 +43,10 @@ public class GameManager : MonoBehaviour
 
         CancelInvoke();
         Invoke(nameof(StartRound), 1f);
+        foreach (var wall in GameObject.FindGameObjectsWithTag("WallBlock"))
+        {
+            Destroy(wall);
+        }
     }
 
     private void StartRound()
@@ -50,12 +57,16 @@ public class GameManager : MonoBehaviour
     public void OnPlayerScored()
     {
         SetPlayerScore(playerScore + 1);
+        totalScore++;
+        CheckPhase();
         NewRound();
     }
 
     public void OnComputerScored()
     {
         SetComputerScore(computerScore + 1);
+        totalScore++;
+        CheckPhase();
         NewRound();
     }
 
@@ -70,5 +81,30 @@ public class GameManager : MonoBehaviour
         computerScore = score;
         computerScoreText.text = score.ToString();
     }
+    private void CheckPhase()
+    {
+        if (totalScore == 5)
+        {
+            SpawnWall();
+        }
 
+        if (totalScore >= 10)
+        {
+            SpawnWall();
+        }
+    }
+
+    private void SpawnWall()
+    {
+        Vector2 pos = new Vector2(0, Random.Range(-3f, 3f));
+        Instantiate(wallPrefab, pos, Quaternion.identity);
+    }
+
+    public void OnCenterHit(int count)
+    {
+        if (count >= 3)
+        {
+            playerPaddle.Shrink(3f);
+        }
+    }
 }

@@ -40,6 +40,51 @@ public abstract class Paddle : MonoBehaviour
         // 新しい速度を適用
         ball.velocity = newDir * ball.currentSpeed;
     }
+    // ===============================
+    // 🔽 パドル縮小システム（リスク要素）
+    // ===============================
 
+    // 現在縮小中かどうか（連続発動防止）
+    private bool isShrinking = false;
+
+    // 外部（GameManagerなど）から呼ばれる関数
+    // duration = 何秒間縮むか
+    public void Shrink(float duration)
+    {
+        // すでに縮小中なら何もしない（重複防止）
+        if (!isShrinking)
+        {
+            StartCoroutine(ShrinkCoroutine(duration));
+        }
+    }
+
+    // 実際の縮小処理（コルーチン）
+    private System.Collections.IEnumerator ShrinkCoroutine(float duration)
+    {
+        // 縮小状態ON
+        isShrinking = true;
+
+        // 現在のサイズを保存（元に戻すため）
+        Vector3 originalScale = transform.localScale;
+
+        // 🔧 縮小率（ここを調整すれば難易度変わる）
+        float shrinkMultiplier = 0.6f;
+
+        // 🔴 高さ（Y）だけ縮める ←重要ポイント
+        transform.localScale = new Vector3(
+            originalScale.x,                      // 横幅はそのまま
+            originalScale.y * shrinkMultiplier,   // 高さだけ縮小
+            originalScale.z
+        );
+
+        // 指定時間待つ
+        yield return new WaitForSeconds(duration);
+
+        // 元のサイズに戻す
+        transform.localScale = originalScale;
+
+        // 縮小状態OFF
+        isShrinking = false;
+    }
 
 }
