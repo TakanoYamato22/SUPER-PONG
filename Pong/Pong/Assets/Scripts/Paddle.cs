@@ -84,7 +84,10 @@ public abstract class Paddle : MonoBehaviour
             StartCoroutine(ShrinkCoroutine(duration));
         }
     }
+   
+    private bool isShrinking = false;
 
+<<<<<<< Updated upstream
     // 実際の縮小処理（コルーチン）
     private System.Collections.IEnumerator ShrinkCoroutine(float duration)
     {
@@ -98,6 +101,41 @@ public abstract class Paddle : MonoBehaviour
         float shrinkMultiplier = 0.6f;
 
         // 🔴 高さ（Y）だけ縮める ←重要ポイント
+        transform.localScale = new Vector3(
+            originalScale.x,                      // 横幅はそのまま
+            originalScale.y * shrinkMultiplier,   // 高さだけ縮小
+            originalScale.z
+        );
+
+        // 指定時間待つ
+        yield return new WaitForSeconds(duration);
+
+        // 元のサイズに戻す
+        transform.localScale = originalScale;
+
+        // 縮小状態OFF
+        isShrinking = false;
+=======
+    public void Shrink(float duration)
+    {
+        // すでに縮小中なら何もしない（重複防止）
+        if (!isShrinking)
+        {
+            StartCoroutine(ShrinkCoroutine(duration));
+        }
+>>>>>>> Stashed changes
+    }
+
+    // 実際の縮小処理（コルーチン）
+    private System.Collections.IEnumerator ShrinkCoroutine(float duration)
+    {
+        // 縮小状態ON
+        isShrinking = true;
+
+        Vector3 originalScale = transform.localScale;
+
+        float shrinkMultiplier = 0.6f;
+
         transform.localScale = new Vector3(
             originalScale.x,                      // 横幅はそのまま
             originalScale.y * shrinkMultiplier,   // 高さだけ縮小
