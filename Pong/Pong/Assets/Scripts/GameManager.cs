@@ -7,31 +7,39 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Ball ball;
     [SerializeField] private Paddle playerPaddle;
     [SerializeField] private Paddle computerPaddle;
+
     [SerializeField] private Text playerScoreText;
     [SerializeField] private Text computerScoreText;
-    [SerializeField] private GameObject wallPrefab;
-    [SerializeField] private Transform wallSpawnPoint;
 
-    private int totalScore = 0;
-    private int playerScore;
-    private int computerScore;
+    [SerializeField] private GameObject wallPrefab;
+
+    private ScoreManager scoreManager;
 
     private void Start()
     {
+        scoreManager = FindObjectOfType<ScoreManager>();
+
+        // スコアイベント登録
+        scoreManager.onPlayerScoreChanged.AddListener(OnPlayerScoreChanged);
+        scoreManager.onComputerScoreChanged.AddListener(OnComputerScoreChanged);
+
+        scoreManager.onPlayerScored.AddListener(OnPlayerScored);
+        scoreManager.onComputerScored.AddListener(OnComputerScored);
+
         NewGame();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             NewGame();
         }
     }
 
     public void NewGame()
     {
-        SetPlayerScore(0);
-        SetComputerScore(0);
+        scoreManager.ResetScores();
         NewRound();
     }
 
@@ -43,6 +51,8 @@ public class GameManager : MonoBehaviour
 
         CancelInvoke();
         Invoke(nameof(StartRound), 1f);
+
+        // 壁を全部消す
         foreach (var wall in GameObject.FindGameObjectsWithTag("WallBlock"))
         {
             Destroy(wall);
@@ -54,54 +64,61 @@ public class GameManager : MonoBehaviour
         ball.AddStartingForce();
     }
 
-    public void OnPlayerScored()
+    // UI 更新 ＋ 壁生成処理
+    private void OnPlayerScoreChanged(int score)
     {
-        SetPlayerScore(playerScore + 1);
-        totalScore++;
-        CheckPhase();
-        NewRound();
-    }
-
-    public void OnComputerScored()
-    {
-        SetComputerScore(computerScore + 1);
-        totalScore++;
-        CheckPhase();
-        NewRound();
-    }
-
-    private void SetPlayerScore(int score)
-    {
-        playerScore = score;
         playerScoreText.text = score.ToString();
+
+        // ★ スコアに応じて出す個数を決める ★
+        int spawnCount = 0;
+
+        if (score == 3)
+            spawnCount = 1;
+        else if (score == 5)
+            spawnCount = 2;
+        else if (score == 7)
+            spawnCount = 3;
+
+        if (spawnCount > 0)
+            SpawnMultipleWalls(spawnCount);
     }
 
-    private void SetComputerScore(int score)
+    private void OnComputerScoreChanged(int score)
     {
-        computerScore = score;
         computerScoreText.text = score.ToString();
     }
-    private void CheckPhase()
-    {
-        if (totalScore == 2)
-        {
-            SpawnWall();
-        }
 
-        if (totalScore >= 5)
+    private void OnPlayerScored()
+    {
+        NewRound();
+    }
+
+    private void OnComputerScored()
+    {
+        NewRound();
+    }
+
+    // ★ 複数壁生成 ★
+    private void SpawnMultipleWalls(int count)
+    {
+        for (int i = 0; i < count; i++)
         {
-            SpawnWall();
+            Instantiate(wallPrefab, GetRandomPosition(), Quaternion.identity);
         }
     }
 
-    private void SpawnWall()
+    // ★ ランダム位置生成（画面内） ★
+    private Vector2 GetRandomPosition()
     {
-        Vector2 pos = new Vector2(0, Random.Range(-3f, 3f));
-        Instantiate(wallPrefab, pos, Quaternion.identity);
+        float camHeight = Camera.main.orthographicSize;
+        float camWidth = camHeight * Camera.main.aspect;
+
+        float x = Random.Range(-camWidth + 0.5f, camWidth - 0.5f);
+        float y = Random.Range(-camHeight + 0.5f, camHeight - 0.5f);
+
+        return new Vector2(x, y);
     }
 
-  
-    // 🔽 誰のヒットか判定して処理
     public void OnCenterHit(Paddle paddle, int count)
     {
         // プレイヤーのときだけリスク発動
@@ -112,11 +129,5 @@ public class GameManager : MonoBehaviour
                 playerPaddle.Shrink(3f);
             }
         }
-
-        // CPU側にも将来拡張できる
-       // if (paddle == computerPaddle && count >= 3)
-       // {
-         //   computerPaddle.Shrink(2f);
-        //}
     }
 }

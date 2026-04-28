@@ -99,4 +99,6 @@ public class Ball : MonoBehaviour
             wall.TakeDamage();
         }
     }
-    }
+
+}
+

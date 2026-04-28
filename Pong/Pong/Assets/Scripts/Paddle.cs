@@ -3,16 +3,26 @@
 public abstract class Paddle : MonoBehaviour
 {
     public float speed = 5f;
-    public bool useDynamicBounce = false;
 
-    // --- 将来の特殊効果用 ---
-    //public IPaddleEffect activeEffect;
+    // 中央ヒットカウント
+    protected int centerHitCount = 0;
 
+    // 縮小中フラグ
+    private bool isShrinking = false;
+
+
+    // -------------------------
+    // パドル位置リセット
+    // -------------------------
     public void ResetPosition()
     {
         transform.position = new Vector2(transform.position.x, 0f);
     }
 
+
+    // -------------------------
+    // ボール衝突処理（縦カン防止版）
+    // -------------------------
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Ball")) return;
@@ -22,12 +32,16 @@ public abstract class Paddle : MonoBehaviour
 
         // パドル中心からの距離（-1〜1）
         float contactY = (ball.transform.position.y - paddle.bounds.center.y)
-                         / (paddle.bounds.size.y / 2f);
+                         / (paddle.bounds.size.y * 0.5f);
 
+        // ★ 縦カン防止：上下端の反射角を弱める
+        contactY = Mathf.Clamp(contactY, -0.8f, 0.8f);
+
+        // 最大反射角
         float maxBounceAngle = 75f;
         float bounceAngle = contactY * maxBounceAngle;
 
-        // 角度から新しい方向ベクトルを作る
+        // 角度 → 方向ベクトル
         float rad = bounceAngle * Mathf.Deg2Rad;
         Vector2 newDir = new Vector2(
             Mathf.Sign(ball.velocity.x) * Mathf.Cos(rad),
@@ -40,19 +54,16 @@ public abstract class Paddle : MonoBehaviour
         // 新しい速度を適用
         ball.velocity = newDir * ball.currentSpeed;
 
-     
-        // 🔽 中央ヒット判定（各パドルごと）
-        // パドル中心からのズレ（-1〜1）
-        float offset = contactY;
 
-        // 中央ヒット範囲（調整可能）
+        // -------------------------
+        // 中央ヒット判定
+        // -------------------------
         float centerRange = 0.2f;
 
-        if (Mathf.Abs(offset) < centerRange)
+        if (Mathf.Abs(contactY) < centerRange)
         {
             centerHitCount++;
 
-            // GameManagerに通知（誰がヒットしたかも渡す）
             GameManager gm = FindObjectOfType<GameManager>();
             if (gm != null)
             {
@@ -61,95 +72,43 @@ public abstract class Paddle : MonoBehaviour
         }
         else
         {
-            // 中央外したらリセット
             centerHitCount = 0;
         }
     }
-    // ===============================
-    // 🔽 パドル縮小システム（リスク要素）
-    // ===============================
-    
-    // 🔽 中央ヒットカウント（各パドル専用）
-    protected int centerHitCount = 0;
-    // 現在縮小中かどうか（連続発動防止）
-    private bool isShrinking = false;
 
-    // 外部（GameManagerなど）から呼ばれる関数
-    // duration = 何秒間縮むか
+
+    // -------------------------
+    // パドル縮小（アイテム効果など）
+    // -------------------------
     public void Shrink(float duration)
     {
-        // すでに縮小中なら何もしない（重複防止）
         if (!isShrinking)
         {
             StartCoroutine(ShrinkCoroutine(duration));
         }
     }
-   
-    private bool isShrinking = false;
 
-<<<<<<< Updated upstream
-    // 実際の縮小処理（コルーチン）
     private System.Collections.IEnumerator ShrinkCoroutine(float duration)
     {
-        // 縮小状態ON
-        isShrinking = true;
-
-        // 現在のサイズを保存（元に戻すため）
-        Vector3 originalScale = transform.localScale;
-
-        // 🔧 縮小率（ここを調整すれば難易度変わる）
-        float shrinkMultiplier = 0.6f;
-
-        // 🔴 高さ（Y）だけ縮める ←重要ポイント
-        transform.localScale = new Vector3(
-            originalScale.x,                      // 横幅はそのまま
-            originalScale.y * shrinkMultiplier,   // 高さだけ縮小
-            originalScale.z
-        );
-
-        // 指定時間待つ
-        yield return new WaitForSeconds(duration);
-
-        // 元のサイズに戻す
-        transform.localScale = originalScale;
-
-        // 縮小状態OFF
-        isShrinking = false;
-=======
-    public void Shrink(float duration)
-    {
-        // すでに縮小中なら何もしない（重複防止）
-        if (!isShrinking)
-        {
-            StartCoroutine(ShrinkCoroutine(duration));
-        }
->>>>>>> Stashed changes
-    }
-
-    // 実際の縮小処理（コルーチン）
-    private System.Collections.IEnumerator ShrinkCoroutine(float duration)
-    {
-        // 縮小状態ON
         isShrinking = true;
 
         Vector3 originalScale = transform.localScale;
 
+        // 縮小率
         float shrinkMultiplier = 0.6f;
 
+        // 高さだけ縮める
         transform.localScale = new Vector3(
-            originalScale.x,                      // 横幅はそのまま
-            originalScale.y * shrinkMultiplier,   // 高さだけ縮小
+            originalScale.x,
+            originalScale.y * shrinkMultiplier,
             originalScale.z
         );
 
-        // 指定時間待つ
         yield return new WaitForSeconds(duration);
 
-        // 元のサイズに戻す
+        // 元に戻す
         transform.localScale = originalScale;
 
-        // 縮小状態OFF
         isShrinking = false;
     }
-
 }
