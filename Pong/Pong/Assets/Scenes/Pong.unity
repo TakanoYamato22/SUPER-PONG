@@ -443,6 +443,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &344002220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 344002221}
+  m_Layer: 0
+  m_Name: WallSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &344002221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344002220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417150621
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +508,9 @@ MonoBehaviour:
   computerPaddle: {fileID: 1362602729}
   playerScoreText: {fileID: 228497188}
   computerScoreText: {fileID: 618610096}
+  wallPrefab: {fileID: 7581432054656844740, guid: 92b43c840215fd443b4a1af25f7847cd,
+    type: 3}
+  wallSpawnPoint: {fileID: 344002221}
 --- !u!4 &417150623
 Transform:
   m_ObjectHideFlags: 0
@@ -794,6 +828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 5
   maxSpeed: 25
+  centerRange: 0.2
 --- !u!61 &702247806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1767,3 +1802,4 @@ SceneRoots:
   - {fileID: 289451919}
   - {fileID: 1635559016}
   - {fileID: 1327430169}
+  - {fileID: 344002221}

@@ -34,8 +34,13 @@ public abstract class Paddle : MonoBehaviour
             Mathf.Sin(rad)
         ).normalized;
 
-        // 加速
-        ball.IncreaseSpeed(1.5f);
+        // ===============================
+        // 🔽 プレイヤーだけ加速
+        // ===============================
+        if (this is PlayerPaddle)
+        {
+            ball.IncreaseSpeed(1.5f);
+        }
 
         // 新しい速度を適用
         ball.velocity = newDir * ball.currentSpeed;
