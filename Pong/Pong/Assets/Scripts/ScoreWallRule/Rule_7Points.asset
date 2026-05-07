@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d82aefbd7de9d42b09ed378a0dcc09, type: 3}
   m_Name: Rule_7Points
   m_EditorClassIdentifier: 
-  scoreThreshold: 3
+  scoreThreshold: 7
   wallTypes:
   - {fileID: 11400000, guid: da35e7dd8dbe8c44e9d44bf85afa41e0, type: 2}
-  spawnCount: 1
+  spawnCount: 3
