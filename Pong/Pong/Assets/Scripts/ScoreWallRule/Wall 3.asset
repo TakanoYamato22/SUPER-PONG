@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb1fb7ec2274bc4fa94d1c31100fecd, type: 3}
+  m_Name: Wall 3
+  m_EditorClassIdentifier: 
+  wallName: Wall 3
+  hp: 3
+  color: {r: 1, g: 1, b: 1, a: 1}
+  size: {x: 1, y: 1}
+  useBounceBoost: 0
+  bounceMultiplier: 1
+  prefab: {fileID: 5116113296296545129, guid: 9a2a74f49569c1c4e97360eeb3f8ad36, type: 3}

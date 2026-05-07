@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
-[RequireComponent(typeof(BoxCollider2D))]
 public class ScoringZone : MonoBehaviour
 {
-    public UnityEvent scoreTrigger;
+    public bool isPlayerGoal;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Ball _)) {
-            scoreTrigger.Invoke();
-        }
-    }
+        if (!collision.TryGetComponent(out Ball _)) return;
 
+        var score = FindObjectOfType<ScoreManager>();
+
+        if (isPlayerGoal)
+            score.AddPlayerScore();
+        else
+            score.AddComputerScore();
+    }
 }

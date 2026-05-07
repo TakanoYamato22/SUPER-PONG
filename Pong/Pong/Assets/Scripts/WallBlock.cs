@@ -1,12 +1,31 @@
 ﻿using UnityEngine;
 
-// 壁オブジェクト（ボールが当たるとダメージを受ける）
 public class WallBlock : MonoBehaviour
 {
-    [Header("Wall Settings")]
+    [Header("Wall Type Data (ScriptableObject)")]
+    public WallTypeData data;   // ← 壁の種類データを Inspector でセット
 
-    // 壁の耐久値（何回当たったら壊れるか）
-    public int hp = 1;
+    private int hp;
+
+    private void Start()
+    {
+        // ScriptableObject から設定を読み込む
+        hp = data.hp;
+
+        // 色を反映
+        var sr = GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            sr.color = data.color;
+        }
+
+        // サイズを反映
+        transform.localScale = new Vector3(
+            data.size.x,
+            data.size.y,
+            1f
+        );
+    }
 
     // ===============================
     // 💥 ダメージ処理
@@ -15,9 +34,8 @@ public class WallBlock : MonoBehaviour
     {
         hp--;
 
-        Debug.Log("壁にヒット！残りHP: " + hp);
+        Debug.Log($"壁にヒット！残りHP: {hp}");
 
-        // HPが0以下なら破壊
         if (hp <= 0)
         {
             Debug.Log("壁破壊！");
