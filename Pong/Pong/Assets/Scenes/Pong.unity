@@ -210,10 +210,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dade7c474702147459230548fdecce19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTrigger:
-    m_PersistentCalls:
-      m_Calls: []
   isPlayerGoal: 0
+--- !u!1 &117185820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117185822}
+  - component: {fileID: 117185821}
+  m_Layer: 0
+  m_Name: ScoreWallSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &117185821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117185820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f0df72f85a8e94797a9590ea845234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 297271046}
+  rules:
+  - {fileID: 11400000, guid: 496d147fd791052498aac8e0f382ec0e, type: 2}
+  - {fileID: 11400000, guid: f278427c84e328948a13ba9ce7f09114, type: 2}
+  - {fileID: 11400000, guid: 84c540da2e43e7c47a5f7e228312989c, type: 2}
+--- !u!4 &117185822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117185820}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.869977, y: 1.119029, z: -0.0770797}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &228497186
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +478,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &297271045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297271047}
+  - component: {fileID: 297271046}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &297271046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297271045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401a2fdf40ed0da498c35c95b513199f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPlayerScoreChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onComputerScoreChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerScored:
+    m_PersistentCalls:
+      m_Calls: []
+  onComputerScored:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &297271047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297271045}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.869977, y: 1.119029, z: -0.0770797}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417150621
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,8 +568,6 @@ MonoBehaviour:
   computerPaddle: {fileID: 1362602729}
   playerScoreText: {fileID: 228497188}
   computerScoreText: {fileID: 618610096}
-  wallPrefab: {fileID: 7581432054656844740, guid: 92b43c840215fd443b4a1af25f7847cd,
-    type: 3}
 --- !u!4 &417150623
 Transform:
   m_ObjectHideFlags: 0
@@ -783,9 +883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b2399eb776bf94e908930cf937f564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 5
+  baseSpeed: 10
   maxSpeed: 25
-  centerRange: 0.2
 --- !u!61 &702247806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -923,21 +1022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dade7c474702147459230548fdecce19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: f2b2399eb776bf94e908930cf937f564, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   isPlayerGoal: 1
 --- !u!1 &1237810576
 GameObject:
@@ -1231,11 +1315,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  useDynamicBounce: 0
   ball: {fileID: 702247805}
-  reactionSpeed: 1
-  predictionStrength: 1
-  mistakeChance: 1
+  reactionSpeed: 0.4
+  predictionStrength: 0.5
+  mistakeChance: 0.3
 --- !u!61 &1362602730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1493,7 +1576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  useDynamicBounce: 0
 --- !u!50 &1535292067
 Rigidbody2D:
   serializedVersion: 5
@@ -1580,7 +1662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceType: 0
-  bounceStrength: 0
+  bounceStrength: 0.1
 --- !u!1 &1635559012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,7 +1831,9 @@ LightingSettings:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1327430169}
   - {fileID: 417150623}
+  - {fileID: 297271047}
   - {fileID: 519420032}
   - {fileID: 702247803}
   - {fileID: 1535292065}
@@ -1760,4 +1844,4 @@ SceneRoots:
   - {fileID: 954571798}
   - {fileID: 289451919}
   - {fileID: 1635559016}
-  - {fileID: 1327430169}
+  - {fileID: 117185822}

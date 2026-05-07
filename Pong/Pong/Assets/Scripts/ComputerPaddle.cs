@@ -12,20 +12,20 @@ public class ComputerPaddle : Paddle
     // 1.0 = 完全追従（鬼）
     // 0.3 = 少し遅れる（おすすめ）
     // 0.1 = かなり鈍い
-    public float reactionSpeed = 0.01f;
+    public float reactionSpeed = 0.6f;
 
     // 未来予測の強さ（0〜1）
     // 1.0 = 完全に未来位置を読む（プロ）
     // 0.5 = 半分だけ読む（自然）
     // 0.0 = 現在位置だけ見る（初心者CPU）
-    public float predictionStrength = 0.0f;
+    public float predictionStrength = 0.7f;
 
     [Header("Human-like Behavior")]
 
     // ミスする確率（0〜1）
     // 0.0 = ミスしない
     // 0.1 = 10%でミス（おすすめ）
-    public float mistakeChance = 1.0f;
+    public float mistakeChance = 0.1f;
 
     private void FixedUpdate()
     {
