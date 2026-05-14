@@ -22,7 +22,7 @@ public abstract class Paddle : MonoBehaviour
         float contactY = (ball.transform.position.y - paddle.bounds.center.y)
                          / (paddle.bounds.size.y / 2f);
 
-        float maxBounceAngle = 75f;
+        float maxBounceAngle = 45f;
         float bounceAngle = contactY * maxBounceAngle;
 
         float rad = bounceAngle * Mathf.Deg2Rad;
