@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ICELAND_0: 6155762372090123466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

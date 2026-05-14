@@ -49,7 +49,6 @@ public class ScoreWallSpawner : MonoBehaviour
         //float x = Random.Range(-camWidth + 0.5f, camWidth - 0.5f);
         //float y = Random.Range(-camHeight + 0.5f, camHeight - 0.5f);
          
-        main
 
         float camHeight = Camera.main.orthographicSize;
 
