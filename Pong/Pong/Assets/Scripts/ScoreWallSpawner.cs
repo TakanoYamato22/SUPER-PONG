@@ -43,12 +43,20 @@ public class ScoreWallSpawner : MonoBehaviour
 
     private Vector2 GetRandomPosition()
     {
-        float camHeight = Camera.main.orthographicSize;
-        float camWidth = camHeight * Camera.main.aspect;
+        //float camHeight = Camera.main.orthographicSize;
+        //float camWidth = camHeight * Camera.main.aspect;
 
-        float x = Random.Range(-camWidth + 0.5f, camWidth - 0.5f);
+        //float x = Random.Range(-camWidth + 0.5f, camWidth - 0.5f);
+        //float y = Random.Range(-camHeight + 0.5f, camHeight - 0.5f);
+
+        //return new Vector2(x, y); ƒ‰ƒ“ƒ_ƒ€‚É‚µ‚½‚¢‚Æ‚«
+
+        float camHeight = Camera.main.orthographicSize;
+
         float y = Random.Range(-camHeight + 0.5f, camHeight - 0.5f);
 
-        return new Vector2(x, y);
+        return new Vector2(0f, y);   // © x ‚ğ 0 ‚ÉŒÅ’è@^‚ñ’†ŒÅ’è‚Ìc‚Ì‚İ
     }
+
 }
+

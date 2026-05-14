@@ -4,6 +4,8 @@ public class PlayerPaddle : Paddle
 {
     private Vector2 direction;
 
+    public float limitY = 3.5f; // ← 上下の移動制限を追加
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -22,13 +24,14 @@ public class PlayerPaddle : Paddle
 
     private void FixedUpdate()
     {
-        // 慣性ゼロのクラシック操作
         if (direction.sqrMagnitude != 0)
         {
-            transform.position += (Vector3)(direction * speed * Time.fixedDeltaTime);
-        }
+            float newY = transform.position.y + direction.y * speed * Time.fixedDeltaTime;
 
-        // --- パドルの特殊効果があれば適用 ---
-        //activeEffect?.UpdateEffect(this);
+            // 上下の移動制限（これが超重要）
+            newY = Mathf.Clamp(newY, -limitY, limitY);
+
+            transform.position = new Vector2(transform.position.x, newY);
+        }
     }
 }
