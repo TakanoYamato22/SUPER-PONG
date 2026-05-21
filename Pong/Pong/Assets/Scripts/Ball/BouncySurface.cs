@@ -19,14 +19,17 @@ public class BouncySurface : MonoBehaviour
             switch (forceType)
             {
                 case ForceType.Additive:
-                    ball.currentSpeed += bounceStrength;
+                    ball.IncreaseSpeed(bounceStrength);
                     return;
 
                 case ForceType.Multiplicative:
-                    ball.currentSpeed *= bounceStrength;
+                    float multiplier = bounceStrength;
+                    float addAmount = ball.currentSpeed * (multiplier - 1f);
+                    ball.IncreaseSpeed(addAmount);
                     return;
             }
         }
     }
+
 
 }

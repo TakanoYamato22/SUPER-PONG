@@ -7,7 +7,9 @@ public class Ball : MonoBehaviour
 
     public float baseSpeed = 7f;
     public float maxSpeed = 25f;
-    public float currentSpeed { get; set; }
+    public float currentSpeed { get; private set; }
+
+    public bool ignoreMaxSpeed = false;
 
     private void Awake()
     {
@@ -18,6 +20,13 @@ public class Ball : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
         rb.position = Vector2.zero;
+
+        var smash = GetComponent<BallSmashManager>();
+        if (smash != null)
+            smash.ResetSmash();
+
+        ignoreMaxSpeed = false;
+        currentSpeed = baseSpeed;
     }
 
     public void AddStartingForce()
@@ -33,7 +42,17 @@ public class Ball : MonoBehaviour
 
     public void IncreaseSpeed(float amount)
     {
-        currentSpeed = Mathf.Min(currentSpeed + amount, maxSpeed);
+        float target = currentSpeed + amount;
+
+        if (ignoreMaxSpeed)
+        {
+            currentSpeed = target;
+        }
+        else
+        {
+            currentSpeed = Mathf.Clamp(target, baseSpeed, maxSpeed);
+        }
+
         rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
     }
 
@@ -43,20 +62,17 @@ public class Ball : MonoBehaviour
         set => rb.linearVelocity = value;
     }
 
-    private void FixedUpdate()
+    public void SetSpeed(float speed)
     {
-        if (rb.linearVelocity.sqrMagnitude > 0.01f)
+        if (ignoreMaxSpeed)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
+            currentSpeed = speed;
         }
-    }
+        else
+        {
+            currentSpeed = Mathf.Clamp(speed, baseSpeed, maxSpeed);
+        }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // 壁ダメージだけ Ball が担当
-        if (collision.gameObject.TryGetComponent(out WallBlock wall))
-        {
-            wall.TakeDamage();
-        }
+        rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
     }
 }
