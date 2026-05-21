@@ -12,20 +12,22 @@ public class ComputerPaddle : Paddle
     [Header("Human-like Behavior")]
     public float mistakeChance = 0.1f;
 
-    public float limitY = 3.5f; // ← Player と同じ上下制限
+    public float limitY = 3.5f;
 
     private void FixedUpdate()
     {
+        // たまにミスする（人間っぽさ）
         if (Random.value < mistakeChance)
             return;
 
         float targetY;
 
-        // ボールがCPU側に向かっているとき
+        // ボールがCPU側に向かっているときだけ追う
         if (ball.velocity.x > 0f)
         {
             float predictedY = ball.transform.position.y;
 
+            // 未来予測（強いCPUほど予測精度が高い）
             if (predictionStrength > 0f)
             {
                 float timeToReach =
@@ -41,6 +43,7 @@ public class ComputerPaddle : Paddle
                 );
             }
 
+            // 反応速度（強いCPUほど素早く追う）
             targetY = Mathf.Lerp(
                 transform.position.y,
                 predictedY,
@@ -49,17 +52,17 @@ public class ComputerPaddle : Paddle
         }
         else
         {
-            targetY = 0f; // 中央に戻る
+            // ボールが離れたら中央に戻る
+            targetY = 0f;
         }
 
-        // ★ Player と同じ移動方式に統一
+        // プレイヤーと同じ MoveTowards + Clamp
         float newY = Mathf.MoveTowards(
             transform.position.y,
             targetY,
             speed * Time.fixedDeltaTime
         );
 
-        // ★ Player と同じ上下制限
         newY = Mathf.Clamp(newY, -limitY, limitY);
 
         transform.position = new Vector2(transform.position.x, newY);
