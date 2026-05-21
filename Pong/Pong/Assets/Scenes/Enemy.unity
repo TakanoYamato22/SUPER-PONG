@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 222215114}
   - component: {fileID: 222215113}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
