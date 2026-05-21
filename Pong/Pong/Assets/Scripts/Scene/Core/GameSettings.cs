@@ -18,4 +18,6 @@ public static class GameSettings
     // ============================
     // 🏆 リザルト画面に表示する文字
     public static string winnerText = "Player Wins!";
+    // 選択したキャラクター番号
+    public static int selectedCharacterIndex = 0;
 }
