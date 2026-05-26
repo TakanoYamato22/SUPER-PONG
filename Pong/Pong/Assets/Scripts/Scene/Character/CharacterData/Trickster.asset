@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: 
   icon: {fileID: 0}
   moveSpeed: 5
-  paddleHeight: 2
+  paddleHeight: 1.5
   smashPower: 2
   smashDashDistance: 0.5
   shrinkThreshold: 3

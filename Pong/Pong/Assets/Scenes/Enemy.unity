@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f0df72f85a8e94797a9590ea845234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 297271046}
+  hpManager: {fileID: 0}
   rules:
   - {fileID: 11400000, guid: 496d147fd791052498aac8e0f382ec0e, type: 2}
   - {fileID: 11400000, guid: f278427c84e328948a13ba9ce7f09114, type: 2}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 222215114}
   - component: {fileID: 222215113}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -612,16 +612,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401a2fdf40ed0da498c35c95b513199f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onPlayerScoreChanged:
+  playerMaxHP: 100
+  bossMaxHP: 100
+  playerHP: 0
+  bossHP: 0
+  playerHPSlider: {fileID: 0}
+  bossHPSlider: {fileID: 0}
+  onPlayerHPChanged:
     m_PersistentCalls:
       m_Calls: []
-  onComputerScoreChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onPlayerScored:
-    m_PersistentCalls:
-      m_Calls: []
-  onComputerScored:
+  onBossHPChanged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &297271047
@@ -671,8 +671,6 @@ MonoBehaviour:
   ball: {fileID: 702247805}
   playerPaddle: {fileID: 1535292066}
   computerPaddle: {fileID: 1362602729}
-  playerScoreText: {fileID: 228497188}
-  computerScoreText: {fileID: 618610096}
 --- !u!4 &417150623
 Transform:
   m_ObjectHideFlags: 0
@@ -874,6 +872,7 @@ GameObject:
   - component: {fileID: 702247805}
   - component: {fileID: 702247807}
   - component: {fileID: 702247808}
+  - component: {fileID: 702247809}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -1064,6 +1063,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a4b6d923048ad4fb19e4fe54044f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &702247809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702247801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aea0de84fdc64c4baa54ac3d591e6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowRate: 0.7
 --- !u!1 &941755449
 GameObject:
   m_ObjectHideFlags: 0

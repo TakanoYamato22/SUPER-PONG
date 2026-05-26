@@ -60,6 +60,16 @@ public class BossController : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float amount)
+    {
+        hp -= amount;
+        Debug.Log("Boss HP: " + hp);
+
+        if (hp <= 0)
+            Die();
+    }
+
+
     void Die()
     {
         Debug.Log("Boss Defeated!");
