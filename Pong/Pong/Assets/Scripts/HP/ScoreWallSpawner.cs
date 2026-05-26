@@ -2,26 +2,26 @@ using UnityEngine;
 
 public class ScoreWallSpawner : MonoBehaviour
 {
-    public ScoreManager scoreManager;
-    public ScoreWallRuleData[] rules;   // �� ���ꂪ�d�v�I
+    public HPManager hpManager;
+    public ScoreWallRuleData[] rules;
 
     private void OnEnable()
     {
-        if (scoreManager != null)
-            scoreManager.onPlayerScoreChanged.AddListener(HandleScore);
+        if (hpManager != null)
+            hpManager.onPlayerHPChanged.AddListener(HandleHP);
     }
 
     private void OnDisable()
     {
-        if (scoreManager != null)
-            scoreManager.onPlayerScoreChanged.RemoveListener(HandleScore);
+        if (hpManager != null)
+            hpManager.onPlayerHPChanged.RemoveListener(HandleHP);
     }
 
-    private void HandleScore(int score)
+    private void HandleHP(float hp)
     {
         foreach (var rule in rules)
         {
-            if (score == rule.scoreThreshold)
+            if (hp == rule.scoreThreshold)   // scoreThreshold → HP閾値として再利用
             {
                 SpawnWalls(rule);
                 break;
@@ -43,19 +43,9 @@ public class ScoreWallSpawner : MonoBehaviour
 
     private Vector2 GetRandomPosition()
     {
-        //float camHeight = Camera.main.orthographicSize;
-        //float camWidth = camHeight * Camera.main.aspect;
-
-        //float x = Random.Range(-camWidth + 0.5f, camWidth - 0.5f);
-        //float y = Random.Range(-camHeight + 0.5f, camHeight - 0.5f);
-         
-
         float camHeight = Camera.main.orthographicSize;
-
         float y = Random.Range(-camHeight + 0.5f, camHeight - 0.5f);
 
-        return new Vector2(0f, y);   // �� x �� 0 �ɌŒ�@�^�񒆌Œ�̏c�̂�
+        return new Vector2(0f, y);
     }
-
 }
-

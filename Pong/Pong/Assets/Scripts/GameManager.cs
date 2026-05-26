@@ -1,33 +1,21 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
+    [Header("References")]
     [SerializeField] private Ball ball;
     [SerializeField] private Paddle playerPaddle;
     [SerializeField] private Paddle computerPaddle;
 
-    [SerializeField] private Text playerScoreText;
-    [SerializeField] private Text computerScoreText;
-
-    private ScoreManager scoreManager;
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
-        scoreManager = FindObjectOfType<ScoreManager>();
-
-        scoreManager.onPlayerScoreChanged.AddListener(score => playerScoreText.text = score.ToString());
-        scoreManager.onComputerScoreChanged.AddListener(score => computerScoreText.text = score.ToString());
-
-        scoreManager.onPlayerScored.AddListener(NewRound);
-        scoreManager.onComputerScored.AddListener(NewRound);
-
-        NewGame();
-    }
-
-    public void NewGame()
-    {
-        scoreManager.ResetScores();
         NewRound();
     }
 
@@ -44,5 +32,15 @@ public class GameManager : MonoBehaviour
     private void StartRound()
     {
         ball.AddStartingForce();
+    }
+
+    public void OnPlayerDefeated()
+    {
+        Debug.Log("Player Defeated!");
+    }
+
+    public void OnBossDefeated()
+    {
+        Debug.Log("Boss Defeated!");
     }
 }
