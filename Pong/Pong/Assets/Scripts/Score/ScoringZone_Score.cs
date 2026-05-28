@@ -6,7 +6,7 @@ public class Score_ScoringZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.TryGetComponent(out Ball _)) return;
+        if (!collision.TryGetComponent(out Ball ball)) return;
 
         var score = FindObjectOfType<ScoreManager>();
 
@@ -14,5 +14,9 @@ public class Score_ScoringZone : MonoBehaviour
             score.AddPlayerScore();
         else
             score.AddComputerScore();
+
+        ball.ResetAndStartWithDelay(1.0f);
+
     }
+
 }
