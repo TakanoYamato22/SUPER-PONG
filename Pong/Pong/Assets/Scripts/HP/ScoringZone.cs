@@ -18,5 +18,7 @@ public class ScoringZone : MonoBehaviour
         {
             HPManager.Instance.DamageBoss(ball.velocity.magnitude);
         }
+
+        ball.ResetAndStartWithDelay(1.0f);
     }
 }

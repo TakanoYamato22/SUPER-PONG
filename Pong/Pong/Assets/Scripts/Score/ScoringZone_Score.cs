@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ScoringZone : MonoBehaviour
+public class Score_ScoringZone : MonoBehaviour
 {
     public bool isPlayerGoal;
 
