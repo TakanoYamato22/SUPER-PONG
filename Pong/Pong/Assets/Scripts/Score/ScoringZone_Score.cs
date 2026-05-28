@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class ScoringZone : MonoBehaviour
+public class Score_ScoringZone : MonoBehaviour
 {
     public bool isPlayerGoal;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.TryGetComponent(out Ball _)) return;
+        if (!collision.TryGetComponent(out Ball ball)) return;
 
         var score = FindObjectOfType<ScoreManager>();
 
@@ -14,5 +14,9 @@ public class ScoringZone : MonoBehaviour
             score.AddPlayerScore();
         else
             score.AddComputerScore();
+
+        ball.ResetAndStartWithDelay(1.0f);
+
     }
+
 }

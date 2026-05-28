@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d44f205b00c9e47b75af8e9204b326, type: 3}
-  m_Name: Balanced
+  m_Script: {fileID: 11500000, guid: df6141758928898479e6ea67ade3a854, type: 3}
+  m_Name: Gius 4
   m_EditorClassIdentifier: 
-  characterName: 
-  icon: {fileID: 0}
-  moveSpeed: 10
-  paddleHeight: 1.5
-  smashPower: 2
-  smashDashDistance: 0.5
-  shrinkThreshold: 3
+  attackInterval: 2
+  bulletPrefab: {fileID: 0}
+  bulletSpeed: 5

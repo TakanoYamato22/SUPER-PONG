@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Ball : MonoBehaviour
@@ -10,6 +11,11 @@ public class Ball : MonoBehaviour
     public float currentSpeed { get; private set; }
 
     public bool ignoreMaxSpeed = false;
+
+    protected virtual void Start()
+    {
+        // Ball の初期化処理が必要ならここに書く
+    }
 
     private void Awake()
     {
@@ -74,5 +80,17 @@ public class Ball : MonoBehaviour
         }
 
         rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
+    }
+
+    public void ResetAndStartWithDelay(float delay)
+    {
+        StartCoroutine(StartAfterDelay(delay));
+    }
+
+    private IEnumerator StartAfterDelay(float delay)
+    {
+        ResetPosition();              // 位置と速度をリセット
+        yield return new WaitForSeconds(delay);
+        AddStartingForce();           // delay秒後に再スタート
     }
 }
