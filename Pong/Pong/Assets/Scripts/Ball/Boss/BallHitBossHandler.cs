@@ -6,7 +6,7 @@ public class BallHitBossHandler : MonoBehaviour
     private Ball ball;
 
     [Range(0f, 1f)]
-    public float slowRate = 0.7f; // ボスに当たった時の減速率
+    public float slowRate = 0.9f; // ボスに当たった時の減速率
 
     private void Awake()
     {
