@@ -3,22 +3,21 @@ using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
-    [Header("ScriptableObject 設定を受け取る")]
+    [Header("ScriptableObject 設定")]
     public BossData data;
 
-    [Header("背景UI（Canvas の Image）")]
+[Header("UI")]
     public Image backgroundUI;
+    public Slider hpSlider;
 
-    // ▼ 派生クラスでも使うので protected に変更
+    [SerializeField] private BossBallGimmickRunner gimmickRunner;
+    [SerializeField] private BossDamageManager damageManager;
+
     protected float hp;
     protected float moveSpeed;
     protected float moveRangeX;
     protected float moveRangeY;
 
-    protected Vector3 targetPos;
-    protected float attackTimer;
-
-    // ▼ override される可能性があるので virtual に
     protected virtual void Start()
     {
         hp = data.maxHP;
@@ -26,63 +25,54 @@ public class BossController : MonoBehaviour
         moveRangeX = data.moveRangeX;
         moveRangeY = data.moveRangeY;
 
+        if (hpSlider != null)
+        {
+            hpSlider.maxValue = hp;
+            hpSlider.value = hp;
+        }
+
         if (backgroundUI != null && data.backgroundImage != null)
             backgroundUI.sprite = data.backgroundImage;
 
-        SetNewTarget();
+        if (gimmickRunner != null && data.gimmick != null)
+            gimmickRunner.SetGimmick(data.gimmick);
     }
 
-    void Update()
+    protected virtual void Update()
     {
         Move();
-        HandleAttack();
     }
 
-    protected void SetNewTarget()
-    {
-        targetPos = new Vector3(
-            Random.Range(-moveRangeX, moveRangeX),
-            Random.Range(-moveRangeY, moveRangeY),
-            0
-        );
-    }
-
-    // ▼ GiusController が override するので virtual に
     protected virtual void Move()
     {
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            targetPos,
-            moveSpeed * Time.deltaTime
-        );
-
-        if (Vector3.Distance(transform.position, targetPos) < 0.1f)
-        {
-            SetNewTarget();
-        }
+        // デフォルトの移動
     }
 
-    void HandleAttack()
+    public virtual void TakeDamage(float damage)
     {
-        if (data.attackPattern == null) return;
+        if (damageManager != null && damageManager.IsInvincible)
+            return;
 
-        attackTimer += Time.deltaTime;
+        hp -= damage;
+        hp = Mathf.Max(hp, 0);
 
-        if (attackTimer >= data.attackPattern.attackInterval)
-        {
-            data.attackPattern.ExecuteAttack(this);
-            attackTimer = 0f;
-        }
-    }
+        if (hpSlider != null)
+            hpSlider.value = hp;
 
-    public void TakeDamage(float amount)
-    {
-        hp -= amount;
-        Debug.Log($"{data.bossName} HP: {hp}");
+        gimmickRunner?.OnBossHpChanged(hp, data.maxHP);
 
         if (hp <= 0)
+        {
             Die();
+            return;
+        }
+
+        if (damageManager != null)
+        {
+            damageManager.PlayHitEffect(this);
+        }
     }
+
     protected virtual void Die()
     {
         Debug.Log($"{data.bossName} Defeated!");

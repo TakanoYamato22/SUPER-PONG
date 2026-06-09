@@ -8,7 +8,6 @@ public class AstroAttackPattern : BossAttackPattern
 
     public override void ExecuteAttack(BossController boss)
     {
-        Debug.Log("Astro Laser!");
-        // ’e‚ğŒ‚‚Âˆ—
+        
     }
 }
