@@ -286,11 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f0df72f85a8e94797a9590ea845234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpManager: {fileID: 0}
-  rules:
-  - {fileID: 11400000, guid: 496d147fd791052498aac8e0f382ec0e, type: 2}
-  - {fileID: 11400000, guid: f278427c84e328948a13ba9ce7f09114, type: 2}
-  - {fileID: 11400000, guid: 84c540da2e43e7c47a5f7e228312989c, type: 2}
 --- !u!4 &117185822
 Transform:
   m_ObjectHideFlags: 0
@@ -1434,7 +1429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.94716984, g: 0.94716984, b: 0.94716984, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
