@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-using System.Collections;
-
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class Ball : MonoBehaviour
@@ -142,4 +140,3 @@ public class Ball : MonoBehaviour
     }
 
 }
-

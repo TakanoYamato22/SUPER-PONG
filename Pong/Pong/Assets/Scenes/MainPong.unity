@@ -148,8 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ca2dc5d8dbd584ab6044cc83d4a6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 570470854}
-  healthAmount: 100
 --- !u!4 &75420042
 Transform:
   m_ObjectHideFlags: 0
@@ -1288,7 +1286,7 @@ GameObject:
   - component: {fileID: 1092999585}
   - component: {fileID: 1092999584}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HPslider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
