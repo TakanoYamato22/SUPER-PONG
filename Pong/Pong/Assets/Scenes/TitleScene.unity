@@ -178,8 +178,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Chaos PONG
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9b222fd15570d5548a02a4992e93310c, type: 2}
+  m_sharedMaterial: {fileID: -1487759315558158351, guid: 9b222fd15570d5548a02a4992e93310c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1249,7 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1664227365}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1939890487
