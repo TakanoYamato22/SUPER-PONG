@@ -8,7 +8,7 @@ public class CharacterApplier : MonoBehaviour
 
     private void Start()
     {
-        CharacterData data = database.GetCharacter(GameSettings.selectedCharacterIndex);
+        CharacterData data = database.GetCharacter(GameSettings.player1CharacterIndex);
 
         if (data == null)
             return;
