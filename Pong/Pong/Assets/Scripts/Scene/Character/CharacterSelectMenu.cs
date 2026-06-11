@@ -15,12 +15,12 @@ public class CharacterSelectMenu : MonoBehaviour
             return;
 
         // 選択したキャラ番号を保存
-        GameSettings.selectedCharacterIndex = index;
+        GameSettings.player1CharacterIndex = index;
 
         Debug.Log("選択キャラ: " + selected.characterName);
 
-        // ゲームシーンへ移動
-        SceneManager.LoadScene("GameScene");
+        // アイテムシーンへ移動
+        SceneManager.LoadScene("ItemSelectScene");
     }
 
     // 戻るボタン用

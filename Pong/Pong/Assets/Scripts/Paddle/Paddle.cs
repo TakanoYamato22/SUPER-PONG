@@ -15,5 +15,6 @@ public abstract class Paddle : MonoBehaviour
         if (size != null)
             size.Shrink(duration);
     }
-
+    [Header("Smash")]
+    public float smashPower = 2f;
 }
