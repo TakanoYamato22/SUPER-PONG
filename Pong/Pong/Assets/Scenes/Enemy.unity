@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 89005880}
+  gimmickBallDamage: 5
 --- !u!114 &89005880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,8 +803,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME  OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9b222fd15570d5548a02a4992e93310c, type: 2}
+  m_sharedMaterial: {fileID: -1487759315558158351, guid: 9b222fd15570d5548a02a4992e93310c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1077,8 +1079,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME  OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9b222fd15570d5548a02a4992e93310c, type: 2}
+  m_sharedMaterial: {fileID: -1487759315558158351, guid: 9b222fd15570d5548a02a4992e93310c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1429,7 +1432,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -4
   m_Sprite: {fileID: -5151508582232471628, guid: 68d9d58b44ad7a2418461963f1937957,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1579,6 +1582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 954571800}
+  gimmickBallDamage: 5
 --- !u!114 &977986352 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8439243430982871156, guid: 18fc6e9b2aab8f84985007c57de395e2,
@@ -2078,6 +2082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  smashPower: 2
   ball: {fileID: 977986352}
   reactionSpeed: 0.4
   predictionStrength: 0.5
@@ -2385,6 +2390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  smashPower: 2
   limitY: 4.25
 --- !u!50 &1535292067
 Rigidbody2D:
