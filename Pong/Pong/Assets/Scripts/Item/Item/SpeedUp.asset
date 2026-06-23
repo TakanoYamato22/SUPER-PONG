@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpeedUp
   m_EditorClassIdentifier: 
   itemName: 
-  icon: {fileID: 0}
+  icon: {fileID: -9083362998159298969, guid: 9288e35f285e7f8448b4d0fed080e85e, type: 3}
   itemType: 3
   value: 1
   duration: 5

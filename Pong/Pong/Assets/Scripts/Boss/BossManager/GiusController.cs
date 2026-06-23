@@ -1,26 +1,59 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class GiusController : BossController
+public class GiusController : MonoBehaviour
 {
-    protected override void Move()
+    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float moveRangeX = 3f;
+    [SerializeField] private float moveRangeY = 2f;
+    [SerializeField] private float startWaitTime = 3f;
+
+    private bool canMove;
+    private Vector3 basePosition;
+    private Vector3 targetPosition;
+
+    public void StartMove()
     {
-        float t = Time.time * moveSpeed;
-
-        float x = Mathf.PerlinNoise(t, 0f) * 2f - 1f;
-        float y = Mathf.PerlinNoise(0f, t) * 2f - 1f;
-
-        x += (Mathf.PerlinNoise(t * 0.5f, t * 1.3f) - 0.5f) * 0.8f;
-        y += (Mathf.PerlinNoise(t * 1.7f, t * 0.4f) - 0.5f) * 0.8f;
-
-        x = Mathf.Clamp(x * moveRangeX, -moveRangeX, moveRangeX);
-        y = Mathf.Clamp(y * moveRangeY, -moveRangeY, moveRangeY);
-
-        transform.position = new Vector3(x, y, 0);
+        basePosition = transform.position;
+        StartCoroutine(StartMoveAfterWait());
     }
 
-    protected override void Die()
+    private IEnumerator StartMoveAfterWait()
     {
-        Debug.Log("Gius 撃破！");
-        base.Die();
+        canMove = false;
+
+        yield return new WaitForSeconds(startWaitTime);
+
+        SetNewTarget();
+        canMove = true;
+    }
+
+    public void StopMove()
+    {
+        canMove = false;
+    }
+
+    private void Update()
+    {
+        if (!canMove) return;
+
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            targetPosition,
+            moveSpeed * Time.deltaTime
+        );
+
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        {
+            SetNewTarget();
+        }
+    }
+
+    private void SetNewTarget()
+    {
+        float randomX = Random.Range(-moveRangeX, moveRangeX);
+        float randomY = Random.Range(-moveRangeY, moveRangeY);
+
+        targetPosition = basePosition + new Vector3(randomX, randomY, 0f);
     }
 }

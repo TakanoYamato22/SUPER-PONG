@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: Gius
   m_EditorClassIdentifier: 
   bossName: Gius
-  maxHP: 100
+  maxHP: 400
   moveSpeed: 1
   moveRangeX: 8
   moveRangeY: 8
   attackPattern: {fileID: 11400000, guid: 5f25477bba01f054fa3d9b3415bc0b34, type: 2}
   gimmick: {fileID: 11400000, guid: 93ed8c102004d774495f996268477bad, type: 2}
-  backgroundImage: {fileID: -5151508582232471628, guid: 68d9d58b44ad7a2418461963f1937957,
-    type: 3}
   bossBGM: {fileID: 0}
   bossPrefab: {fileID: 0}
