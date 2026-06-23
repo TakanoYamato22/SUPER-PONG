@@ -19,7 +19,6 @@ public class BossData : ScriptableObject
     public BossBallGimmick gimmick;// ScriptableObjectiŒã‚Åì‚éj
 
     [Header("‰‰o")]
-    public Sprite backgroundImage;            // © ”wŒi‰æ‘œ
     public AudioClip bossBGM;                 // © BGM
 
     [Header("Œ©‚½–Ú")]

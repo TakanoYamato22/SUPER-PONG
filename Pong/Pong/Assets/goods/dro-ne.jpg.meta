@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 30b38a66fe5d5e14facd33a4c58bfc10
+guid: f100a6cffa9ee3d4ca1034872ef9ca5f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6155762372090123466
-    second: ICELAND_0
+      213: -8041497427118987813
+    second: dro-ne_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ICELAND_0
+      name: dro-ne_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1672
-        height: 941
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ac4d5264349ad6550800000000000000
-      internalID: 6155762372090123466
+      spriteID: bd5ea5a12bcd66090800000000000000
+      internalID: -8041497427118987813
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ICELAND_0: 6155762372090123466
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

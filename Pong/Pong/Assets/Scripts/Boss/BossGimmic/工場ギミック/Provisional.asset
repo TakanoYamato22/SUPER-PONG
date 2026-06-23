@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gimmickBallPrefab: {fileID: 3941777898206123808, guid: 1d481ee6492b30941b30b5e4242965f7,
     type: 3}
-  spawnCount: 2
-  spreadAngle: 30
   spawnSpeed: 6
+  spawnOffset: 0.5
+  repeatInterval: 20

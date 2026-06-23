@@ -51,19 +51,14 @@ public class Ball : MonoBehaviour
     }
 
     public void AddStartingForce()
-
     {
-
         float x = Random.value < 0.5f ? -1f : 1f;
-
-        float y = Random.Range(-1f, 1f);
+        float y = Random.Range(-0.6f, 0.6f); // 縦方向を弱める
 
         Vector2 direction = new Vector2(x, y).normalized;
 
-        rb.AddForce(direction * baseSpeed, ForceMode2D.Impulse);
-
+        rb.linearVelocity = direction * baseSpeed;
         currentSpeed = baseSpeed;
-
     }
 
     public void IncreaseSpeed(float amount)

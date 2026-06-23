@@ -6,20 +6,32 @@ public class BossController : MonoBehaviour
     [Header("ScriptableObject 設定")]
     public BossData data;
 
-[Header("UI")]
+    [Header("UI")]
     public Image backgroundUI;
     public Slider hpSlider;
 
+    [Header("Sprite HPバー")]
+    [SerializeField] private Transform hpFill;
+
     [SerializeField] private BossBallGimmickRunner gimmickRunner;
     [SerializeField] private BossDamageManager damageManager;
+    [SerializeField] private GameObject clearText;
 
     protected float hp;
     protected float moveSpeed;
     protected float moveRangeX;
     protected float moveRangeY;
 
+    private bool battleStarted = false;
+
+    private Vector3 hpFillStartScale;
+    private Vector3 hpFillStartPosition;
+
     protected virtual void Start()
     {
+        if (clearText != null)
+            clearText.SetActive(false);
+
         hp = data.maxHP;
         moveSpeed = data.moveSpeed;
         moveRangeX = data.moveRangeX;
@@ -31,25 +43,45 @@ public class BossController : MonoBehaviour
             hpSlider.value = hp;
         }
 
-        if (backgroundUI != null && data.backgroundImage != null)
-            backgroundUI.sprite = data.backgroundImage;
+        if (hpFill != null)
+        {
+            hpFillStartScale = hpFill.localScale;
+            hpFillStartPosition = hpFill.localPosition;
+        }
 
         if (gimmickRunner != null && data.gimmick != null)
             gimmickRunner.SetGimmick(data.gimmick);
+
+        if (damageManager != null)
+        {
+            StartCoroutine(damageManager.StartInvincible(3f));
+        }
     }
 
     protected virtual void Update()
     {
+        if (!battleStarted)
+            return;
+
         Move();
     }
 
     protected virtual void Move()
     {
-        // デフォルトの移動
+        // 各ボスでオーバーライド
+    }
+
+    public void SetBattleStarted(bool started)
+    {
+        battleStarted = started;
+        Debug.Log("BattleStarted = " + battleStarted);
     }
 
     public virtual void TakeDamage(float damage)
     {
+        if (!battleStarted)
+            return;
+
         if (damageManager != null && damageManager.IsInvincible)
             return;
 
@@ -59,7 +91,25 @@ public class BossController : MonoBehaviour
         if (hpSlider != null)
             hpSlider.value = hp;
 
-        gimmickRunner?.OnBossHpChanged(hp, data.maxHP);
+        if (hpFill != null)
+        {
+            float hpPercent = hp / data.maxHP;
+
+            hpFill.localScale = new Vector3(
+                hpFillStartScale.x * hpPercent,
+                hpFillStartScale.y,
+                hpFillStartScale.z
+            );
+
+            hpFill.localPosition = new Vector3(
+                hpFillStartPosition.x - hpFillStartScale.x * (1f - hpPercent) * 0.5f,
+                hpFillStartPosition.y,
+                hpFillStartPosition.z
+            );
+        }
+
+        if (gimmickRunner != null)
+            gimmickRunner.OnBossHpChanged(hp, data.maxHP);
 
         if (hp <= 0)
         {
@@ -75,8 +125,10 @@ public class BossController : MonoBehaviour
 
     protected virtual void Die()
     {
-        Debug.Log($"{data.bossName} Defeated!");
-        Destroy(gameObject);
-    }
+        if (clearText != null)
+            clearText.SetActive(true);
 
+        Time.timeScale = 0f;
+        gameObject.SetActive(false);
+    }
 }
