@@ -17,16 +17,17 @@ public class ItemSelectMenu : MonoBehaviour
     // ==================================================
 
     [Header("Player1 Slots")]
-    [SerializeField] private Image p1Slot1;
-    [SerializeField] private Image p1Slot2;
+    [SerializeField] private Image p1Slot1Icon;
+    [SerializeField] private Image p1Slot2Icon;
+
 
     // ==================================================
     // 2P表示
     // ==================================================
 
     [Header("Player2 Slots")]
-    [SerializeField] private Image p2Slot1;
-    [SerializeField] private Image p2Slot2;
+    [SerializeField] private Image p2Slot1Icon;
+    [SerializeField] private Image p2Slot2Icon;
 
     // ==================================================
     // READY表示
@@ -73,6 +74,13 @@ public class ItemSelectMenu : MonoBehaviour
     {
         GameSettings.ResetSelections();
 
+        p1Slot1Icon.enabled = false;
+        p1Slot2Icon.enabled = false;
+
+        p2Slot1Icon.enabled = false;
+        p2Slot2Icon.enabled = false;
+
+
         Debug.Log("登録アイテム数 : " + items.Length);
 
         // READY表示初期化
@@ -91,6 +99,7 @@ public class ItemSelectMenu : MonoBehaviour
     // ==================================================
 
     public void SelectItem(int itemIndex)
+
     {
         Debug.Log("選択アイテム番号 : " + itemIndex);
 
@@ -107,8 +116,24 @@ public class ItemSelectMenu : MonoBehaviour
 
         if (currentPlayer == 1)
         {
+            p1Count = 0;
+
+            for (int i = 0; i < 2; i++)
+            {
+                if (GameSettings.player1Items[i] != -1)
+                    p1Count++;
+            }
             if (GameSettings.player1Ready)
-                return;
+            {
+                GameSettings.player1Ready = false;
+
+                p1ReadyText.text = "NOT READY";
+                p1ButtonText.text = "準備完了";
+
+                currentPlayer = 1;
+                UpdateTurnDisplay();
+            }
+          
 
             if (p1Count >= 2)
             {
@@ -119,11 +144,16 @@ public class ItemSelectMenu : MonoBehaviour
             GameSettings.player1Items[p1Count] = itemIndex;
 
             if (p1Count == 0)
-                p1Slot1.sprite = items[itemIndex].icon;
+            {
+                p1Slot1Icon.sprite = items[itemIndex].icon;
+                p1Slot1Icon.enabled = true;
+            }
 
             if (p1Count == 1)
-                p1Slot2.sprite = items[itemIndex].icon;
-
+            {
+                p1Slot2Icon.sprite = items[itemIndex].icon;
+                p1Slot2Icon.enabled = true;
+            }
             p1Count++;
 
             Debug.Log("1P選択数 : " + p1Count);
@@ -135,8 +165,24 @@ public class ItemSelectMenu : MonoBehaviour
 
         else
         {
+            p2Count = 0;
+
+            for (int i = 0; i < 2; i++)
+            {
+                if (GameSettings.player2Items[i] != -1)
+                    p2Count++;
+            }
             if (GameSettings.player2Ready)
-                return;
+            {
+                GameSettings.player2Ready = false;
+
+                p2ReadyText.text = "NOT READY";
+                p2ButtonText.text = "準備完了";
+
+                currentPlayer = 2;
+                UpdateTurnDisplay();
+            }
+          
 
             if (p2Count >= 2)
             {
@@ -147,10 +193,17 @@ public class ItemSelectMenu : MonoBehaviour
             GameSettings.player2Items[p2Count] = itemIndex;
 
             if (p2Count == 0)
-                p2Slot1.sprite = items[itemIndex].icon;
+            {
+                p2Slot1Icon.sprite = items[itemIndex].icon;
+                p2Slot1Icon.enabled = true;
+            }
 
             if (p2Count == 1)
-                p2Slot2.sprite = items[itemIndex].icon;
+            {
+                p2Slot2Icon.sprite = items[itemIndex].icon;
+                p2Slot2Icon.enabled = true;
+            }
+
 
             p2Count++;
 
@@ -335,6 +388,9 @@ public class ItemSelectMenu : MonoBehaviour
 
                 p1ReadyText.text = "NOT READY";
                 p1ButtonText.text = "準備完了";
+
+                currentPlayer = 1;
+                UpdateTurnDisplay();
             }
 
             GameSettings.player1Items[slot] = -1;
@@ -357,6 +413,9 @@ public class ItemSelectMenu : MonoBehaviour
 
                 p2ReadyText.text = "NOT READY";
                 p2ButtonText.text = "準備完了";
+
+                currentPlayer = 2;
+                UpdateTurnDisplay();
             }
 
             GameSettings.player2Items[slot] = -1;
@@ -416,28 +475,50 @@ public class ItemSelectMenu : MonoBehaviour
     }
     private void RefreshPlayer1UI()
     {
-        p1Slot1.sprite = null;
-        p1Slot2.sprite = null;
+        p1Slot1Icon.sprite = null;
+        p1Slot2Icon.sprite = null;
+
+        p1Slot1Icon.enabled = false;
+        p1Slot2Icon.enabled = false;
 
         if (GameSettings.player1Items[0] != -1)
-            p1Slot1.sprite =
+        {
+            p1Slot1Icon.sprite =
                 items[GameSettings.player1Items[0]].icon;
 
+            p1Slot1Icon.enabled = true;
+        }
+
         if (GameSettings.player1Items[1] != -1)
-            p1Slot2.sprite =
+        {
+            p1Slot2Icon.sprite =
                 items[GameSettings.player1Items[1]].icon;
+
+            p1Slot2Icon.enabled = true;
+        }
     }
     private void RefreshPlayer2UI()
     {
-        p2Slot1.sprite = null;
-        p2Slot2.sprite = null;
+        p2Slot1Icon.sprite = null;
+        p2Slot2Icon.sprite = null;
+
+        p2Slot1Icon.enabled = false;
+        p2Slot2Icon.enabled = false;
 
         if (GameSettings.player2Items[0] != -1)
-            p2Slot1.sprite =
+        {
+            p2Slot1Icon.sprite =
                 items[GameSettings.player2Items[0]].icon;
 
+            p2Slot1Icon.enabled = true;
+        }
+
         if (GameSettings.player2Items[1] != -1)
-            p2Slot2.sprite =
+        {
+            p2Slot2Icon.sprite =
                 items[GameSettings.player2Items[1]].icon;
+
+            p2Slot2Icon.enabled = true;
+        }
     }
 }

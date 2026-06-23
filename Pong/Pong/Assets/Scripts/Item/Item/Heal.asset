@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   itemName: 
-  icon: {fileID: 5594103973040150629, guid: 476ef61dbadf1b245bf8f17f451a9f1e, type: 3}
+  icon: {fileID: -1049461823314036041, guid: 1f06b942d30c9494eb7f11b0ff44a1c8, type: 3}
   itemType: 1
   value: 1
   duration: 5
