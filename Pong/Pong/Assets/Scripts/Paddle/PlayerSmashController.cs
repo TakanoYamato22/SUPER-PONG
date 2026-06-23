@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerSmashController : BaseSmashController
 {
+    [SerializeField] private SmashZone smashZone;
+
     private bool wasCharging = false;
 
     private void Update()
@@ -27,12 +29,9 @@ public class PlayerSmashController : BaseSmashController
 
     private void TrySmashOnRelease()
     {
-        float x = ball.transform.position.x;
-
-        if (x <= -8.2f && x >= -8.5f)
+        if (smashZone != null && smashZone.CanSmash)
         {
             Smash();
         }
     }
-
 }
