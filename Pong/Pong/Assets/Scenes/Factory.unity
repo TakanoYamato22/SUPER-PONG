@@ -140,12 +140,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
---- !u!4 &39006880 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8092502560250141831, guid: eb8f4d662a9a6ba49a320b9032d3013b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1498884848}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &60469575
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,15 +954,17 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9032449422839925396, guid: eb8f4d662a9a6ba49a320b9032d3013b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1620173020}
     - targetCorrespondingSourceObject: {fileID: 7657462313525834864, guid: eb8f4d662a9a6ba49a320b9032d3013b,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 33459569}
   m_SourcePrefab: {fileID: 100100000, guid: eb8f4d662a9a6ba49a320b9032d3013b, type: 3}
+--- !u!198 &329299280 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8085472561849957173, guid: b27fb5dbda89ce741aaa03d44b142e33,
+    type: 3}
+  m_PrefabInstance: {fileID: 494649572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &388210664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,11 +1315,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 706038691869886272, guid: b27fb5dbda89ce741aaa03d44b142e33,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1813843153}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b27fb5dbda89ce741aaa03d44b142e33, type: 3}
 --- !u!1 &519420028
 GameObject:
@@ -1713,7 +1705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &642921322
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -7340,7 +7332,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 39006880}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &1133287403
 ParticleSystemRenderer:
@@ -12288,7 +12280,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-
 --- !u!1 &1168754316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6084005878469649354, guid: 18fc6e9b2aab8f84985007c57de395e2,
@@ -12307,7 +12298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b0bdc8dcf05fa44becdca1d17dbc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
 --- !u!1 &1188558001
 GameObject:
   m_ObjectHideFlags: 0
@@ -12515,7 +12505,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1234189436}
   hitFlashTime: 0.7
   hitInvincibleTime: 1.5
-  hitEffect: {fileID: 1280711523}
+  hitEffect: {fileID: 0}
   smashEffect: {fileID: 0}
 --- !u!114 &1234189435
 MonoBehaviour:
@@ -12641,9 +12631,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.05
-
   playerSmashController: {fileID: 0}
-
+  hitEffect: {fileID: 0}
+  smashEffect: {fileID: 0}
 --- !u!1 &1327430166
 GameObject:
   m_ObjectHideFlags: 0
@@ -12845,17 +12835,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c66bb1aa5055643be7d334cf5a3063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
-
-  speed: 10
+  speed: 5
   smashPower: 2
-  mainBall: {fileID: 977986352}
+  mainBall: {fileID: 0}
   gimmicBalls: []
-  reactionSpeed: 0.4
-  predictionStrength: 0.5
-  mistakeChance: 0
-  limitY: 4.25
-
+  reactionSpeed: 0.6
+  predictionStrength: 0.7
+  mistakeChance: 0.1
+  limitY: 3.5
 --- !u!61 &1362602730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12916,10 +12903,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.1
-
-
   playerSmashController: {fileID: 0}
-
+  hitEffect: {fileID: 1671656984}
+  smashEffect: {fileID: 329299280}
 --- !u!114 &1362602732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12993,7 +12979,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 39006880}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &1395313832
 ParticleSystemRenderer:
@@ -17946,9 +17932,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.05
-
   playerSmashController: {fileID: 0}
-
+  hitEffect: {fileID: 0}
+  smashEffect: {fileID: 0}
 --- !u!1 &1535292063
 GameObject:
   m_ObjectHideFlags: 0
@@ -18145,9 +18131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.1
-
-  playerSmashController: {fileID: 1535292070}
-
+  playerSmashController: {fileID: 0}
+  hitEffect: {fileID: 1671656984}
+  smashEffect: {fileID: 329299280}
 --- !u!114 &1535292070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18162,9 +18148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeMoveDistance: -0.3
   chargeTime: 0.3
-
-  smashZone: {fileID: 2110575263}
-
+  smashZone: {fileID: 0}
 --- !u!114 &1535292071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18189,7 +18173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7750be2fb44454e408cc663e04052540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
+--- !u!198 &1671656984 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8063814996639142016, guid: eb8f4d662a9a6ba49a320b9032d3013b,
+    type: 3}
+  m_PrefabInstance: {fileID: 321719522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1773124216
 GameObject:
   m_ObjectHideFlags: 0
@@ -18208,50 +18197,32 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &1773124217
-
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-
   m_GameObject: {fileID: 1773124216}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 323517b342b1d834092f6b6c8ea7a9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefabs:
-  - {fileID: 5733705498789827642, guid: ea72c82f25036384a8cf13678f29a65a, type: 3}
-  - {fileID: 495796049613218014, guid: e45d9737989c3b34ebe5ea8b056a6b5c, type: 3}
-  - {fileID: 8734200529752687300, guid: 5e7bbede64004dc448e423cc1fa207af, type: 3}
-  - {fileID: 2739746770090537186, guid: 95a9b9bfbb26b6446b1922e3f4276480, type: 3}
-  - {fileID: 2322307915083423852, guid: 088d1a04a109f964bbcb42f08d6d2688, type: 3}
-  - {fileID: 8705993540622140777, guid: c3e0ecd943389144b8cbe137ac622d37, type: 3}
-  minX: -6
-  maxX: 6
-  minY: -4
-  maxY: 4
-  spawnInterval: 25
-  spawnCount: 2
 --- !u!4 &1773124218
 Transform:
-
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-
   m_GameObject: {fileID: 1773124216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5346868, y: -1.6044133, z: 0.02280889}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
 --- !u!1 &1833103301
 GameObject:
   m_ObjectHideFlags: 0
@@ -19189,8 +19160,12 @@ SceneRoots:
   - {fileID: 558072217}
   - {fileID: 2237087590040531784}
   - {fileID: 925195797}
-
   - {fileID: 2110575262}
   - {fileID: 1859380446}
   - {fileID: 1773124218}
   - {fileID: 293247368}
+  - {fileID: 321719522}
+  - {fileID: 494649572}
+  - {fileID: 642921324}
+  - {fileID: 1133287402}
+  - {fileID: 1395313831}
