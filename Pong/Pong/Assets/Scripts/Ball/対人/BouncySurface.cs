@@ -12,14 +12,27 @@ public class BouncySurface : MonoBehaviour
     public ForceType forceType = ForceType.Additive;
     public float bounceStrength = 0f;
 
-    [SerializeField] private ParticleSystem hitEffect;
-    [SerializeField] private ParticleSystem smashEffect;
+
+    [SerializeField] private PlayerSmashController playerSmashController;
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Ball ball))
         {
-            Vector2 hitPoint = collision.contacts[0].point;
+
+            if (playerSmashController != null && playerSmashController.CanSmashNow())
+            {
+                playerSmashController.DoSmash();
+                return;
+            }
+
+            switch (forceType)
+            {
+                case ForceType.Additive:
+                    ball.IncreaseSpeed(bounceStrength);
+                    return;
+
 
             // ★追加：スペースキーが押されているかチェック（テスト用）
             bool isTestSmashPressed = Input.GetKey(KeyCode.Space);
