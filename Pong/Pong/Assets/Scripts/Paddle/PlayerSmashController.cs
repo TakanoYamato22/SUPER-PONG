@@ -4,8 +4,6 @@ public class PlayerSmashController : BaseSmashController
 {
     [SerializeField] private SmashZone smashZone;
 
-    private bool wasCharging = false;
-
     private void Update()
     {
         bool left = Input.GetKey(KeyCode.LeftArrow);
@@ -13,25 +11,20 @@ public class PlayerSmashController : BaseSmashController
         if (left)
         {
             StartCharge(-1);
-            wasCharging = true;
         }
         else
         {
-            if (wasCharging)
-            {
-                TrySmashOnRelease();
-                wasCharging = false;
-            }
-
             StopCharge();
         }
     }
 
-    private void TrySmashOnRelease()
+    public bool CanSmashNow()
     {
-        if (smashZone != null && smashZone.CanSmash)
-        {
-            Smash();
-        }
+        return isCharging && smashZone != null && smashZone.CanSmash;
+    }
+
+    public void DoSmash()
+    {
+        Smash();
     }
 }
