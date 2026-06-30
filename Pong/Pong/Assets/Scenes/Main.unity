@@ -1868,7 +1868,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   smashPower: 2
-  ball: {fileID: 977986352}
+  mainBall: {fileID: 977986352}
+  gimmicBalls: []
   reactionSpeed: 0.4
   predictionStrength: 0.5
   mistakeChance: 0
