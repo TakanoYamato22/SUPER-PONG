@@ -3,6 +3,7 @@ using UnityEngine;
 public class BigPaddleItem : MonoBehaviour
 {
     [SerializeField] private float duration = 10f;
+    [SerializeField] private AudioClip itemSound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +16,7 @@ public class BigPaddleItem : MonoBehaviour
             paddle.Grow(duration);
         }
 
+        AudioSource.PlayClipAtPoint(itemSound, transform.position);
         Destroy(gameObject);
     }
 }

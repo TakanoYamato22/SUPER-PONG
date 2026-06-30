@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class BossController : MonoBehaviour
 {
@@ -17,12 +18,21 @@ public class BossController : MonoBehaviour
     [SerializeField] private BossDamageManager damageManager;
     [SerializeField] private GameObject clearText;
 
+    [Header("å¯â âπ")]
+    
+    [SerializeField] private AudioClip hitSE;
+    [SerializeField] private AudioClip deadSE;
+
+    [Header("åÇîjââèo")]
+    [SerializeField] private float deadWaitTime = 0.8f;
+
     protected float hp;
     protected float moveSpeed;
     protected float moveRangeX;
     protected float moveRangeY;
 
     private bool battleStarted = false;
+    private bool isDead = false;
 
     private Vector3 hpFillStartScale;
     private Vector3 hpFillStartPosition;
@@ -82,11 +92,15 @@ public class BossController : MonoBehaviour
         if (!battleStarted)
             return;
 
+        if (isDead)
+            return;
+
         if (damageManager != null && damageManager.IsInvincible)
             return;
 
         hp -= damage;
         hp = Mathf.Max(hp, 0);
+
 
         if (hpSlider != null)
             hpSlider.value = hp;
@@ -125,6 +139,20 @@ public class BossController : MonoBehaviour
 
     protected virtual void Die()
     {
+        if (isDead)
+            return;
+
+        isDead = true;
+        battleStarted = false;
+
+        StartCoroutine(DieCoroutine());
+    }
+
+    private IEnumerator DieCoroutine()
+    {
+
+        yield return new WaitForSecondsRealtime(deadWaitTime);
+
         if (clearText != null)
             clearText.SetActive(true);
 

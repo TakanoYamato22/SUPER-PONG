@@ -14,6 +14,10 @@ public class GiusAppearManager : MonoBehaviour
     [Header("ìoèÍéûä‘")]
     [SerializeField] private float appearTime = 1.5f;
 
+    [Header("å¯â âπ")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip appearSE;
+
     private void Start()
     {
         StartCoroutine(AppearCoroutine());
@@ -22,6 +26,9 @@ public class GiusAppearManager : MonoBehaviour
     private IEnumerator AppearCoroutine()
     {
         Time.timeScale = 0f;
+
+        if (audioSource != null && appearSE != null)
+            audioSource.PlayOneShot(appearSE);
 
         boss.position = startPosition;
 
@@ -48,8 +55,6 @@ public class GiusAppearManager : MonoBehaviour
         {
             giusController.StartMove();
         }
-
-        Time.timeScale = 1f;
 
         if (bossController != null)
             bossController.SetBattleStarted(true);
