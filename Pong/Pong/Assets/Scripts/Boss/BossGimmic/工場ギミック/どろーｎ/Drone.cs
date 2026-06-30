@@ -7,6 +7,9 @@ public class Drone : MonoBehaviour
     [SerializeField] private float areaY = 8f;
     [SerializeField] private float changeTargetDistance = 0.2f;
 
+    // ★追加: 発生させたいエフェクトのプレハブをインスペクターから登録できるようにします
+    [SerializeField] private GameObject hitEffectPrefab;
+
     private Vector2 targetPos;
 
     private void Start()
@@ -40,6 +43,13 @@ public class Drone : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
+            // ★追加: ぶつかった瞬間、エフェクトをドローンと同じ位置・同じ回転で生成する
+            if (hitEffectPrefab != null)
+            {
+                Instantiate(hitEffectPrefab, transform.position, transform.rotation);
+            }
+
+            // ドローンを破壊
             Destroy(gameObject);
         }
     }
