@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 187ca5cd0ad78a140a0f7e334089e1e9
+guid: eb2d3d442b9194a47b0997274fcf85c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4130640169021434097
-    second: 5_0
+      213: 838666475112033135
+    second: blayel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 5_0
+      name: blayel_0
       rect:
         serializedVersion: 2
-        x: 159
-        y: 0
-        width: 706
-        height: 1024
+        x: 14
+        y: 209
+        width: 722
+        height: 302
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f86b71495bf25930800000000000000
-      internalID: 4130640169021434097
+      spriteID: f6be41637ba83ab00800000000000000
+      internalID: 838666475112033135
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u56DE\u5FA9_0": 5594103973040150629
+      blayel_0: 838666475112033135
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
