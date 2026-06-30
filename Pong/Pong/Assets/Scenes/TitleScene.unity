@@ -308,9 +308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82102fa2964824458578be739338538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingPopup: {fileID: 0}
-  firstSelectedUI: {fileID: 0}
-  closedSelectedUI: {fileID: 0}
 --- !u!1 &172403613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,9 +2474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82102fa2964824458578be739338538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingPopup: {fileID: 90490352}
-  firstSelectedUI: {fileID: 1758184475}
-  closedSelectedUI: {fileID: 1664227365}
 --- !u!1 &1827803723
 GameObject:
   m_ObjectHideFlags: 0
