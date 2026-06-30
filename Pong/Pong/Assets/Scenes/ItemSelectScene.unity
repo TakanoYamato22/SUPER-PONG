@@ -2675,7 +2675,7 @@ MonoBehaviour:
   normalStageScenes:
   - MainPong
   bossStageScenes:
-  - Enemy
+  - factory
 --- !u!114 &1058431558
 MonoBehaviour:
   m_ObjectHideFlags: 0
