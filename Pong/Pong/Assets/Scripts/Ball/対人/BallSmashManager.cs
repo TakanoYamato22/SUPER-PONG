@@ -5,7 +5,7 @@ public class BallSmashManager : MonoBehaviour
     private Ball ball;
 
     public float smashBoost = 5f;
-    private bool isSmashed = false;
+    public bool isSmashed = false;
 
     // スマッシュ前の速度を保存
     private float beforeSmashSpeed;
@@ -32,6 +32,8 @@ public class BallSmashManager : MonoBehaviour
 
         // スマッシュ分だけ速度を上げる
         ball.IncreaseSpeed(smashBoost);
+
+        // ★ここにあったエフェクトを再生するコード（if (ball != null...) の固まり）を全部消してください！
     }
 
     /// <summary>

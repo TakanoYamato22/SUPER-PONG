@@ -1,12 +1,14 @@
 using UnityEngine;
 
-// キャラクター1体分の能力を保存するデータ
 [CreateAssetMenu(fileName = "CharacterData", menuName = "Pong/Character Data")]
 public class CharacterData : ScriptableObject
 {
     [Header("基本情報")]
     public string characterName;
     public Sprite icon;
+
+    [Header("見た目")]
+    public Color paddleColor = Color.white;
 
     [Header("移動関連")]
     public float moveSpeed = 5f;
