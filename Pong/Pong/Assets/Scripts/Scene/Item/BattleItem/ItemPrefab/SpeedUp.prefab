@@ -148,4 +148,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  itemSound: {fileID: 8300000, guid: 86f3aaffb97f7804f930a2820458083a, type: 3}
+  itemSound: {fileID: 8300000, guid: 3f519425926802444a5b212a12d0dfb9, type: 3}

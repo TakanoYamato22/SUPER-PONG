@@ -4,15 +4,15 @@ public class PlayerPaddle : Paddle
 {
     private Vector2 direction;
 
-    public float limitY = 3.5f; // ← 上下の移動制限を追加
+    public float limitY = 3.5f;
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             direction = Vector2.up;
         }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.S))
         {
             direction = Vector2.down;
         }
@@ -28,7 +28,6 @@ public class PlayerPaddle : Paddle
         {
             float newY = transform.position.y + direction.y * speed * Time.fixedDeltaTime;
 
-            // 上下の移動制限（これが超重要）
             newY = Mathf.Clamp(newY, -limitY, limitY);
 
             transform.position = new Vector2(transform.position.x, newY);

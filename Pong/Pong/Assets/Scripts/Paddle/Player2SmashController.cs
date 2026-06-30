@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class PlayerSmashController : BaseSmashController
+public class Player2SmashController : BaseSmashController
 {
     [SerializeField] private SmashZone smashZone;
 
     private void Update()
     {
-        bool left = Input.GetKey(KeyCode.A);
+        bool right = Input.GetKey(KeyCode.RightArrow);
 
-        if (left)
+        if (right)
         {
-            StartCharge(-1);
+            StartCharge(1);
         }
         else
         {
