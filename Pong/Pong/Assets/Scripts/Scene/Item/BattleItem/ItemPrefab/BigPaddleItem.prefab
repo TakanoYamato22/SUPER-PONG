@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  itemSound: {fileID: 0}
+  itemSound: {fileID: 8300000, guid: fc1816fdd1fa97d4d93394c5495c610d, type: 3}
 --- !u!61 &6828031316749885547
 BoxCollider2D:
   m_ObjectHideFlags: 0

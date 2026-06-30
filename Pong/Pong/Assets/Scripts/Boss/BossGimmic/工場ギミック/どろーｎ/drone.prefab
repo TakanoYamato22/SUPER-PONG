@@ -180,5 +180,6 @@ MonoBehaviour:
   areaX: 8
   areaY: 8
   changeTargetDistance: 0.2
+  itemSound: {fileID: 8300000, guid: d969bc7b97ebfbc48a8dbc7fec4a0ce2, type: 3}
   hitEffectPrefab: {fileID: 7511570824549935669, guid: e0bca7d6ad0f2fd47a81e889cf85aad8,
     type: 3}
