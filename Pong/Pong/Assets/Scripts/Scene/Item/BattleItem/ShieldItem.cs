@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ShieldItem : MonoBehaviour
 {
+    [SerializeField] private AudioClip itemSound;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Ball>() == null) return;
@@ -13,6 +14,7 @@ public class ShieldItem : MonoBehaviour
             health.GiveShield();
         }
 
+        AudioSource.PlayClipAtPoint(itemSound, transform.position);
         Destroy(gameObject);
     }
 }

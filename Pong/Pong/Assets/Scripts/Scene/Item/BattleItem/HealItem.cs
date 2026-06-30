@@ -3,6 +3,7 @@ using UnityEngine;
 public class HealItem : MonoBehaviour
 {
     [SerializeField] private float healAmount = 15f;
+    [SerializeField] private AudioClip itemSound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +16,7 @@ public class HealItem : MonoBehaviour
             health.Heal(healAmount);
         }
 
+        AudioSource.PlayClipAtPoint(itemSound, transform.position);
         Destroy(gameObject);
     }
 }
