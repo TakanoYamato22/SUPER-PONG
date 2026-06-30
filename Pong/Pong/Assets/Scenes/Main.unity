@@ -347,6 +347,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+
 --- !u!1 &289451917
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +819,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!1 &538210431
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1214,13 +1218,17 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925195795}
   serializedVersion: 2
+
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0206, y: -0.0249, z: 0}
   m_LocalScale: {x: 1.7445823, y: 1.7708547, z: 1}
+
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+
 --- !u!1 &941755449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,8 +1417,10 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+
   m_IsActive: 1
 --- !u!114 &991212064
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1664,7 +1674,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.05
+
   playerSmashController: {fileID: 0}
+
 --- !u!1 &1327430166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,6 +1946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.1
+
   playerSmashController: {fileID: 0}
 --- !u!114 &1362602732
 MonoBehaviour:
@@ -1976,7 +1989,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7750be2fb44454e408cc663e04052540, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: >
+
 --- !u!1 &1439415306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,7 +2084,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.05
+
   playerSmashController: {fileID: 0}
+
 --- !u!1 &1535292063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,7 +2283,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.1
+
   playerSmashController: {fileID: 1535292070}
+
 --- !u!114 &1535292070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2307,7 +2325,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7750be2fb44454e408cc663e04052540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
 --- !u!1 &1840440985
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2336,6 +2356,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.2, z: 0.5}
   m_ConstrainProportionsScale: 0
+
   m_Children: []
   m_Father: {fileID: 991212067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -2346,10 +2367,12 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1840440987
 MonoBehaviour:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 1840440985}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2376,24 +2399,14 @@ MonoBehaviour:
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1840440988
 CanvasRenderer:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840440985}
-  m_CullTransparentMesh: 1
---- !u!1001 &1855995529
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6084005878469649354, guid: 18fc6e9b2aab8f84985007c57de395e2,
-        type: 3}
-      propertyPath: m_Name
+
       value: BossBall
+
       objectReference: {fileID: 0}
     - target: {fileID: 8169290512939841675, guid: 18fc6e9b2aab8f84985007c57de395e2,
         type: 3}
@@ -2445,6 +2458,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+
     - target: {fileID: 8439243430982871156, guid: 18fc6e9b2aab8f84985007c57de395e2,
         type: 3}
       propertyPath: maxSpeed
@@ -2457,6 +2471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1064187249067936785, guid: 18fc6e9b2aab8f84985007c57de395e2, type: 3}
+
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2744,6 +2759,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110575260}
   serializedVersion: 2
+
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -2763,6 +2779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ee1d441710337459135f05228c1241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2776,6 +2793,7 @@ SceneRoots:
   - {fileID: 941755450}
   - {fileID: 289451919}
   - {fileID: 117185822}
+
   - {fileID: 1855995529}
   - {fileID: 724194154}
   - {fileID: 991212067}
