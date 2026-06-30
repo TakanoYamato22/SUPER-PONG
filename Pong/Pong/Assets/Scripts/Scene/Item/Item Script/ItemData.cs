@@ -15,4 +15,7 @@ public class ItemData : ScriptableObject
 
     [Header("効果時間")]
     public float duration = 5f;
+
+    [Header("クールタイム")]
+    public float cooldown = 10f;
 }

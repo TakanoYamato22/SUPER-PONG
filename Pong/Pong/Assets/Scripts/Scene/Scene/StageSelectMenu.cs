@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-// ステージ選択
 public class StageSelectMenu : MonoBehaviour
 {
     public void SelectStage(int stageNumber)
     {
         GameSettings.stageIndex = stageNumber;
+
+        Debug.Log("選択ステージ: " + stageNumber);
+
+        SceneManager.LoadScene("CharacterSelectScene");
     }
 }
