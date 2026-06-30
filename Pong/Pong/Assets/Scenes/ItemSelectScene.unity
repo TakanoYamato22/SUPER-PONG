@@ -2628,8 +2628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6aaad0eb8c2f24bb9f2fb958bb2f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalStageScenes:
-  - MainPong
+  vsStageScenes:
+  - Main
   bossStageScenes:
   - factory
 --- !u!114 &1058431558

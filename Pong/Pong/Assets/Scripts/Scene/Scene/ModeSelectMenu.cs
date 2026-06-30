@@ -3,12 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class ModeSelectMenu : MonoBehaviour
 {
-    public void SelectCPU()
-    {
-        GameSettings.gameMode = GameMode.CPU;
-        SceneManager.LoadScene("StageSelectScene");
-    }
-
     public void SelectVS()
     {
         GameSettings.gameMode = GameMode.VS;
@@ -19,5 +13,10 @@ public class ModeSelectMenu : MonoBehaviour
     {
         GameSettings.gameMode = GameMode.BOSS;
         SceneManager.LoadScene("StageSelectScene");
+    }
+
+    public void BackToTitle()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }

@@ -3,15 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class GameStartManager : MonoBehaviour
 {
-    [Header("CPU / VS 共通ステージScene")]
-    [SerializeField] private string[] normalStageScenes;
+    [Header("VS用ステージScene")]
+    [SerializeField] private string[] vsStageScenes;
 
-    [Header("Boss専用ステージScene")]
+    [Header("Boss用ステージScene")]
     [SerializeField] private string[] bossStageScenes;
 
     public void StartGame()
     {
-        string sceneName = GetSelectedStageSceneName();
+        string sceneName = GetSelectedSceneName();
 
         if (string.IsNullOrEmpty(sceneName))
         {
@@ -22,32 +22,30 @@ public class GameStartManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    private string GetSelectedStageSceneName()
+    private string GetSelectedSceneName()
     {
         if (GameSettings.gameMode == GameMode.BOSS)
         {
-            return GetSceneNameFromArray(bossStageScenes);
+            return GetSceneFromArray(bossStageScenes);
         }
 
-        return GetSceneNameFromArray(normalStageScenes);
+        return GetSceneFromArray(vsStageScenes);
     }
 
-    private string GetSceneNameFromArray(string[] scenes)
+    private string GetSceneFromArray(string[] scenes)
     {
         if (scenes == null || scenes.Length == 0)
         {
-            Debug.LogError("ステージScene配列が空です");
+            Debug.LogError("ステージSceneが登録されていません");
             return "";
         }
 
-        int index = GameSettings.stageIndex;
-
-        if (index < 0 || index >= scenes.Length)
+        if (GameSettings.stageIndex < 0 || GameSettings.stageIndex >= scenes.Length)
         {
-            Debug.LogWarning("stageIndexが範囲外なので0番を読み込みます: " + index);
-            index = 0;
+            Debug.LogWarning("stageIndexが範囲外です。0番のステージを読み込みます");
+            return scenes[0];
         }
 
-        return scenes[index];
+        return scenes[GameSettings.stageIndex];
     }
 }
