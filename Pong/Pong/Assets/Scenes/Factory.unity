@@ -3256,7 +3256,7 @@ Transform:
   m_GameObject: {fileID: 1773124216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5346868, y: -1.6044133, z: 0.02280889}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3275,16 +3275,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefabs:
-  - {fileID: 5733705498789827642, guid: ea72c82f25036384a8cf13678f29a65a, type: 3}
-  - {fileID: 495796049613218014, guid: e45d9737989c3b34ebe5ea8b056a6b5c, type: 3}
+  - {fileID: 1847259094018342652, guid: 37061adf8c75b5a4db5aeada92fa4831, type: 3}
+  - {fileID: 9113463673583090578, guid: 80cfd99f0a2519644a2237f90fec7d49, type: 3}
   - {fileID: 8734200529752687300, guid: 5e7bbede64004dc448e423cc1fa207af, type: 3}
   - {fileID: 2739746770090537186, guid: 95a9b9bfbb26b6446b1922e3f4276480, type: 3}
   - {fileID: 2322307915083423852, guid: 088d1a04a109f964bbcb42f08d6d2688, type: 3}
   - {fileID: 8705993540622140777, guid: c3e0ecd943389144b8cbe137ac622d37, type: 3}
-  minX: -6
-  maxX: 6
-  minY: -3
-  maxY: 3
+  minX: -7
+  maxX: 7
+  minY: -4
+  maxY: 4
   spawnInterval: 25
   spawnCount: 2
 --- !u!1 &1833103301
