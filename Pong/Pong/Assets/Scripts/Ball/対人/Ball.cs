@@ -100,15 +100,6 @@ public class Ball : MonoBehaviour
     // Ball.cs の一番下：中身を全部消して、これだけにしてください！
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        BallSmashManager smash = GetComponent<BallSmashManager>();
-
-        if (smash == null || !smash.IsSmashed) return;
-
-        if (collision.CompareTag("Drone"))
-        {
-            Destroy(collision.gameObject);
-        }
-    
+        // 中身は空っぽ
     }
-
 }

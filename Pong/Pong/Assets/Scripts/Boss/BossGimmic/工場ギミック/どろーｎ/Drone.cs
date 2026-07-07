@@ -7,6 +7,8 @@ public class Drone : MonoBehaviour
     [SerializeField] private float areaY = 8f;
     [SerializeField] private float changeTargetDistance = 0.2f;
     [SerializeField] private AudioClip itemSound;
+
+    // ★追加: 発生させたいエフェクトのプレハブをインスペクターから登録できるようにします
     [SerializeField] private GameObject hitEffectPrefab;
 
     private Vector2 targetPos;
@@ -32,46 +34,25 @@ public class Drone : MonoBehaviour
 
     private void SetRandomTarget()
     {
-        targetPos = new Vector2(
-            Random.Range(-areaX, areaX),
-            Random.Range(-areaY, areaY)
-        );
+        float x = Random.Range(-areaX, areaX);
+        float y = Random.Range(-areaY, areaY);
+
+        targetPos = new Vector2(x, y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("Ball")) return;
-
-        BallSmashManager smash =
-            collision.gameObject.GetComponent<BallSmashManager>();
-
-        // スマッシュ中なら、この衝突だけ無視して貫通させる
-        if (smash != null && smash.IsSmashed)
+        if (collision.gameObject.CompareTag("Ball"))
         {
-            Collider2D droneCol = GetComponent<Collider2D>();
-            Collider2D ballCol = collision.collider;
-
-            if (droneCol != null && ballCol != null)
+            // ★追加: ぶつかった瞬間、エフェクトをドローンと同じ位置・同じ回転で生成する
+            if (hitEffectPrefab != null)
             {
-                Physics2D.IgnoreCollision(ballCol, droneCol, true);
+                Instantiate(hitEffectPrefab, transform.position, transform.rotation);
             }
-        }
 
-        BreakDrone();
-    }
-
-    private void BreakDrone()
-    {
-        if (hitEffectPrefab != null)
-        {
-            Instantiate(hitEffectPrefab, transform.position, transform.rotation);
-        }
-
-        if (itemSound != null)
-        {
+            // ドローンを破壊
             AudioSource.PlayClipAtPoint(itemSound, transform.position);
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
     }
 }
