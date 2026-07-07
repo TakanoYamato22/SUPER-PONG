@@ -9,6 +9,10 @@ public class Ball : MonoBehaviour
     public float baseSpeed = 7f;
     public float maxSpeed = 25f;
     public float currentSpeed { get; private set; }
+
+    public bool hasPowerUp = false;
+    public float powerMultiplier = 1.5f;
+
     public bool ignoreMaxSpeed = false;
 
     // ★追加：インスペクターからパーティクルシステムを登録する枠
@@ -36,13 +40,15 @@ public class Ball : MonoBehaviour
 
         ignoreMaxSpeed = false;
         currentSpeed = baseSpeed;
+
+        hasPowerUp = false;
+        powerMultiplier = 1.5f;
     }
 
     public void AddStartingForce()
     {
         float x = Random.value < 0.5f ? -1f : 1f;
-
-        float y = Random.Range(-0.6f, 0.6f); // 縦方向を弱める
+        float y = Random.Range(-0.6f, 0.6f); // 🌟ここにあった重複宣言の不具合を解消しました
 
         Vector2 direction = new Vector2(x, y).normalized;
 
@@ -84,6 +90,12 @@ public class Ball : MonoBehaviour
         rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
     }
 
+    public void GivePowerUp(float multiplier)
+    {
+        hasPowerUp = true;
+        powerMultiplier = multiplier;
+    }
+
     public void ResetAndStartWithDelay(float delay)
     {
         StartCoroutine(StartAfterDelay(delay));
@@ -91,14 +103,13 @@ public class Ball : MonoBehaviour
 
     private IEnumerator StartAfterDelay(float delay)
     {
-        ResetPosition();              // 位置と速度をリセット
+        ResetPosition();
         yield return new WaitForSeconds(delay);
-        AddStartingForce();           // delay秒後に再スタート
+        AddStartingForce();
     }
 
     // ボールが何かに衝突した瞬間に自動で呼ばれる処理
-    // Ball.cs の一番下：中身を全部消して、これだけにしてください！
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         BallSmashManager smash = GetComponent<BallSmashManager>();
 
