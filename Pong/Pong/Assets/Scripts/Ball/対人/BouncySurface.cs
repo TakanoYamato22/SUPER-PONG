@@ -22,7 +22,7 @@ public class BouncySurface : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Ball ball))
         {
-<<<<<<< HEAD
+
 
             Vector2 hitPoint = collision.contacts[0].point;
 
@@ -79,9 +79,9 @@ public class BouncySurface : MonoBehaviour
         if (smashController != null && smashController.CanSmashNow())
         {
             if (smashManager != null && smashManager.IsSmashed)
-=======
+
             if (playerSmashController != null && playerSmashController.CanSmashNow())
->>>>>>> parent of 50accef (Merge branch 'main' into micchi-)
+ parent of 50accef (Merge branch 'main' into micchi-)
             {
                 playerSmashController.DoSmash();
                 return;
