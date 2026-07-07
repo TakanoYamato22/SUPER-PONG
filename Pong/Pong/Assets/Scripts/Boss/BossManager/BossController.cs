@@ -64,7 +64,7 @@ public class BossController : MonoBehaviour
 
         if (damageManager != null)
         {
-            StartCoroutine(damageManager.StartInvincible(0f));
+            StartCoroutine(damageManager.StartInvincible(3f));
         }
     }
 
