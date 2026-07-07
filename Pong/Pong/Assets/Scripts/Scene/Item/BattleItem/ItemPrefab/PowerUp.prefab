@@ -148,3 +148,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplier: 1.5
+  itemSound: {fileID: 8300000, guid: d4c9905bdfc58d746bf920457b5c287c, type: 3}

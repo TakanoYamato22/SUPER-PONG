@@ -18,6 +18,11 @@ public class ComputerPaddle : Paddle
 
     private void FixedUpdate()
     {
+        ComputerMove();
+    }
+
+    private void ComputerMove()
+    {
         if (Random.value < mistakeChance)
             return;
 

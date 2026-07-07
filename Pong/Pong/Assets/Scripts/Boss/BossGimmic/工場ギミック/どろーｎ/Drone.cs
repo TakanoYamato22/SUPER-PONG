@@ -6,6 +6,7 @@ public class Drone : MonoBehaviour
     [SerializeField] private float areaX = 8f;
     [SerializeField] private float areaY = 8f;
     [SerializeField] private float changeTargetDistance = 0.2f;
+    [SerializeField] private AudioClip itemSound;
 
     // ★追加: 発生させたいエフェクトのプレハブをインスペクターから登録できるようにします
     [SerializeField] private GameObject hitEffectPrefab;
@@ -50,6 +51,7 @@ public class Drone : MonoBehaviour
             }
 
             // ドローンを破壊
+            AudioSource.PlayClipAtPoint(itemSound, transform.position);
             Destroy(gameObject);
         }
     }

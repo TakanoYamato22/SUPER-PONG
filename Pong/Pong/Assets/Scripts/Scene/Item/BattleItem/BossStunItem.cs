@@ -3,6 +3,7 @@ using UnityEngine;
 public class BossStunItem : MonoBehaviour
 {
     [SerializeField] private float duration = 5f;
+    [SerializeField] private AudioClip itemSound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,6 +14,7 @@ public class BossStunItem : MonoBehaviour
         if (boss != null)
             boss.Stun(duration);
 
+        AudioSource.PlayClipAtPoint(itemSound, transform.position);
         Destroy(gameObject);
     }
 }

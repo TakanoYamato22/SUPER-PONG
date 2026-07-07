@@ -6,7 +6,7 @@ public class PlayerSmashController : BaseSmashController
 
     private void Update()
     {
-        bool left = Input.GetKey(KeyCode.LeftArrow);
+        bool left = Input.GetKey(KeyCode.A);
 
         if (left)
         {
