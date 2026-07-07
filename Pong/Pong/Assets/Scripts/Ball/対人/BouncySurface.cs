@@ -26,9 +26,7 @@ public class BouncySurface : MonoBehaviour
     {
         if (!collision.gameObject.TryGetComponent(out Ball ball))
         {
-<<<<<<< Updated upstream
-            return;
-=======
+
             Vector2 hitPoint = collision.contacts[0].point;
 
             // ★追加：スペースキーが押されているかチェック（テスト用）
@@ -72,7 +70,7 @@ public class BouncySurface : MonoBehaviour
                     hitEffect.Play();
                 }
             }
->>>>>>> Stashed changes
+
         }
 
         BallSmashManager smashManager = ball.GetComponent<BallSmashManager>();
