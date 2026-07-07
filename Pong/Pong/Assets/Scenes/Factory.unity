@@ -3482,6 +3482,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossBall
       objectReference: {fileID: 0}
+    - target: {fileID: 6084005878469649354, guid: 18fc6e9b2aab8f84985007c57de395e2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8169290512939841675, guid: 18fc6e9b2aab8f84985007c57de395e2,
         type: 3}
       propertyPath: m_LocalPosition.x
