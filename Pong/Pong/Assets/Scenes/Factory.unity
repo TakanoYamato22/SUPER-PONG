@@ -2534,6 +2534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.05
+  playerSmashController: {fileID: 0}
   hitEffect: {fileID: 0}
   smashEffect: {fileID: 0}
 --- !u!1 &1327430166
@@ -2618,11 +2619,12 @@ GameObject:
   - component: {fileID: 1362602730}
   - component: {fileID: 1362602729}
   - component: {fileID: 1362602731}
+  - component: {fileID: 1362602732}
   - component: {fileID: 1362602734}
   - component: {fileID: 1362602733}
+  - component: {fileID: 1362602736}
   - component: {fileID: 1362602735}
   - component: {fileID: 1362602737}
-  - component: {fileID: 1362602738}
   m_Layer: 0
   m_Name: Computer Paddle
   m_TagString: Paddle
@@ -2739,7 +2741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c66bb1aa5055643be7d334cf5a3063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 11
+  speed: 10
   smashPower: 2
   mainBall: {fileID: 977986352}
   gimmicBalls: []
@@ -2807,8 +2809,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.1
+  playerSmashController: {fileID: 1535292070}
   hitEffect: {fileID: 0}
   smashEffect: {fileID: 0}
+--- !u!114 &1362602732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362602725}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4517db61f79427f448e8ccba60c74780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeMoveDistance: 0.3
+  chargeTime: 0.4
+  triggerDistance: -2.5
+  smashChance: 0.25
+  missChance: 0.15
+  lateReactionChance: 0.2
 --- !u!114 &1362602733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2850,6 +2871,21 @@ MonoBehaviour:
   upKey: 273
   downKey: 274
   limitY: 4.25
+--- !u!114 &1362602736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362602725}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835f6300d68eabf4aba3341861c99af1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeMoveDistance: -0.3
+  chargeTime: 0.4
+  smashZone: {fileID: 1859380444}
 --- !u!114 &1362602737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2863,24 +2899,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   computerPaddle: {fileID: 1362602729}
+  computerSmashController: {fileID: 1362602732}
   player2Paddle: {fileID: 1362602735}
---- !u!114 &1362602738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362602725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d05bb50171161458592e0266ddd325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smashKey: 276
-  smashZone: {fileID: 1859380444}
-  moveDistance: -0.3
-  moveSpeed: 12
-  smashDirection: 1
+  player2SmashController: {fileID: 1362602736}
 --- !u!1 &1439415306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,6 +2995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.05
+  playerSmashController: {fileID: 0}
   hitEffect: {fileID: 0}
   smashEffect: {fileID: 0}
 --- !u!1 &1535292063
@@ -2990,9 +3012,9 @@ GameObject:
   - component: {fileID: 1535292068}
   - component: {fileID: 1535292066}
   - component: {fileID: 1535292069}
+  - component: {fileID: 1535292070}
   - component: {fileID: 1535292072}
   - component: {fileID: 1535292071}
-  - component: {fileID: 1535292073}
   m_Layer: 0
   m_Name: Player Paddle
   m_TagString: Paddle
@@ -3082,7 +3104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c0061ddcd9c8541b8d8b2ebae63267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 11
+  speed: 10
   smashPower: 2
   limitY: 4.25
 --- !u!50 &1535292067
@@ -3172,8 +3194,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceType: 0
   bounceStrength: 0.1
+  playerSmashController: {fileID: 1535292070}
   hitEffect: {fileID: 0}
   smashEffect: {fileID: 0}
+--- !u!114 &1535292070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535292063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a58aac16738ebc47a9c6e41e9d22c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeMoveDistance: -0.3
+  chargeTime: 0.3
+  smashZone: {fileID: 2110575263}
 --- !u!114 &1535292071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3198,23 +3236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7750be2fb44454e408cc663e04052540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1535292073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535292063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d05bb50171161458592e0266ddd325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smashKey: 100
-  smashZone: {fileID: 2110575263}
-  moveDistance: 0.3
-  moveSpeed: 12
-  smashDirection: 1
 --- !u!1 &1773124216
 GameObject:
   m_ObjectHideFlags: 0
@@ -3566,7 +3587,7 @@ GameObject:
   - component: {fileID: 1859380445}
   - component: {fileID: 1859380444}
   m_Layer: 0
-  m_Name: 2PSmashZone
+  m_Name: SmashZone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3639,7 +3660,7 @@ Transform:
   m_GameObject: {fileID: 1859380443}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1, y: 0, z: 0}
+  m_LocalPosition: {x: 8.48, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4214,7 +4235,7 @@ Transform:
   m_GameObject: {fileID: 2110575260}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.2, y: 0, z: 0}
+  m_LocalPosition: {x: -8.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

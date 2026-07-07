@@ -15,7 +15,7 @@ public class Score_ScoringZone : MonoBehaviour
         else
             score.AddComputerScore();
 
-        ball.ResetAndStartWithDelay(2.0f);
+        ball.ResetAndStartWithDelay(1.0f);
 
     }
 
