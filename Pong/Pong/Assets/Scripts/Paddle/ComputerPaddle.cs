@@ -16,15 +16,13 @@ public class ComputerPaddle : Paddle
 
     private void FixedUpdate()
     {
-<<<<<<< Updated upstream
+
         ComputerMove();
     }
 
     private void ComputerMove()
     {
-=======
-        // たまにミスする（人間っぽさ）
->>>>>>> Stashed changes
+
         if (Random.value < mistakeChance)
             return;
 
