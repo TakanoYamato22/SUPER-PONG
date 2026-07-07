@@ -109,8 +109,17 @@ public class Ball : MonoBehaviour
     }
 
     // ボールが何かに衝突した瞬間に自動で呼ばれる処理
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 中身は空っぽ
+        BallSmashManager smash = GetComponent<BallSmashManager>();
+
+        if (smash == null || !smash.IsSmashed) return;
+
+        if (collision.CompareTag("Drone"))
+        {
+            Destroy(collision.gameObject);
+        }
+    
     }
+
 }

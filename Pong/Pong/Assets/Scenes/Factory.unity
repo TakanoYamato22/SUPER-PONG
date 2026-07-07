@@ -2239,10 +2239,10 @@ MonoBehaviour:
   - {fileID: 1833103305}
   dronePrefab: {fileID: 6809452322139525935, guid: 4ad1055b761f13047b2d06c116987a42,
     type: 3}
-  droneCount: 5
+  droneCount: 10
   spawnRangeX: 6
   spawnRangeY: 6
-  droneSpawnInterval: 25
+  droneSpawnInterval: 3
   fixedDronePrefab: {fileID: 7609133152175537725, guid: 5197b5092885a6646b7f79d0ac2b786e,
     type: 3}
   fixedDronePositions:
