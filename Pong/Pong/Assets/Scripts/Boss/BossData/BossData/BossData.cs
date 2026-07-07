@@ -15,6 +15,12 @@ public class BossData : ScriptableObject
     public float moveRangeY = 4f;
 
     [Header("攻撃パターン")]
+    public BossAttackPattern attackPattern;
     public BossBallGimmick gimmick;// ScriptableObject（後で作る）
 
+    [Header("演出")]
+    public AudioClip bossBGM;                 // ← BGM
+
+    [Header("見た目")]
+    public GameObject bossPrefab;             // 当たり判定・Sprite・Animator を持つ
 }
