@@ -2,62 +2,90 @@ using UnityEngine;
 
 public class BallSmashManager : MonoBehaviour
 {
+    [SerializeField] private float smashBoost = 5f;
+
     private Ball ball;
+    private SpriteRenderer spriteRenderer;
 
-    public float smashBoost = 5f;
-    public bool isSmashed = false;
-
-    // スマッシュ前の速度を保存
+    private Color defaultColor;
     private float beforeSmashSpeed;
+
+    public bool IsSmashed { get; private set; }
 
     private void Awake()
     {
         ball = GetComponent<Ball>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+        {
+            defaultColor = spriteRenderer.color;
+        }
     }
 
-    /// <summary>
-    /// スマッシュ発動（Paddle に当たった瞬間に呼ぶ）
-    /// </summary>
     public void ApplySmash()
     {
-        if (isSmashed) return;
+        if (ball == null) return;
 
-        isSmashed = true;
+        if (!IsSmashed)
+        {
+            beforeSmashSpeed = ball.currentSpeed;
+        }
 
-        // スマッシュ前の速度を保存
-        beforeSmashSpeed = ball.currentSpeed;
-
-        // 最大速度制限を無視
+        IsSmashed = true;
         ball.ignoreMaxSpeed = true;
-
-        // スマッシュ分だけ速度を上げる
         ball.IncreaseSpeed(smashBoost);
 
-        // ★ここにあったエフェクトを再生するコード（if (ball != null...) の固まり）を全部消してください！
+        SetColor(Color.red);
     }
 
-    /// <summary>
-    /// スマッシュ終了（一定時間後 or 次のヒット時）
-    /// </summary>
+    public void SmashReturn()
+    {
+        if (ball == null) return;
+
+        IsSmashed = true;
+        ball.ignoreMaxSpeed = true;
+        ball.IncreaseSpeed(smashBoost);
+
+        SetColor(Color.red);
+    }
+
     public void EndSmash()
     {
-        if (!isSmashed) return;
+        if (ball == null) return;
 
-        isSmashed = false;
-
-        // 最大速度制限を戻す
+        IsSmashed = false;
         ball.ignoreMaxSpeed = false;
-
-        // スマッシュ前の速度に戻す
         ball.SetSpeed(beforeSmashSpeed);
+
+        ResetColor();
     }
 
-    /// <summary>
-    /// ラウンドリセット時に強制終了
-    /// </summary>
     public void ResetSmash()
     {
-        isSmashed = false;
-        ball.ignoreMaxSpeed = false;
+        IsSmashed = false;
+
+        if (ball != null)
+        {
+            ball.ignoreMaxSpeed = false;
+        }
+
+        ResetColor();
+    }
+
+    private void SetColor(Color color)
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = color;
+        }
+    }
+
+    private void ResetColor()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = defaultColor;
+        }
     }
 }
