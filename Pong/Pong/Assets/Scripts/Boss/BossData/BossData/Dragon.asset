@@ -12,12 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88793690cf8a5364bb44388ea14c5d28, type: 3}
   m_Name: Dragon
   m_EditorClassIdentifier: 
-  bossName: 
-  maxHP: 100
-  moveSpeed: 3
-  moveRangeX: 7
-  moveRangeY: 4
-  attackPattern: {fileID: 0}
-  backgroundImage: {fileID: 0}
-  bossBGM: {fileID: 0}
-  bossPrefab: {fileID: 0}
+  bossName: Dragon
+  maxHP: 250
+  moveSpeed: 10
+  moveRangeX: 8
+  moveRangeY: 6
+  gimmick: {fileID: 0}

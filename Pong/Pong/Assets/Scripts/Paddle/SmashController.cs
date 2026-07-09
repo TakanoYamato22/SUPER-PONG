@@ -22,8 +22,8 @@ public class SmashController : MonoBehaviour
     private bool isCharging = false;
     private bool isMoving = false;
 
-    private float cooldownTimer = 0f;
     private float startX;
+    private float cooldownTimer = 0f;
 
     public bool CanSmashNow()
     {
@@ -74,7 +74,6 @@ public class SmashController : MonoBehaviour
     {
         isCharging = false;
         cooldownTimer = cooldownTime;
-
         StartCoroutine(ReturnX());
     }
 
