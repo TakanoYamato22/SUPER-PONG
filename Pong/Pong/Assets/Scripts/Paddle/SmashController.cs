@@ -16,6 +16,9 @@ public class SmashController : MonoBehaviour
     [Header("Direction")]
     [SerializeField] private int smashDirection = 1;
 
+    [Header("Cooldown")]
+    [SerializeField] private float cooldownTime = 2f;
+
     private bool isCharging = false;
     private bool isMoving = false;
 
@@ -24,7 +27,10 @@ public class SmashController : MonoBehaviour
 
     public bool CanSmashNow()
     {
-        return isCharging && smashZone != null && smashZone.CanSmash;
+        return isCharging &&
+               cooldownTimer <= 0f &&
+               smashZone != null &&
+               smashZone.CanSmash;
     }
 
     private void Awake()
@@ -34,12 +40,35 @@ public class SmashController : MonoBehaviour
 
     private void Update()
     {
+        // クールタイム
+        if (cooldownTimer > 0f)
+        {
+            cooldownTimer -= Time.deltaTime;
+        }
+
+        // クールタイム中はスマッシュできない
+        if (cooldownTimer > 0f)
+        {
+            isCharging = false;
+
+            Vector3 pos = transform.position;
+            pos.x = startX;
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                pos,
+                moveSpeed * Time.deltaTime
+            );
+
+            return;
+        }
+
         if (Input.GetKey(smashKey))
         {
             isCharging = true;
 
             Vector3 pos = transform.position;
             pos.x = startX + smashDirection * moveDistance;
+
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 pos,
@@ -52,6 +81,7 @@ public class SmashController : MonoBehaviour
 
             Vector3 pos = transform.position;
             pos.x = startX;
+
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 pos,
@@ -63,26 +93,29 @@ public class SmashController : MonoBehaviour
     public void SuccessSmash()
     {
         isCharging = false;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+        // クールタイム開始
         cooldownTimer = cooldownTime;
-=======
->>>>>>> parent of a243831 (a)
-=======
->>>>>>> parent of 094f2fa (Merge pull request #42 from TakanoYamato22/sota2)
+
         StartCoroutine(ReturnX());
     }
 
     private IEnumerator ReturnX()
     {
-        if (isMoving) yield break;
+        if (isMoving)
+            yield break;
 
         isMoving = true;
 
         while (Mathf.Abs(transform.position.x - startX) > 0.01f)
         {
             Vector3 pos = transform.position;
-            pos.x = Mathf.MoveTowards(pos.x, startX, moveSpeed * Time.deltaTime);
+            pos.x = Mathf.MoveTowards(
+                pos.x,
+                startX,
+                moveSpeed * Time.deltaTime
+            );
+
             transform.position = pos;
 
             yield return null;
@@ -94,4 +127,6 @@ public class SmashController : MonoBehaviour
 
         isMoving = false;
     }
+
+    public bool IsCharging => isCharging;
 }

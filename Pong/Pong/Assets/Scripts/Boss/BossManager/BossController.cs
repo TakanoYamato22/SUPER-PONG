@@ -59,8 +59,8 @@ public class BossController : MonoBehaviour
             hpFillStartPosition = hpFill.localPosition;
         }
 
-        if (gimmickRunner != null && data.gimmick != null)
-            gimmickRunner.SetGimmick(data.gimmick);
+        //if (gimmickRunner != null && data.gimmick != null)
+        //    gimmickRunner.SetGimmick(data.gimmick);
 
         if (damageManager != null)
         {

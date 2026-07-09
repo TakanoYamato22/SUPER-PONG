@@ -60,7 +60,7 @@ public class Drone : MonoBehaviour
         BreakDrone();
     }
 
-    private void BreakDrone()
+    public void BreakDrone()
     {
         if (hitEffectPrefab != null)
         {

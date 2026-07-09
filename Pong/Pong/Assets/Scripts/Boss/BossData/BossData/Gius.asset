@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Gius
   m_EditorClassIdentifier: 
   bossName: Gius
-  maxHP: 400
+  maxHP: 100
   moveSpeed: 1
   moveRangeX: 8
   moveRangeY: 8
-  gimmick: {fileID: 11400000, guid: 93ed8c102004d774495f996268477bad, type: 2}
+  bossBGM: {fileID: 0}
+  bossPrefab: {fileID: 0}

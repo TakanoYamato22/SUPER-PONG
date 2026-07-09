@@ -17,11 +17,12 @@ public class PlayerHealth : MonoBehaviour
         isDead = false;
         hasShield = false;
 
-        if (healthImage != null)
-            healthImage.fillAmount = 1f;
+        UpdateHealthBar();
 
         if (gameOverText != null)
+        {
             gameOverText.SetActive(false);
+        }
     }
 
     public void TakeDamage(float damage)
@@ -40,14 +41,9 @@ public class PlayerHealth : MonoBehaviour
 
         UpdateHealthBar();
 
-        if (currentHP <= 0)
+        if (currentHP <= 0f)
         {
-            isDead = true;
-
-            if (gameOverText != null)
-                gameOverText.SetActive(true);
-
-            Time.timeScale = 0f;
+            GameOver();
         }
     }
 
@@ -71,7 +67,20 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateHealthBar()
     {
-        if (healthImage != null)
-            healthImage.fillAmount = currentHP / maxHP;
+        if (healthImage == null) return;
+
+        healthImage.fillAmount = currentHP / maxHP;
+    }
+
+    private void GameOver()
+    {
+        isDead = true;
+
+        if (gameOverText != null)
+        {
+            gameOverText.SetActive(true);
+        }
+
+        Time.timeScale = 0f;
     }
 }
