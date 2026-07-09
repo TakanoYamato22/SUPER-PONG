@@ -3,18 +3,21 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Boss/BossData")]
 public class BossData : ScriptableObject
 {
-    [Header("Šî–{î•ñ")]
+    [Header("ï¿½ï¿½{ï¿½ï¿½ï¿½")]
     public string bossName;
 
-    [Header("ƒXƒe[ƒ^ƒX")]
+    [Header("ï¿½Xï¿½eï¿½[ï¿½^ï¿½X")]
     public float maxHP = 100f;
 
-    [Header("ˆÚ“®İ’è")]
+    [Header("ï¿½Ú“ï¿½ï¿½İ’ï¿½")]
     public float moveSpeed = 3f;
     public float moveRangeX = 7f;
     public float moveRangeY = 4f;
 
-    [Header("UŒ‚ƒpƒ^[ƒ“")]
-    public BossBallGimmick gimmick;// ScriptableObjectiŒã‚Åì‚éj
+    [Header("ï¿½ï¿½ï¿½o")]
+    public AudioClip bossBGM;                 // ï¿½ï¿½ BGM
+
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    public GameObject bossPrefab;             // ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ESpriteï¿½EAnimator ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 }

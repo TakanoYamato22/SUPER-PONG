@@ -23,6 +23,9 @@ public class ComputerPaddle : Paddle
 
     private void ComputerMove()
     {
+
+        // たまにミスする（人間っぽさ）
+
         if (Random.value < mistakeChance)
             return;
 
