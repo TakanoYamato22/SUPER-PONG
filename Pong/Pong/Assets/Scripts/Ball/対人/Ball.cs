@@ -77,8 +77,9 @@ public class Ball : MonoBehaviour
     public void AddStartingForce()
     {
         float x = Random.value < 0.5f ? -1f : 1f;
+        float y = Random.Range(-0.6f, 0.6f);
 
-        Vector2 direction = new Vector2(x, y).normalized;
+        Vector2 direction = new Vector2(x,y).normalized;
 
         rb.linearVelocity = direction * baseSpeed;
 
@@ -146,5 +147,4 @@ public class Ball : MonoBehaviour
     
     }
 
- 38fa4cf08c9835b5caae37cba0e9414d3b4d6645
 }
