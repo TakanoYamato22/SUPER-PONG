@@ -4,6 +4,7 @@ public class PlayerSmashController : BaseSmashController
 {
     [SerializeField] private SmashZone smashZone;
 
+<<<<<<< HEAD
 
 
     private bool wasCharging = false;
@@ -12,10 +13,13 @@ public class PlayerSmashController : BaseSmashController
     {
         bool left = Input.GetKey(KeyCode.LeftArrow);
 
+=======
+>>>>>>> parent of 50accef (Merge branch 'main' into micchi-)
     private void Update()
     {
         bool left = Input.GetKey(KeyCode.A);
 
+<<<<<<< HEAD
 
         if (left)
         {
@@ -37,10 +41,19 @@ public class PlayerSmashController : BaseSmashController
         else
         {
 
+=======
+        if (left)
+        {
+            StartCharge(-1);
+        }
+        else
+        {
+>>>>>>> parent of 50accef (Merge branch 'main' into micchi-)
             StopCharge();
         }
     }
 
+<<<<<<< HEAD
 
 
     private void TrySmashOnRelease()
@@ -50,6 +63,8 @@ public class PlayerSmashController : BaseSmashController
             Smash();
         }
 
+=======
+>>>>>>> parent of 50accef (Merge branch 'main' into micchi-)
     public bool CanSmashNow()
     {
         return isCharging && smashZone != null && smashZone.CanSmash;
@@ -58,7 +73,10 @@ public class PlayerSmashController : BaseSmashController
     public void DoSmash()
     {
         Smash();
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of 50accef (Merge branch 'main' into micchi-)
     }
 }
