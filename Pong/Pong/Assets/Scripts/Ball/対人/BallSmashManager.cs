@@ -2,21 +2,39 @@ using UnityEngine;
 
 public class BallSmashManager : MonoBehaviour
 {
+
+    [SerializeField] private float smashBoost = 5f;
+
+    [Header("Layer")]
+    [SerializeField] private string normalLayerName = "Ball";
+    [SerializeField] private string smashLayerName = "BallSmash";
+
+
     private Ball ball;
 
     public float smashBoost = 5f;
     public bool isSmashed = false;
 
-    // ƒXƒ}ƒbƒVƒ…‘O‚Ì‘¬“x‚ğ•Û‘¶
+    // ï¿½Xï¿½}ï¿½bï¿½Vï¿½ï¿½ï¿½Oï¿½Ì‘ï¿½ï¿½xï¿½ï¿½Û‘ï¿½
     private float beforeSmashSpeed;
 
     private void Awake()
     {
         ball = GetComponent<Ball>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+        {
+            defaultColor = spriteRenderer.color;
+        }
+
+        gameObject.layer = LayerMask.NameToLayer(normalLayerName);
+
     }
 
     /// <summary>
-    /// ƒXƒ}ƒbƒVƒ…”­“®iPaddle ‚É“–‚½‚Á‚½uŠÔ‚ÉŒÄ‚Ôj
+    /// ï¿½Xï¿½}ï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iPaddle ï¿½É“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½uï¿½Ô‚ÉŒÄ‚Ôj
     /// </summary>
     public void ApplySmash()
     {
@@ -24,40 +42,86 @@ public class BallSmashManager : MonoBehaviour
 
         isSmashed = true;
 
-        // ƒXƒ}ƒbƒVƒ…‘O‚Ì‘¬“x‚ğ•Û‘¶
-        beforeSmashSpeed = ball.currentSpeed;
 
-        // Å‘å‘¬“x§ŒÀ‚ğ–³‹
+        IsSmashed = true;
+
+        gameObject.layer = LayerMask.NameToLayer(smashLayerName);
+
+
         ball.ignoreMaxSpeed = true;
 
-        // ƒXƒ}ƒbƒVƒ…•ª‚¾‚¯‘¬“x‚ğã‚°‚é
+        // ï¿½Xï¿½}ï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ã‚°ï¿½ï¿½
         ball.IncreaseSpeed(smashBoost);
 
-        // š‚±‚±‚É‚ ‚Á‚½ƒGƒtƒFƒNƒg‚ğÄ¶‚·‚éƒR[ƒhiif (ball != null...) ‚ÌŒÅ‚Ü‚èj‚ğ‘S•”Á‚µ‚Ä‚­‚¾‚³‚¢I
+
+        SetColor(Color.red);
+    }
+
+    public void SmashReturn()
+    {
+        if (ball == null) return;
+
+        IsSmashed = true;
+
+        gameObject.layer = LayerMask.NameToLayer(smashLayerName);
+
+        ball.ignoreMaxSpeed = true;
+        ball.IncreaseSpeed(smashBoost);
+
+        SetColor(Color.red);
+
     }
 
     /// <summary>
-    /// ƒXƒ}ƒbƒVƒ…I—¹iˆê’èŠÔŒã or Ÿ‚Ìƒqƒbƒgj
+    /// ï¿½Xï¿½}ï¿½bï¿½Vï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½iï¿½ï¿½èï¿½ÔŒï¿½ or ï¿½ï¿½ï¿½Ìƒqï¿½bï¿½gï¿½ï¿½ï¿½j
     /// </summary>
     public void EndSmash()
     {
         if (!isSmashed) return;
 
-        isSmashed = false;
 
-        // Å‘å‘¬“x§ŒÀ‚ğ–ß‚·
+        IsSmashed = false;
+
+        gameObject.layer = LayerMask.NameToLayer(normalLayerName);
+
+
         ball.ignoreMaxSpeed = false;
 
-        // ƒXƒ}ƒbƒVƒ…‘O‚Ì‘¬“x‚É–ß‚·
+        // ï¿½Xï¿½}ï¿½bï¿½Vï¿½ï¿½ï¿½Oï¿½Ì‘ï¿½ï¿½xï¿½É–ß‚ï¿½
         ball.SetSpeed(beforeSmashSpeed);
     }
 
     /// <summary>
-    /// ƒ‰ƒEƒ“ƒhƒŠƒZƒbƒg‚É‹­§I—¹
+    /// ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½É‹ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
     /// </summary>
     public void ResetSmash()
     {
-        isSmashed = false;
-        ball.ignoreMaxSpeed = false;
+        IsSmashed = false;
+
+        gameObject.layer = LayerMask.NameToLayer(normalLayerName);
+
+        if (ball != null)
+        {
+            ball.ignoreMaxSpeed = false;
+        }
+
+        ResetColor();
+    }
+
+    private void SetColor(Color color)
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = color;
+        }
+    }
+
+    private void ResetColor()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = defaultColor;
+        }
+
     }
 }

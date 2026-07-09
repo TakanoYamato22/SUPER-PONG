@@ -15,18 +15,47 @@ public class Ball : MonoBehaviour
 
     public bool ignoreMaxSpeed = false;
 
-    // ★追加：インスペクターからパーティクルシステムを登録する枠
+    [Header("Smash Drone Break")]
+    [SerializeField] private float smashBreakRadius = 0.5f;
+
     public ParticleSystem hitEffect;
     public ParticleSystem smashEffect;
-
-    protected virtual void Start()
-    {
-        // Ball の初期化処理が必要ならここに書く
-    }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        BreakDroneWhileSmashing();
+    }
+
+    private void BreakDroneWhileSmashing()
+    {
+        BallSmashManager smash = GetComponent<BallSmashManager>();
+
+        if (smash == null || !smash.IsSmashed)
+            return;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, smashBreakRadius);
+
+        foreach (Collider2D hit in hits)
+        {
+            Drone drone = hit.GetComponent<Drone>();
+
+            if (drone != null)
+            {
+                drone.BreakDrone();
+            }
+
+            FixedDrone fixedDrone = hit.GetComponent<FixedDrone>();
+
+            if (fixedDrone != null)
+            {
+                Destroy(fixedDrone.gameObject);
+            }
+        }
     }
 
     public void ResetPosition()
@@ -48,7 +77,7 @@ public class Ball : MonoBehaviour
     public void AddStartingForce()
     {
         float x = Random.value < 0.5f ? -1f : 1f;
-        float y = Random.Range(-0.6f, 0.6f); // 🌟ここにあった重複宣言の不具合を解消しました
+
 
         Vector2 direction = new Vector2(x, y).normalized;
 
@@ -60,14 +89,12 @@ public class Ball : MonoBehaviour
     public void IncreaseSpeed(float amount)
     {
         float target = currentSpeed + amount;
+
         if (ignoreMaxSpeed)
-        {
             currentSpeed = target;
-        }
         else
-        {
             currentSpeed = Mathf.Clamp(target, baseSpeed, maxSpeed);
-        }
+
         rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
     }
 
@@ -80,13 +107,10 @@ public class Ball : MonoBehaviour
     public void SetSpeed(float speed)
     {
         if (ignoreMaxSpeed)
-        {
             currentSpeed = speed;
-        }
         else
-        {
             currentSpeed = Mathf.Clamp(speed, baseSpeed, maxSpeed);
-        }
+
         rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
     }
 
@@ -108,6 +132,7 @@ public class Ball : MonoBehaviour
         AddStartingForce();
     }
 
+
     // ボールが何かに衝突した瞬間に自動で呼ばれる処理
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -121,5 +146,6 @@ public class Ball : MonoBehaviour
         }
     
     }
+
 
 }
