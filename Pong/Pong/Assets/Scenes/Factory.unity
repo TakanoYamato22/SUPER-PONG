@@ -1483,12 +1483,19 @@ SpriteRenderer:
     type: 3}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 
 =======
   m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
 >>>>>>> parent of bd82777 (a)
+=======
+  m_Color: {r: 1, g: 1, b: 1, a: 0.45490196}
+=======
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> main
+>>>>>>> parent of 728f830 (a)
 =======
   m_Color: {r: 1, g: 1, b: 1, a: 0.45490196}
 =======
@@ -3750,9 +3757,12 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
+=======
+>>>>>>> parent of 728f830 (a)
 =======
 >>>>>>> parent of 728f830 (a)
 --- !u!1001 &2012474496
@@ -3829,12 +3839,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 728f830 (a)
     - target: {fileID: 990207895701909806, guid: db77575bcdec39542ae119dcf6a0164d,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 728f830 (a)
+=======
 >>>>>>> parent of 728f830 (a)
     - target: {fileID: 1536777187403217266, guid: db77575bcdec39542ae119dcf6a0164d,
         type: 3}
@@ -3849,10 +3865,13 @@ PrefabInstance:
     - target: {fileID: 4420597805791384374, guid: db77575bcdec39542ae119dcf6a0164d,
         type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 83cb7f2622a6f8a43a5d995d0b5f1c27, type: 2}
 =======
+=======
+>>>>>>> parent of 728f830 (a)
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -3861,6 +3880,9 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: dfd8a997990d4af4cab88423efaa4d9d, type: 2}
+<<<<<<< HEAD
+>>>>>>> parent of 728f830 (a)
+=======
 >>>>>>> parent of 728f830 (a)
     - target: {fileID: 5950589322223220339, guid: db77575bcdec39542ae119dcf6a0164d,
         type: 3}
@@ -3893,12 +3915,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 728f830 (a)
     - target: {fileID: 7287746375602716488, guid: db77575bcdec39542ae119dcf6a0164d,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 728f830 (a)
+=======
 >>>>>>> parent of 728f830 (a)
     - target: {fileID: 8165301988228091258, guid: db77575bcdec39542ae119dcf6a0164d,
         type: 3}
@@ -3935,7 +3963,12 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db77575bcdec39542ae119dcf6a0164d, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of bd82777 (a)
+=======
+=======
+>>>>>>> main
+>>>>>>> parent of 728f830 (a)
 =======
 =======
 >>>>>>> main
@@ -4444,12 +4477,15 @@ PrefabInstance:
       propertyPath: InitialModule.startLifetime.scalar
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
       value: 0.5
       objectReference: {fileID: 0}
 =======
+=======
+>>>>>>> parent of 728f830 (a)
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5550457671693437263, guid: e0bca7d6ad0f2fd47a81e889cf85aad8,
@@ -4467,6 +4503,9 @@ PrefabInstance:
       propertyPath: ClampVelocityModule.magnitude.minMaxState
       value: 3
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 728f830 (a)
+=======
 >>>>>>> parent of 728f830 (a)
     - target: {fileID: 6640940166092171337, guid: e0bca7d6ad0f2fd47a81e889cf85aad8,
         type: 3}
@@ -4522,7 +4561,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: Particle System
+=======
+      value: drone_explosion
+>>>>>>> parent of 728f830 (a)
 =======
       value: drone_explosion
 >>>>>>> parent of 728f830 (a)
@@ -4533,7 +4576,12 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0bca7d6ad0f2fd47a81e889cf85aad8, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of bd82777 (a)
+=======
+=======
+>>>>>>> main
+>>>>>>> parent of 728f830 (a)
 =======
 =======
 >>>>>>> main
@@ -4571,9 +4619,13 @@ SceneRoots:
   - {fileID: 1031963056}
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> parent of bd82777 (a)
+=======
+>>>>>>> main
+>>>>>>> parent of 728f830 (a)
 =======
 >>>>>>> main
 >>>>>>> parent of 728f830 (a)
