@@ -16,9 +16,6 @@ public class SmashController : MonoBehaviour
     [Header("Direction")]
     [SerializeField] private int smashDirection = 1;
 
-    [Header("Cooldown")]
-    [SerializeField] private float cooldownTime = 2.0f;
-
     private bool isCharging = false;
     private bool isMoving = false;
 
@@ -27,7 +24,7 @@ public class SmashController : MonoBehaviour
 
     public bool CanSmashNow()
     {
-        return isCharging && cooldownTimer <= 0f && smashZone != null && smashZone.CanSmash;
+        return isCharging && smashZone != null && smashZone.CanSmash;
     }
 
     private void Awake()
@@ -37,21 +34,15 @@ public class SmashController : MonoBehaviour
 
     private void Update()
     {
-        if (cooldownTimer > 0f)
-        {
-            cooldownTimer -= Time.deltaTime;
-        }
-
-        if (Input.GetKey(smashKey) && cooldownTimer <= 0f)
+        if (Input.GetKey(smashKey))
         {
             isCharging = true;
 
-            Vector3 targetPos = transform.position;
-            targetPos.x = startX + smashDirection * moveDistance;
-
+            Vector3 pos = transform.position;
+            pos.x = startX + smashDirection * moveDistance;
             transform.position = Vector3.MoveTowards(
                 transform.position,
-                targetPos,
+                pos,
                 moveSpeed * Time.deltaTime
             );
         }
@@ -59,12 +50,11 @@ public class SmashController : MonoBehaviour
         {
             isCharging = false;
 
-            Vector3 targetPos = transform.position;
-            targetPos.x = startX;
-
+            Vector3 pos = transform.position;
+            pos.x = startX;
             transform.position = Vector3.MoveTowards(
                 transform.position,
-                targetPos,
+                pos,
                 moveSpeed * Time.deltaTime
             );
         }
@@ -73,7 +63,10 @@ public class SmashController : MonoBehaviour
     public void SuccessSmash()
     {
         isCharging = false;
+<<<<<<< HEAD
         cooldownTimer = cooldownTime;
+=======
+>>>>>>> parent of a243831 (a)
         StartCoroutine(ReturnX());
     }
 

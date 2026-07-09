@@ -8,13 +8,6 @@ public class PlayerPaddle : Paddle
 
     private void Update()
     {
-        // スマッシュ中は移動禁止
-        if (Input.GetKey(KeyCode.D))
-        {
-            direction = Vector2.zero;
-            return;
-        }
-
         if (Input.GetKey(KeyCode.W))
         {
             direction = Vector2.up;
@@ -31,13 +24,13 @@ public class PlayerPaddle : Paddle
 
     private void FixedUpdate()
     {
-        if (direction.sqrMagnitude == 0)
-            return;
+        if (direction.sqrMagnitude != 0)
+        {
+            float newY = transform.position.y + direction.y * speed * Time.fixedDeltaTime;
 
-        float newY = transform.position.y + direction.y * speed * Time.fixedDeltaTime;
+            newY = Mathf.Clamp(newY, -limitY, limitY);
 
-        newY = Mathf.Clamp(newY, -limitY, limitY);
-
-        transform.position = new Vector2(transform.position.x, newY);
+            transform.position = new Vector2(transform.position.x, newY);
+        }
     }
 }
