@@ -8,9 +8,14 @@ public class GiusController : MonoBehaviour
     [SerializeField] private float moveRangeY = 2f;
     [SerializeField] private float startWaitTime = 3f;
 
+    [Header("Stun")]
+    [SerializeField] private float stunTime = 2f;
+
     private bool canMove;
     private Vector3 basePosition;
     private Vector3 targetPosition;
+
+    private Coroutine stunCoroutine;
 
     public void StartMove()
     {
@@ -31,6 +36,28 @@ public class GiusController : MonoBehaviour
     public void StopMove()
     {
         canMove = false;
+    }
+
+    public void Stun()
+    {
+        if (stunCoroutine != null)
+        {
+            StopCoroutine(stunCoroutine);
+        }
+
+        stunCoroutine = StartCoroutine(StunRoutine());
+    }
+
+    private IEnumerator StunRoutine()
+    {
+        canMove = false;
+
+        yield return new WaitForSeconds(stunTime);
+
+        SetNewTarget();
+        canMove = true;
+
+        stunCoroutine = null;
     }
 
     private void Update()
