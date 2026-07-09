@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - WallBlock
   - Gimmic
+  - Drone
   layers:
   - Default
   - TransparentFX
