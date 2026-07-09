@@ -12,6 +12,8 @@ public class GiusController : MonoBehaviour
     [SerializeField] private float stunTime = 2f;
 
     private bool canMove;
+    private bool isStunned;
+
     private Vector3 basePosition;
     private Vector3 targetPosition;
 
@@ -38,6 +40,7 @@ public class GiusController : MonoBehaviour
         canMove = false;
     }
 
+
     public void Stun()
     {
         if (stunCoroutine != null)
@@ -58,11 +61,13 @@ public class GiusController : MonoBehaviour
         canMove = true;
 
         stunCoroutine = null;
+
     }
 
     private void Update()
     {
         if (!canMove) return;
+        if (isStunned) return;
 
         transform.position = Vector3.MoveTowards(
             transform.position,
