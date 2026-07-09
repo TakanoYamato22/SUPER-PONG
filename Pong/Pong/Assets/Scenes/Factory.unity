@@ -1482,12 +1482,19 @@ SpriteRenderer:
   m_Sprite: {fileID: -1843028302627794106, guid: 539bc661e4703fc41ae74432dc17c139,
     type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 
 =======
   m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
 >>>>>>> parent of bd82777 (a)
+=======
+  m_Color: {r: 1, g: 1, b: 1, a: 0.45490196}
+=======
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> main
+>>>>>>> parent of 728f830 (a)
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3742,9 +3749,12 @@ CanvasRenderer:
   m_GameObject: {fileID: 1940399801}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
+=======
+>>>>>>> parent of 728f830 (a)
 --- !u!1001 &2012474496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3818,6 +3828,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 990207895701909806, guid: db77575bcdec39542ae119dcf6a0164d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> parent of 728f830 (a)
     - target: {fileID: 1536777187403217266, guid: db77575bcdec39542ae119dcf6a0164d,
         type: 3}
       propertyPath: looping
@@ -3830,9 +3848,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420597805791384374, guid: db77575bcdec39542ae119dcf6a0164d,
         type: 3}
+<<<<<<< HEAD
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 83cb7f2622a6f8a43a5d995d0b5f1c27, type: 2}
+=======
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420597805791384374, guid: db77575bcdec39542ae119dcf6a0164d,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dfd8a997990d4af4cab88423efaa4d9d, type: 2}
+>>>>>>> parent of 728f830 (a)
     - target: {fileID: 5950589322223220339, guid: db77575bcdec39542ae119dcf6a0164d,
         type: 3}
       propertyPath: looping
@@ -3863,6 +3892,14 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 7287746375602716488, guid: db77575bcdec39542ae119dcf6a0164d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> parent of 728f830 (a)
     - target: {fileID: 8165301988228091258, guid: db77575bcdec39542ae119dcf6a0164d,
         type: 3}
       propertyPath: looping
@@ -3897,7 +3934,12 @@ PrefabInstance:
       addedObject: {fileID: 1395313831}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db77575bcdec39542ae119dcf6a0164d, type: 3}
+<<<<<<< HEAD
 >>>>>>> parent of bd82777 (a)
+=======
+=======
+>>>>>>> main
+>>>>>>> parent of 728f830 (a)
 --- !u!1 &2070693086
 GameObject:
   m_ObjectHideFlags: 0
@@ -4401,11 +4443,31 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
       value: 0.5
       objectReference: {fileID: 0}
+=======
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550457671693437263, guid: e0bca7d6ad0f2fd47a81e889cf85aad8,
+        type: 3}
+      propertyPath: LifetimeByEmitterSpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550457671693437263, guid: e0bca7d6ad0f2fd47a81e889cf85aad8,
+        type: 3}
+      propertyPath: ClampVelocityModule.magnitude.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550457671693437263, guid: e0bca7d6ad0f2fd47a81e889cf85aad8,
+        type: 3}
+      propertyPath: ClampVelocityModule.magnitude.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+>>>>>>> parent of 728f830 (a)
     - target: {fileID: 6640940166092171337, guid: e0bca7d6ad0f2fd47a81e889cf85aad8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4459,14 +4521,23 @@ PrefabInstance:
     - target: {fileID: 7511570824549935669, guid: e0bca7d6ad0f2fd47a81e889cf85aad8,
         type: 3}
       propertyPath: m_Name
+<<<<<<< HEAD
       value: Particle System
+=======
+      value: drone_explosion
+>>>>>>> parent of 728f830 (a)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0bca7d6ad0f2fd47a81e889cf85aad8, type: 3}
+<<<<<<< HEAD
 >>>>>>> parent of bd82777 (a)
+=======
+=======
+>>>>>>> main
+>>>>>>> parent of 728f830 (a)
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4499,6 +4570,10 @@ SceneRoots:
 <<<<<<< HEAD
   - {fileID: 1031963056}
 =======
+<<<<<<< HEAD
 
 =======
 >>>>>>> parent of bd82777 (a)
+=======
+>>>>>>> main
+>>>>>>> parent of 728f830 (a)
