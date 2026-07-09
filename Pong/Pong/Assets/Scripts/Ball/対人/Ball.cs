@@ -12,17 +12,21 @@ public class Ball : MonoBehaviour
 
     public bool ignoreMaxSpeed = false;
 
-    [Header("Smash Drone Break")]
-    [SerializeField] private float smashBreakRadius = 0.5f;
-
+    // ★追加：インスペクターからパーティクルシステムを登録する枠
     public ParticleSystem hitEffect;
     public ParticleSystem smashEffect;
+
+    protected virtual void Start()
+    {
+        // Ball の初期化処理が必要ならここに書く
+    }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+<<<<<<< HEAD
     private void Update()
     {
         BreakDroneWhileSmashing();
@@ -56,6 +60,8 @@ public class Ball : MonoBehaviour
         }
     }
 
+=======
+>>>>>>> parent of 094f2fa (Merge pull request #42 from TakanoYamato22/sota2)
     public void ResetPosition()
     {
         rb.linearVelocity = Vector2.zero;
@@ -74,7 +80,12 @@ public class Ball : MonoBehaviour
     public void AddStartingForce()
     {
         float x = Random.value < 0.5f ? -1f : 1f;
+<<<<<<< HEAD
         float y = Random.Range(-0.6f, 0.6f);
+=======
+
+        float y = Random.Range(-0.6f, 0.6f); // 縦方向を弱める
+>>>>>>> parent of 094f2fa (Merge pull request #42 from TakanoYamato22/sota2)
 
         Vector2 direction = new Vector2(x, y).normalized;
 
@@ -85,7 +96,6 @@ public class Ball : MonoBehaviour
     public void IncreaseSpeed(float amount)
     {
         float target = currentSpeed + amount;
-
         if (ignoreMaxSpeed)
         {
             currentSpeed = target;
@@ -94,7 +104,10 @@ public class Ball : MonoBehaviour
         {
             currentSpeed = Mathf.Clamp(target, baseSpeed, maxSpeed);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 094f2fa (Merge pull request #42 from TakanoYamato22/sota2)
         rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
     }
 
@@ -114,7 +127,10 @@ public class Ball : MonoBehaviour
         {
             currentSpeed = Mathf.Clamp(speed, baseSpeed, maxSpeed);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 094f2fa (Merge pull request #42 from TakanoYamato22/sota2)
         rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
     }
 
@@ -129,4 +145,23 @@ public class Ball : MonoBehaviour
         yield return new WaitForSeconds(delay);
         AddStartingForce();
     }
+<<<<<<< HEAD
+=======
+
+    // ボールが何かに衝突した瞬間に自動で呼ばれる処理
+    // Ball.cs の一番下：中身を全部消して、これだけにしてください！
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        BallSmashManager smash = GetComponent<BallSmashManager>();
+
+        if (smash == null || !smash.IsSmashed) return;
+
+        if (collision.CompareTag("Drone"))
+        {
+            Destroy(collision.gameObject);
+        }
+    
+    }
+
+>>>>>>> parent of 094f2fa (Merge pull request #42 from TakanoYamato22/sota2)
 }

@@ -4,10 +4,6 @@ public class BallSmashManager : MonoBehaviour
 {
     [SerializeField] private float smashBoost = 5f;
 
-    [Header("Layer")]
-    [SerializeField] private string normalLayerName = "Ball";
-    [SerializeField] private string smashLayerName = "BallSmash";
-
     private Ball ball;
     private SpriteRenderer spriteRenderer;
 
@@ -25,8 +21,6 @@ public class BallSmashManager : MonoBehaviour
         {
             defaultColor = spriteRenderer.color;
         }
-
-        gameObject.layer = LayerMask.NameToLayer(normalLayerName);
     }
 
     public void ApplySmash()
@@ -39,9 +33,6 @@ public class BallSmashManager : MonoBehaviour
         }
 
         IsSmashed = true;
-
-        gameObject.layer = LayerMask.NameToLayer(smashLayerName);
-
         ball.ignoreMaxSpeed = true;
         ball.IncreaseSpeed(smashBoost);
 
@@ -53,9 +44,6 @@ public class BallSmashManager : MonoBehaviour
         if (ball == null) return;
 
         IsSmashed = true;
-
-        gameObject.layer = LayerMask.NameToLayer(smashLayerName);
-
         ball.ignoreMaxSpeed = true;
         ball.IncreaseSpeed(smashBoost);
 
@@ -67,9 +55,6 @@ public class BallSmashManager : MonoBehaviour
         if (ball == null) return;
 
         IsSmashed = false;
-
-        gameObject.layer = LayerMask.NameToLayer(normalLayerName);
-
         ball.ignoreMaxSpeed = false;
         ball.SetSpeed(beforeSmashSpeed);
 
@@ -79,8 +64,6 @@ public class BallSmashManager : MonoBehaviour
     public void ResetSmash()
     {
         IsSmashed = false;
-
-        gameObject.layer = LayerMask.NameToLayer(normalLayerName);
 
         if (ball != null)
         {

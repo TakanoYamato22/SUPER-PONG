@@ -6,12 +6,10 @@ public class Drone : MonoBehaviour
     [SerializeField] private float areaX = 8f;
     [SerializeField] private float areaY = 8f;
     [SerializeField] private float changeTargetDistance = 0.2f;
-
     [SerializeField] private AudioClip itemSound;
     [SerializeField] private GameObject hitEffectPrefab;
 
     private Vector2 targetPos;
-    private bool isBroken = false;
 
     private void Start()
     {
@@ -34,24 +32,36 @@ public class Drone : MonoBehaviour
 
     private void SetRandomTarget()
     {
-        float x = Random.Range(-areaX, areaX);
-        float y = Random.Range(-areaY, areaY);
-
-        targetPos = new Vector2(x, y);
+        targetPos = new Vector2(
+            Random.Range(-areaX, areaX),
+            Random.Range(-areaY, areaY)
+        );
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Ball")) return;
 
+        BallSmashManager smash =
+            collision.gameObject.GetComponent<BallSmashManager>();
+
+        // スマッシュ中なら、この衝突だけ無視して貫通させる
+        if (smash != null && smash.IsSmashed)
+        {
+            Collider2D droneCol = GetComponent<Collider2D>();
+            Collider2D ballCol = collision.collider;
+
+            if (droneCol != null && ballCol != null)
+            {
+                Physics2D.IgnoreCollision(ballCol, droneCol, true);
+            }
+        }
+
         BreakDrone();
     }
 
-    public void BreakDrone()
+    private void BreakDrone()
     {
-        if (isBroken) return;
-        isBroken = true;
-
         if (hitEffectPrefab != null)
         {
             Instantiate(hitEffectPrefab, transform.position, transform.rotation);

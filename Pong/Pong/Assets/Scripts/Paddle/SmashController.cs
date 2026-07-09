@@ -64,9 +64,12 @@ public class SmashController : MonoBehaviour
     {
         isCharging = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
         cooldownTimer = cooldownTime;
 =======
 >>>>>>> parent of a243831 (a)
+=======
+>>>>>>> parent of 094f2fa (Merge pull request #42 from TakanoYamato22/sota2)
         StartCoroutine(ReturnX());
     }
 
