@@ -7,6 +7,10 @@ public class BossController : MonoBehaviour
     [Header("ScriptableObject ê›íË")]
     public BossData data;
 
+    [Header("UI")]
+    public Image backgroundUI;
+    public Slider hpSlider;
+
     [Header("Sprite HPÉoÅ[")]
     [SerializeField] private Transform hpFill;
 
@@ -43,14 +47,20 @@ public class BossController : MonoBehaviour
         moveRangeX = data.moveRangeX;
         moveRangeY = data.moveRangeY;
 
+        if (hpSlider != null)
+        {
+            hpSlider.maxValue = hp;
+            hpSlider.value = hp;
+        }
+
         if (hpFill != null)
         {
             hpFillStartScale = hpFill.localScale;
             hpFillStartPosition = hpFill.localPosition;
         }
 
-        if (gimmickRunner != null && data.gimmick != null)
-            gimmickRunner.SetGimmick(data.gimmick);
+        //if (gimmickRunner != null && data.gimmick != null)
+        //    gimmickRunner.SetGimmick(data.gimmick);
 
         if (damageManager != null)
         {
@@ -90,6 +100,10 @@ public class BossController : MonoBehaviour
 
         hp -= damage;
         hp = Mathf.Max(hp, 0);
+
+
+        if (hpSlider != null)
+            hpSlider.value = hp;
 
         if (hpFill != null)
         {

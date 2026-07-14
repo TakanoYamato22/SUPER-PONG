@@ -5,14 +5,15 @@ public class Player2Paddle : Paddle
     [Header("Player2 Key")]
     [SerializeField] private KeyCode upKey = KeyCode.UpArrow;
     [SerializeField] private KeyCode downKey = KeyCode.DownArrow;
-    [SerializeField] private KeyCode smashKey = KeyCode.LeftArrow;
+
+    [SerializeField] private SmashController smashController;
 
     public float limitY = 3.5f;
 
     private void FixedUpdate()
     {
-        // スマッシュキーを押している間は移動禁止
-        if (Input.GetKey(smashKey))
+        // スマッシュ中は上下移動禁止
+        if (smashController != null && smashController.IsCharging)
         {
             return;
         }

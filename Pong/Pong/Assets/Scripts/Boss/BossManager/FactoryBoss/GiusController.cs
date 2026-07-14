@@ -40,21 +40,25 @@ public class GiusController : MonoBehaviour
     public void Stun(float duration)
     {
         if (stunCoroutine != null)
+        {
             StopCoroutine(stunCoroutine);
+        }
 
         stunCoroutine = StartCoroutine(StunRoutine(duration));
     }
 
     private IEnumerator StunRoutine(float duration)
     {
+        canMove = false;
         isStunned = true;
-        Debug.Log("Bossスタン！");
 
         yield return new WaitForSeconds(duration);
 
         isStunned = false;
+        SetNewTarget();
+        canMove = true;
+
         stunCoroutine = null;
-        Debug.Log("Bossスタン終了");
     }
 
     private void Update()

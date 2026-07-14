@@ -6,7 +6,7 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    public float baseSpeed = 7f;
+    public float baseSpeed = 10f;
     public float maxSpeed = 25f;
     public float currentSpeed { get; private set; }
 
@@ -48,13 +48,6 @@ public class Ball : MonoBehaviour
             {
                 drone.BreakDrone();
             }
-
-            FixedDrone fixedDrone = hit.GetComponent<FixedDrone>();
-
-            if (fixedDrone != null)
-            {
-                Destroy(fixedDrone.gameObject);
-            }
         }
     }
 
@@ -63,9 +56,11 @@ public class Ball : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         rb.position = Vector2.zero;
 
-        var smash = GetComponent<BallSmashManager>();
+        BallSmashManager smash = GetComponent<BallSmashManager>();
         if (smash != null)
+        {
             smash.ResetSmash();
+        }
 
         ignoreMaxSpeed = false;
         currentSpeed = baseSpeed;
@@ -82,7 +77,6 @@ public class Ball : MonoBehaviour
         Vector2 direction = new Vector2(x, y).normalized;
 
         rb.linearVelocity = direction * baseSpeed;
-
         currentSpeed = baseSpeed;
     }
 
@@ -91,9 +85,13 @@ public class Ball : MonoBehaviour
         float target = currentSpeed + amount;
 
         if (ignoreMaxSpeed)
+        {
             currentSpeed = target;
+        }
         else
+        {
             currentSpeed = Mathf.Clamp(target, baseSpeed, maxSpeed);
+        }
 
         rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
     }
@@ -107,9 +105,13 @@ public class Ball : MonoBehaviour
     public void SetSpeed(float speed)
     {
         if (ignoreMaxSpeed)
+        {
             currentSpeed = speed;
+        }
         else
+        {
             currentSpeed = Mathf.Clamp(speed, baseSpeed, maxSpeed);
+        }
 
         rb.linearVelocity = rb.linearVelocity.normalized * currentSpeed;
     }
@@ -131,20 +133,5 @@ public class Ball : MonoBehaviour
         yield return new WaitForSeconds(delay);
         AddStartingForce();
     }
-
-
-    // ボールが何かに衝突した瞬間に自動で呼ばれる処理
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        BallSmashManager smash = GetComponent<BallSmashManager>();
-
-        if (smash == null || !smash.IsSmashed) return;
-
-        if (collision.CompareTag("Drone"))
-        {
-            Destroy(collision.gameObject);
-        }
-    }
- 
 
 }
