@@ -7,6 +7,7 @@ public class GiusAppearManager : MonoBehaviour
     [SerializeField] private BossController bossController;
     [SerializeField] private GiusController giusController;
 
+
     [Header("ìoèÍà íu")]
     [SerializeField] private Vector3 startPosition;
     [SerializeField] private Vector3 targetPosition;
@@ -17,7 +18,10 @@ public class GiusAppearManager : MonoBehaviour
     [Header("å¯â âπ")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip appearSE;
-
+    [SerializeField] private ParticleSystem spawnEffect;
+    [SerializeField] private ParticleSystem spawnEffect1;
+    [SerializeField] private ParticleSystem spawnEffect2;
+    [SerializeField] private ParticleSystem spawnEffect3;
     private void Start()
     {
         StartCoroutine(AppearCoroutine());
@@ -48,6 +52,16 @@ public class GiusAppearManager : MonoBehaviour
         }
 
         boss.position = targetPosition;
+
+        if (spawnEffect != null)
+        {
+            spawnEffect.transform.position = boss.position;
+
+            if (spawnEffect.isPlaying)
+                spawnEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+            spawnEffect.Play();
+        }
 
         Time.timeScale = 1f;
 
