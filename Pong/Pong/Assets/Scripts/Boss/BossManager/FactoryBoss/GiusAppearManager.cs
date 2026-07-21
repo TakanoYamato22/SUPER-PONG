@@ -3,31 +3,32 @@ using UnityEngine;
 
 public class GiusAppearManager : MonoBehaviour
 {
-    [Header("ƒ{ƒXİ’è")]
+    [Header("ï¿½{ï¿½Xï¿½İ’ï¿½")]
     [SerializeField] private Transform boss;
     [SerializeField] private BossController bossController;
     [SerializeField] private GiusController giusController;
 
-    [Header("“oêˆÊ’u")]
+
+    [Header("ï¿½oï¿½ï¿½Ê’u")]
     [SerializeField] private Vector3 startPosition;
 
-    [Tooltip("“oêŒã‚É~‚Ü‚éˆÊ’uBY‚ğ2‚É‚µ‚½‚¢ê‡‚ÍY‚ğ2‚Éİ’è")]
+    [Tooltip("ï¿½oï¿½ï¿½ï¿½É~ï¿½Ü‚ï¿½Ê’uï¿½BYï¿½ï¿½2ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ï¿½Yï¿½ï¿½2ï¿½Éİ’ï¿½")]
     [SerializeField]
     private Vector3 targetPosition =
         new Vector3(0f, 2f, 0f);
 
-    [Header("“oêˆÚ“®")]
-    [Tooltip("ŠJnˆÊ’u‚©‚ç“oêˆÊ’u‚Ü‚ÅˆÚ“®‚·‚éŠÔ")]
+    [Header("ï¿½oï¿½ï¿½Ú“ï¿½")]
+    [Tooltip("ï¿½Jï¿½nï¿½Ê’uï¿½ï¿½ï¿½ï¿½oï¿½ï¿½Ê’uï¿½Ü‚ÅˆÚ“ï¿½ï¿½ï¿½ï¿½éï¿½ï¿½")]
     [SerializeField] private float appearTime = 1.5f;
 
-    [Header("“oêŠ®—¹Effect")]
-    [Tooltip("Hierarchyã‚É’u‚¢‚½“oêEffect‚Ìƒ‹[ƒg")]
+    [Header("ï¿½oï¿½êŠ®ï¿½ï¿½Effect")]
+    [Tooltip("Hierarchyï¿½ï¿½É’uï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½Effectï¿½Ìƒï¿½ï¿½[ï¿½g")]
     [SerializeField] private GameObject appearEffectRoot;
 
-    [Tooltip("EffectÄ¶ŒãAˆÚ“®ŠJn‚Ü‚Å‘Ò‚ÂŠÔ")]
+    [Tooltip("Effectï¿½Äï¿½ï¿½ï¿½Aï¿½Ú“ï¿½ï¿½Jï¿½nï¿½Ü‚Å‘Ò‚Âï¿½ï¿½ï¿½")]
     [SerializeField] private float effectWaitTime = 0.8f;
 
-    [Header("Œø‰Ê‰¹")]
+    [Header("ï¿½ï¿½ï¿½Ê‰ï¿½")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip appearSE;
 
@@ -54,7 +55,7 @@ public class GiusAppearManager : MonoBehaviour
         if (boss == null)
         {
             Debug.LogWarning(
-                "GiusAppearManagerFBoss‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñI",
+                "GiusAppearManagerï¿½FBossï¿½ï¿½ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½I",
                 this
             );
 
@@ -65,10 +66,10 @@ public class GiusAppearManager : MonoBehaviour
 
         savedTimeScale = Time.timeScale;
 
-        // GiusˆÈŠO‚ÌŠÔ‚ğ’â~
+        // Giusï¿½ÈŠOï¿½Ìï¿½ï¿½Ô‚ï¿½ï¿½~
         Time.timeScale = 0f;
 
-        // “oê’†‚Íí“¬ˆ—‚ğ’â~
+        // ï¿½oï¿½ê’†ï¿½Íí“¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~
         if (bossController != null)
         {
             bossController.SetBattleStarted(false);
@@ -86,7 +87,7 @@ public class GiusAppearManager : MonoBehaviour
         float safeAppearTime =
             Mathf.Max(0.01f, appearTime);
 
-        // ŠJnˆÊ’u‚©‚çtargetPosition‚Ü‚Å“oê
+        // ï¿½Jï¿½nï¿½Ê’uï¿½ï¿½ï¿½ï¿½targetPositionï¿½Ü‚Å“oï¿½ï¿½
         while (timer < safeAppearTime)
         {
             timer += Time.unscaledDeltaTime;
@@ -107,36 +108,36 @@ public class GiusAppearManager : MonoBehaviour
             yield return null;
         }
 
-        // •K‚¸–Ú“I’n‚É‡‚í‚¹‚é
+        // ï¿½Kï¿½ï¿½ï¿½Ú“Iï¿½nï¿½Éï¿½ï¿½í‚¹ï¿½ï¿½
         boss.position = targetPosition;
 
         Debug.Log(
-            $"GiusF“oêˆÊ’u‚É“’… Y={boss.position.y}",
+            $"Giusï¿½Fï¿½oï¿½ï¿½Ê’uï¿½É“ï¿½ï¿½ï¿½ Y={boss.position.y}",
             this
         );
 
-        // Y=2•t‹ß‚É“’…‚µ‚½‚ ‚ÆEffectÄ¶
+        // Y=2ï¿½tï¿½ß‚É“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Effectï¿½Äï¿½
         PlayAppearEffect();
 
-        // TimeScale‚ª0‚Å‚à‘Ò‚Ä‚é
+        // TimeScaleï¿½ï¿½0ï¿½Å‚ï¿½ï¿½Ò‚Ä‚ï¿½
         yield return new WaitForSecondsRealtime(
             effectWaitTime
         );
 
         StopAppearEffect();
 
-        // EffectI—¹Œã‚ÉƒQ[ƒ€‘S‘Ì‚ğÄŠJ
+        // Effectï¿½Iï¿½ï¿½ï¿½ï¿½ÉƒQï¿½[ï¿½ï¿½ï¿½Sï¿½Ì‚ï¿½ï¿½ÄŠJ
         RestoreTimeScale();
 
         appearing = false;
 
-        // Effect‚ªI‚í‚Á‚Ä‚©‚çˆÚ“®ŠJn
+        // Effectï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ú“ï¿½ï¿½Jï¿½n
         if (giusController != null)
         {
             giusController.StartMove();
         }
 
-        // Effect‚ªI‚í‚Á‚Ä‚©‚çí“¬ŠJn
+        // Effectï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½í“¬ï¿½Jï¿½n
         if (bossController != null)
         {
             bossController.SetBattleStarted(true);
@@ -145,7 +146,7 @@ public class GiusAppearManager : MonoBehaviour
         appearCoroutine = null;
 
         Debug.Log(
-            "GiusF“oêEffectI—¹AˆÚ“®Eí“¬ŠJn",
+            "Giusï¿½Fï¿½oï¿½ï¿½Effectï¿½Iï¿½ï¿½ï¿½Aï¿½Ú“ï¿½ï¿½Eï¿½í“¬ï¿½Jï¿½n",
             this
         );
     }
@@ -155,7 +156,7 @@ public class GiusAppearManager : MonoBehaviour
         if (appearEffectRoot == null)
         {
             Debug.LogWarning(
-                "Appear Effect Root‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB",
+                "Appear Effect Rootï¿½ï¿½ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B",
                 this
             );
 
@@ -173,7 +174,7 @@ public class GiusAppearManager : MonoBehaviour
             appearParticles.Length == 0)
         {
             Debug.LogWarning(
-                "Appear Effect Root“à‚ÉParticle System‚ª‚ ‚è‚Ü‚¹‚ñB",
+                "Appear Effect Rootï¿½ï¿½ï¿½ï¿½Particle Systemï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B",
                 appearEffectRoot
             );
 
@@ -190,7 +191,7 @@ public class GiusAppearManager : MonoBehaviour
             ParticleSystem.MainModule main =
                 particle.main;
 
-            // Time.timeScale = 0‚Å‚à“®‚©‚·
+            // Time.timeScale = 0ï¿½Å‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             main.useUnscaledTime = true;
 
             particle.Stop(
@@ -200,7 +201,7 @@ public class GiusAppearManager : MonoBehaviour
         }
 
         Debug.Log(
-            $"Gius“oêEffect‰Šú‰»FParticle” {appearParticles.Length}",
+            $"Giusï¿½oï¿½ï¿½Effectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½FParticleï¿½ï¿½ {appearParticles.Length}",
             appearEffectRoot
         );
     }
@@ -210,7 +211,7 @@ public class GiusAppearManager : MonoBehaviour
         if (appearEffectRoot == null)
         {
             Debug.LogWarning(
-                "Appear Effect Root‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB",
+                "Appear Effect Rootï¿½ï¿½ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B",
                 this
             );
 
@@ -219,7 +220,7 @@ public class GiusAppearManager : MonoBehaviour
 
         appearEffectRoot.SetActive(true);
 
-        // Effect‚ğƒ{ƒX‚Ì“oêˆÊ’u‚Ö‡‚í‚¹‚é
+        // Effectï¿½ï¿½ï¿½{ï¿½Xï¿½Ì“oï¿½ï¿½Ê’uï¿½Öï¿½ï¿½í‚¹ï¿½ï¿½
         appearEffectRoot.transform.position =
             boss.position;
 
@@ -236,7 +237,7 @@ public class GiusAppearManager : MonoBehaviour
             appearParticles.Length == 0)
         {
             Debug.LogWarning(
-                "Ä¶‚Å‚«‚éParticle System‚ª‚ ‚è‚Ü‚¹‚ñB",
+                "ï¿½Äï¿½ï¿½Å‚ï¿½ï¿½ï¿½Particle Systemï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B",
                 appearEffectRoot
             );
 
@@ -267,7 +268,7 @@ public class GiusAppearManager : MonoBehaviour
         }
 
         Debug.Log(
-            $"Gius“oêEffectÄ¶FParticle” {appearParticles.Length}",
+            $"Giusï¿½oï¿½ï¿½Effectï¿½Äï¿½ï¿½FParticleï¿½ï¿½ {appearParticles.Length}",
             appearEffectRoot
         );
     }

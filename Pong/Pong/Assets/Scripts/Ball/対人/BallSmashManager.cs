@@ -2,26 +2,30 @@ using UnityEngine;
 
 [RequireComponent(typeof(Ball))]
 public class BallSmashManager : MonoBehaviour
+
 {
-    [Header("ƒXƒ}ƒbƒVƒ…İ’è")]
+    [Header("ï¿½Xï¿½}ï¿½bï¿½Vï¿½ï¿½ï¿½İ’ï¿½")]
     [SerializeField]
     private float smashBoost = 5f;
 
-    [Header("ƒXƒ}ƒbƒVƒ…ê—pTrigger")]
+    [Header("ï¿½Xï¿½}ï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½pTrigger")]
     [SerializeField]
     private GameObject smashTrigger;
 
-    [Header("Layer–¼")]
+    [Header("Layerï¿½ï¿½")]
     [SerializeField]
     private string normalLayerName = "Ball";
 
     [SerializeField]
     private string smashLayerName = "SmashBall";
 
+
     private Ball ball;
+
     private SpriteRenderer spriteRenderer;
 
     private Color defaultColor;
+
     private float beforeSmashSpeed;
 
     private int normalLayer;
@@ -34,7 +38,9 @@ public class BallSmashManager : MonoBehaviour
     }
 
     private void Awake()
+
     {
+
         ball = GetComponent<Ball>();
 
         spriteRenderer =
@@ -49,7 +55,7 @@ public class BallSmashManager : MonoBehaviour
         if (normalLayer == -1)
         {
             Debug.LogError(
-                $"Layeru{normalLayerName}v‚ª‚ ‚è‚Ü‚¹‚ñB",
+                $"Layerï¿½u{normalLayerName}ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B",
                 this
             );
         }
@@ -57,7 +63,7 @@ public class BallSmashManager : MonoBehaviour
         if (smashLayer == -1)
         {
             Debug.LogError(
-                $"Layeru{smashLayerName}v‚ª‚ ‚è‚Ü‚¹‚ñB",
+                $"Layerï¿½u{smashLayerName}ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B",
                 this
             );
         }
@@ -65,16 +71,18 @@ public class BallSmashManager : MonoBehaviour
         if (smashTrigger == null)
         {
             Debug.LogError(
-                "Smash Trigger‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB",
+                "Smash Triggerï¿½ï¿½ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B",
                 this
             );
         }
 
         if (spriteRenderer != null)
+
         {
             defaultColor =
                 spriteRenderer.color;
         }
+
     }
 
     private void Start()
@@ -83,11 +91,13 @@ public class BallSmashManager : MonoBehaviour
     }
 
     public void ApplySmash()
+
     {
         StartSmash();
     }
 
     public void SmashReturn()
+
     {
         StartSmash();
     }
@@ -115,6 +125,7 @@ public class BallSmashManager : MonoBehaviour
         }
 
         ball.ignoreMaxSpeed = true;
+
         ball.IncreaseSpeed(smashBoost);
 
         if (spriteRenderer != null)
@@ -130,6 +141,7 @@ public class BallSmashManager : MonoBehaviour
     }
 
     public void EndSmash()
+
     {
         if (ball == null)
         {
@@ -146,13 +158,17 @@ public class BallSmashManager : MonoBehaviour
         SetBallLayer(normalLayer);
 
         ball.ignoreMaxSpeed = false;
+
         ball.SetSpeed(beforeSmashSpeed);
 
         ResetColor();
+
     }
 
     public void ResetSmash()
+
     {
+
         IsSmashed = false;
 
         if (smashTrigger != null)
@@ -163,11 +179,15 @@ public class BallSmashManager : MonoBehaviour
         SetBallLayer(normalLayer);
 
         if (ball != null)
+
         {
+
             ball.ignoreMaxSpeed = false;
+
         }
 
         ResetColor();
+
     }
 
     private void SetBallLayer(int layer)
@@ -178,18 +198,23 @@ public class BallSmashManager : MonoBehaviour
         }
 
         /*
-         * e‚ÌBall‚¾‚¯•ÏX‚·‚éB
-         * SmashTrigger‚ÌLayer‚Í•ÏX‚µ‚È‚¢B
+         * ï¿½eï¿½ï¿½Ballï¿½ï¿½ï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½ï¿½B
+         * SmashTriggerï¿½ï¿½Layerï¿½Í•ÏXï¿½ï¿½ï¿½È‚ï¿½ï¿½B
          */
         gameObject.layer = layer;
     }
 
     private void ResetColor()
+
     {
+
         if (spriteRenderer != null)
+
         {
             spriteRenderer.color =
                 defaultColor;
         }
+
     }
+
 }
