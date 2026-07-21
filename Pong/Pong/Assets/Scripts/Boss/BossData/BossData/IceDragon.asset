@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88793690cf8a5364bb44388ea14c5d28, type: 3}
-  m_Name: Gius 1
+  m_Name: IceDragon
   m_EditorClassIdentifier: 
   bossName: Dragon
-  maxHP: 250
+  maxHP: 100
   moveSpeed: 10
   moveRangeX: 8
   moveRangeY: 6
-  gimmick: {fileID: 0}
+  bossBGM: {fileID: 8300000, guid: e3ce6c01172d939448ed757823f97a46, type: 3}
+  bossPrefab: {fileID: 0}

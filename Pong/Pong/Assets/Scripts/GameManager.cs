@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         ball.ResetPosition();
 
         CancelInvoke();
-        Invoke(nameof(StartRound), 1f);
+        Invoke(nameof(StartRound), 2.3f);
     }
 
     private void StartRound()

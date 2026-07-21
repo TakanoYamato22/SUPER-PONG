@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BossBall : MonoBehaviour
+public class FactoryBossBall : MonoBehaviour
 {
     [SerializeField] private Ball ball;
     public float speedReduceRate = 0.95f;
