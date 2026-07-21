@@ -1432,12 +1432,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1265becd284ee5e44b49712f3a23ee97, type: 3}
---- !u!1 &717838361 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2164996326163876320, guid: bbb69426c163de942a0dac2c5673db4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1535402835}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &717838362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 713423955578405517, guid: bbb69426c163de942a0dac2c5673db4e,
@@ -1550,6 +1544,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &780007777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 780007779}
+  - component: {fileID: 780007778}
+  m_Layer: 0
+  m_Name: PaddleModeChanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &780007778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780007777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de4c428c8e1ccb4385616e137e3d180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  computerPaddle: {fileID: 0}
+  player2Paddle: {fileID: 1362602735}
+  player2SmashController: {fileID: 0}
+--- !u!4 &780007779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780007777}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.6181977, y: -0.59902006, z: -0.013173049}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &785049979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,6 +2456,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1152683584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8879848542567140356, guid: 71320cef9784a5445b533d647bcac5db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1558083682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1188558001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,9 +2654,9 @@ MonoBehaviour:
   startPosition: {x: 0, y: 8, z: 0}
   targetPosition: {x: 0, y: 2, z: 0}
   appearTime: 4
-  appearEffectRoot: {fileID: 717838361}
+  appearEffectRoot: {fileID: 1542587218}
   effectWaitTime: 0.8
-  audioSource: {fileID: 1234189438}
+  audioSource: {fileID: 0}
   appearSE: {fileID: 8300000, guid: 63962c56ac1dee343b4ee267da76b6c3, type: 3}
 --- !u!114 &1234189434
 MonoBehaviour:
@@ -2626,8 +2673,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1234189436}
   hitFlashTime: 0.7
   hitInvincibleTime: 1.5
-  hitEffectRoot: {fileID: 1588176719}
-  smashEffectRoot: {fileID: 1588176719}
+  hitEffectRoot: {fileID: 1152683584}
+  smashEffectRoot: {fileID: 0}
 --- !u!114 &1234189435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2662,103 +2709,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2237087590040531784}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1234189438
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234189429}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 63962c56ac1dee343b4ee267da76b6c3, type: 3}
-  m_Resource: {fileID: 8300000, guid: 63962c56ac1dee343b4ee267da76b6c3, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1237810576
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,7 +2890,9 @@ GameObject:
   - component: {fileID: 1362602733}
   - component: {fileID: 1362602735}
   - component: {fileID: 1362602737}
+  - component: {fileID: 1362602739}
   - component: {fileID: 1362602738}
+  - component: {fileID: 1362602740}
   m_Layer: 0
   m_Name: Computer Paddle
   m_TagString: Paddle
@@ -3054,7 +3006,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362602725}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2c66bb1aa5055643be7d334cf5a3063, type: 3}
   m_Name: 
@@ -3169,7 +3121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befcd11969500484286e3cdc0de06741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 11
   inertiaEnabled: 0
   acceleration: 18
   deceleration: 7
@@ -3177,7 +3129,7 @@ MonoBehaviour:
   smashPower: 5
   upKey: 273
   downKey: 274
-  smashController: {fileID: 1362602738}
+  smashController: {fileID: 1362602740}
   limitY: 4.25
 --- !u!114 &1362602737
 MonoBehaviour:
@@ -3193,6 +3145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   computerPaddle: {fileID: 1362602729}
   player2Paddle: {fileID: 1362602735}
+  player2SmashController: {fileID: 1362602740}
 --- !u!114 &1362602738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3202,15 +3155,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 1362602725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d05bb50171161458592e0266ddd325, type: 3}
+  m_Script: {fileID: 11500000, guid: 510181352c4a01d4cb21a949096a556b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashBoost: 5
+  smashTrigger: {fileID: 0}
+  normalLayerName: Ball
+  smashLayerName: SmashBall
+--- !u!114 &1362602739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362602725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b2399eb776bf94e908930cf937f564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 10
+  maxSpeed: 25
+  ignoreMaxSpeed: 0
+  hasPowerUp: 0
+  powerMultiplier: 1.5
+  smashBreakRadius: 0.35
+  droneLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  hitEffect: {fileID: 0}
+  smashEffect: {fileID: 0}
+--- !u!114 &1362602740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362602725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1345d4dcd8583540b57da6dc6db7ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   smashKey: 276
   smashZone: {fileID: 1859380444}
-  moveDistance: -0.3
+  moveDistance: -0.5
   moveSpeed: 12
   smashDirection: 1
-  cooldownTime: 2
+  cooldownTime: 7
 --- !u!1 &1439415306
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,12 +3536,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535292063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d05bb50171161458592e0266ddd325, type: 3}
+  m_Script: {fileID: 11500000, guid: d1345d4dcd8583540b57da6dc6db7ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   smashKey: 100
   smashZone: {fileID: 2110575263}
-  moveDistance: 0.3
+  moveDistance: 0.5
   moveSpeed: 12
   smashDirection: 1
   cooldownTime: 7
@@ -3698,6 +3690,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1138445614}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1542587218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2164996326163876320, guid: bbb69426c163de942a0dac2c5673db4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1535402835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1558083682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3781,12 +3779,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71320cef9784a5445b533d647bcac5db, type: 3}
---- !u!1 &1588176719 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8879848542567140356, guid: 71320cef9784a5445b533d647bcac5db,
-    type: 3}
-  m_PrefabInstance: {fileID: 1558083682}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1588176720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2591021759746791847, guid: 71320cef9784a5445b533d647bcac5db,
@@ -5161,10 +5153,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1234189430}
-    - targetCorrespondingSourceObject: {fileID: 3135166596759447162, guid: ed38d83e92ee34c4992b84611d0f620e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1234189438}
   m_SourcePrefab: {fileID: 100100000, guid: ed38d83e92ee34c4992b84611d0f620e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -5184,6 +5172,6 @@ SceneRoots:
   - {fileID: 991212067}
   - {fileID: 558072217}
   - {fileID: 2237087590040531784}
-
   - {fileID: 1952397946}
   - {fileID: 1938468442}
+  - {fileID: 780007779}

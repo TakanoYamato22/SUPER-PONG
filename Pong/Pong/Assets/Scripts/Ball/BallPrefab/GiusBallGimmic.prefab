@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2458753973727538113}
   - component: {fileID: 2537644325896584011}
   - component: {fileID: -4729030055955660069}
+  - component: {fileID: 5074433668407559952}
   m_Layer: 0
   m_Name: GiusBallGimmic
   m_TagString: Gimmic
@@ -150,7 +151,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -179,6 +180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smashBoost: 5
+  smashTrigger: {fileID: 0}
+  normalLayerName: Ball
+  smashLayerName: SmashBall
 --- !u!114 &2537644325896584011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +208,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keepSpeed: 3
+--- !u!114 &5074433668407559952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941777898206123808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b2399eb776bf94e908930cf937f564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 10
+  maxSpeed: 25
+  ignoreMaxSpeed: 0
+  hasPowerUp: 0
+  powerMultiplier: 1.5
+  smashBreakRadius: 0.35
+  droneLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  hitEffect: {fileID: 0}
+  smashEffect: {fileID: 0}

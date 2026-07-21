@@ -2885,7 +2885,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362602725}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2c66bb1aa5055643be7d334cf5a3063, type: 3}
   m_Name: 
@@ -3022,8 +3022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de4c428c8e1ccb4385616e137e3d180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  computerPaddle: {fileID: 1362602729}
   player2Paddle: {fileID: 1362602735}
+  player2SmashController: {fileID: 1362602738}
 --- !u!114 &1362602738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3033,12 +3033,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1362602725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d05bb50171161458592e0266ddd325, type: 3}
+  m_Script: {fileID: 11500000, guid: d1345d4dcd8583540b57da6dc6db7ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   smashKey: 276
   smashZone: {fileID: 1859380444}
-  moveDistance: -0.3
+  moveDistance: -0.5
   moveSpeed: 12
   smashDirection: 1
   cooldownTime: 7
@@ -3495,12 +3495,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535292063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d05bb50171161458592e0266ddd325, type: 3}
+  m_Script: {fileID: 11500000, guid: d1345d4dcd8583540b57da6dc6db7ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   smashKey: 100
   smashZone: {fileID: 2110575263}
-  moveDistance: 0.3
+  moveDistance: 0.5
   moveSpeed: 12
   smashDirection: 1
   cooldownTime: 7
@@ -3691,7 +3691,7 @@ GameObject:
   - component: {fileID: 1682034780}
   - component: {fileID: 1682034781}
   - component: {fileID: 1682034782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VolcenoBall
   m_TagString: Ball
   m_Icon: {fileID: 0}

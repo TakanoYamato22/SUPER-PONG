@@ -70,10 +70,7 @@ public class BallSmashManager : MonoBehaviour
 
         if (smashTrigger == null)
         {
-            Debug.LogError(
-                "Smash Trigger���ݒ肳��Ă��܂���B",
-                this
-            );
+          
         }
 
         if (spriteRenderer != null)
@@ -197,10 +194,6 @@ public class BallSmashManager : MonoBehaviour
             return;
         }
 
-        /*
-         * �e��Ball�����ύX����B
-         * SmashTrigger��Layer�͕ύX���Ȃ��B
-         */
         gameObject.layer = layer;
     }
 

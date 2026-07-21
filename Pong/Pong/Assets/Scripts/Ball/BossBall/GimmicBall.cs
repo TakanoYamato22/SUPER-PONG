@@ -17,7 +17,19 @@ public class GimmickBall : MonoBehaviour
 
         if (rb.linearVelocity.sqrMagnitude > 0.01f)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * keepSpeed;
+            rb.linearVelocity =
+                rb.linearVelocity.normalized * keepSpeed;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Paddle")) return;
+
+        Vector2 velocity = rb.linearVelocity;
+        velocity.x *= -1f;
+
+        rb.linearVelocity =
+            velocity.normalized * keepSpeed;
     }
 }
