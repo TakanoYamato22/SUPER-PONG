@@ -45,7 +45,7 @@ public class CharacterApplier : MonoBehaviour
         {
             paddle.speed = data.moveSpeed;
             paddle.smashPower = data.smashPower;
-            paddle.smashDashDistance = data.smashDashDistance;
+            //paddle.smashDashDistance = data.smashDashDistance;
         }
 
         // パドルの縦サイズ変更
