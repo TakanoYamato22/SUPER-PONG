@@ -33,7 +33,7 @@ public class SmashController : MonoBehaviour
     // ==================================================
 
     [Header("Cooldown")]
-    [SerializeField] private float cooldownTime = 2f;
+    [SerializeField] private float cooldownTime = 7f;
 
     private bool isCharging;
     private bool isMoving;

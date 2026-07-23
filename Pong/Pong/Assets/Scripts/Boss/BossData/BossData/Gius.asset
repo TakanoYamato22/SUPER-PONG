@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gius
   m_EditorClassIdentifier: 
   bossName: Gius
-  maxHP: 100
+  maxHP: 450
   moveSpeed: 1
   moveRangeX: 8
   moveRangeY: 8

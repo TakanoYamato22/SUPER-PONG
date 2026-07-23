@@ -1,10 +1,23 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Ball))]
 public class BallSmashManager : MonoBehaviour
 
 {
+    [Header("�X�}�b�V���ݒ�")]
+    [SerializeField]
+    private float smashBoost = 5f;
 
-    [SerializeField] private float smashBoost = 5f;
+    [Header("�X�}�b�V����pTrigger")]
+    [SerializeField]
+    private GameObject smashTrigger;
+
+    [Header("Layer��")]
+    [SerializeField]
+    private string normalLayerName = "Ball";
+
+    [SerializeField]
+    private string smashLayerName = "SmashBall";
 
 
     private Ball ball;
@@ -15,71 +28,129 @@ public class BallSmashManager : MonoBehaviour
 
     private float beforeSmashSpeed;
 
-    public bool IsSmashed { get; private set; }
+    private int normalLayer;
+    private int smashLayer;
+
+    public bool IsSmashed
+    {
+        get;
+        private set;
+    }
 
     private void Awake()
-
     {
-
         ball = GetComponent<Ball>();
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        // 子オブジェクトのBallVisualからSpriteRendererを取得
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        if (spriteRenderer != null)
+        normalLayer =
+            LayerMask.NameToLayer(normalLayerName);
 
+        smashLayer =
+            LayerMask.NameToLayer(smashLayerName);
+
+        if (normalLayer == -1)
         {
-
-            defaultColor = spriteRenderer.color;
-
+            Debug.LogError(
+                $"Layer「{normalLayerName}」がありません。",
+                this
+            );
         }
 
+        if (smashLayer == -1)
+        {
+            Debug.LogError(
+                $"Layer「{smashLayerName}」がありません。",
+                this
+            );
+        }
+
+        if (spriteRenderer != null)
+        {
+            defaultColor = spriteRenderer.color;
+        }
+        else
+        {
+            Debug.LogError(
+                "BallVisualのSpriteRendererが見つかりません。",
+                this
+            );
+        }
+    }
+
+    private void Start()
+    {
+        ResetSmash();
     }
 
     public void ApplySmash()
 
     {
-
-        if (ball == null) return;
-
-        if (!IsSmashed)
-
-        {
-
-            beforeSmashSpeed = ball.currentSpeed;
-
-        }
-
-        IsSmashed = true;
-        ball.ignoreMaxSpeed = true;
-
-        ball.IncreaseSpeed(smashBoost);
-
-        SetColor(Color.red);
-
+        StartSmash();
     }
 
     public void SmashReturn()
 
     {
+        StartSmash();
+    }
 
-        if (ball == null) return;
+    private void StartSmash()
+    {
+        if (ball == null)
+        {
+            return;
+        }
+
+        if (!IsSmashed)
+        {
+            beforeSmashSpeed =
+                ball.currentSpeed;
+        }
 
         IsSmashed = true;
+
+        SetBallLayer(smashLayer);
+
+        if (smashTrigger != null)
+        {
+            smashTrigger.SetActive(true);
+        }
+
         ball.ignoreMaxSpeed = true;
 
         ball.IncreaseSpeed(smashBoost);
 
-        SetColor(Color.red);
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color =
+                Color.red;
+        }
 
+        if (ball.smashEffect != null)
+        {
+            ball.smashEffect.Play();
+        }
     }
 
     public void EndSmash()
 
     {
-
-        if (ball == null) return;
+        if (ball == null)
+        {
+            return;
+        }
 
         IsSmashed = false;
+
+        if (smashTrigger != null)
+        {
+            smashTrigger.SetActive(false);
+        }
+
+        SetBallLayer(normalLayer);
+
         ball.ignoreMaxSpeed = false;
 
         ball.SetSpeed(beforeSmashSpeed);
@@ -94,6 +165,13 @@ public class BallSmashManager : MonoBehaviour
 
         IsSmashed = false;
 
+        if (smashTrigger != null)
+        {
+            smashTrigger.SetActive(false);
+        }
+
+        SetBallLayer(normalLayer);
+
         if (ball != null)
 
         {
@@ -106,18 +184,14 @@ public class BallSmashManager : MonoBehaviour
 
     }
 
-    private void SetColor(Color color)
-
+    private void SetBallLayer(int layer)
     {
-
-        if (spriteRenderer != null)
-
+        if (layer == -1)
         {
-
-            spriteRenderer.color = color;
-
+            return;
         }
 
+        gameObject.layer = layer;
     }
 
     private void ResetColor()
@@ -127,9 +201,8 @@ public class BallSmashManager : MonoBehaviour
         if (spriteRenderer != null)
 
         {
-
-            spriteRenderer.color = defaultColor;
-
+            spriteRenderer.color =
+                defaultColor;
         }
 
     }

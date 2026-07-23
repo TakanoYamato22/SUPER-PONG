@@ -409,7 +409,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shocko1_atlas_[1]_00000_0: 7431468397607026251
+      shocko1_atlas_[1]_00000_1: -4142361031370334517
+      shocko1_atlas_[1]_00000_10: -2365758237239474034
+      shocko1_atlas_[1]_00000_11: -2641910085767095913
+      shocko1_atlas_[1]_00000_2: 3887365191554009388
+      shocko1_atlas_[1]_00000_3: 9034381653370276887
+      shocko1_atlas_[1]_00000_4: 2580556418305247268
+      shocko1_atlas_[1]_00000_5: -4386339741973935102
+      shocko1_atlas_[1]_00000_6: 3504962360351128894
+      shocko1_atlas_[1]_00000_7: -7022887107048905224
+      shocko1_atlas_[1]_00000_8: -5244201275845339927
+      shocko1_atlas_[1]_00000_9: -4811887847495170395
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

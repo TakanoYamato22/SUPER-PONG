@@ -2,14 +2,28 @@ using UnityEngine;
 
 public class Drone : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private float areaX = 8f;
-    [SerializeField] private float areaY = 8f;
-    [SerializeField] private float changeTargetDistance = 0.2f;
-    [SerializeField] private AudioClip itemSound;
-    [SerializeField] private GameObject hitEffectPrefab;
+    [Header("移動")]
+    [SerializeField]
+    private float moveSpeed = 3f;
 
-    private Vector2 targetPos;
+    [SerializeField]
+    private float areaX = 8f;
+
+    [SerializeField]
+    private float areaY = 8f;
+
+    [SerializeField]
+    private float changeTargetDistance = 0.2f;
+
+    [Header("破壊演出")]
+    [SerializeField]
+    private AudioClip itemSound;
+
+    [SerializeField]
+    private GameObject hitEffectPrefab;
+
+    private Vector2 targetPosition;
+    private bool isBroken;
 
     private void Start()
     {
@@ -18,13 +32,25 @@ public class Drone : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(
-            transform.position,
-            targetPos,
-            moveSpeed * Time.deltaTime
-        );
+        if (isBroken)
+        {
+            return;
+        }
 
-        if (Vector2.Distance(transform.position, targetPos) <= changeTargetDistance)
+        transform.position =
+            Vector2.MoveTowards(
+                transform.position,
+                targetPosition,
+                moveSpeed * Time.deltaTime
+            );
+
+        float distance =
+            Vector2.Distance(
+                transform.position,
+                targetPosition
+            );
+
+        if (distance <= changeTargetDistance)
         {
             SetRandomTarget();
         }
@@ -32,44 +58,68 @@ public class Drone : MonoBehaviour
 
     private void SetRandomTarget()
     {
-        targetPos = new Vector2(
-            Random.Range(-areaX, areaX),
-            Random.Range(-areaY, areaY)
-        );
+        targetPosition =
+            new Vector2(
+                Random.Range(-areaX, areaX),
+                Random.Range(-areaY, areaY)
+            );
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*
+     * 通常Ballとの物理衝突。
+     * Ballは反射し、Droneは壊れる。
+     */
+    private void OnCollisionEnter2D(
+        Collision2D collision
+    )
     {
-        if (!collision.gameObject.CompareTag("Ball")) return;
+        Ball ball =
+            collision.gameObject
+                .GetComponentInParent<Ball>();
 
-        BallSmashManager smash =
-            collision.gameObject.GetComponent<BallSmashManager>();
-
-        // スマッシュ中なら、この衝突だけ無視して貫通させる
-        if (smash != null && smash.IsSmashed)
+        if (ball == null)
         {
-            Collider2D droneCol = GetComponent<Collider2D>();
-            Collider2D ballCol = collision.collider;
-
-            if (droneCol != null && ballCol != null)
-            {
-                Physics2D.IgnoreCollision(ballCol, droneCol, true);
-            }
+            return;
         }
 
         BreakDrone();
     }
 
+    /*
+     * 通常衝突とスマッシュTriggerの両方から呼ばれる。
+     */
     public void BreakDrone()
     {
+        if (isBroken)
+        {
+            return;
+        }
+
+        isBroken = true;
+
+        Collider2D[] colliders =
+            GetComponentsInChildren<Collider2D>();
+
+        foreach (Collider2D col in colliders)
+        {
+            col.enabled = false;
+        }
+
         if (hitEffectPrefab != null)
         {
-            Instantiate(hitEffectPrefab, transform.position, transform.rotation);
+            Instantiate(
+                hitEffectPrefab,
+                transform.position,
+                Quaternion.identity
+            );
         }
 
         if (itemSound != null)
         {
-            AudioSource.PlayClipAtPoint(itemSound, transform.position);
+            AudioSource.PlayClipAtPoint(
+                itemSound,
+                transform.position
+            );
         }
 
         Destroy(gameObject);
