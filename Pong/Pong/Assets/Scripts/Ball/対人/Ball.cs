@@ -133,6 +133,7 @@ public class Ball : MonoBehaviour
         yield return new WaitForSeconds(delay);
         AddStartingForce();
     }
+
     public void ApplyCharacterSpeedMultiplier(
     float multiplier,
     bool allowBelowBaseSpeed
@@ -170,4 +171,5 @@ public class Ball : MonoBehaviour
                 currentSpeed;
         }
     }
+
 }
