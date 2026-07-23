@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681ef73ac5de075409bb00d95abdefec, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Heal
   icon: {fileID: -1049461823314036041, guid: 1f06b942d30c9494eb7f11b0ff44a1c8, type: 3}
   itemType: 1
   value: 1
   duration: 5
+  cooldown: 10

@@ -145,8 +145,9 @@ public class CharacterSelectMenu : MonoBehaviour
             p1Icon.sprite = data.icon;
             p1Icon.color = data.paddleColor;
             p1Icon.enabled = true;
-
             p1NameText.text = data.characterName;
+
+            Debug.Log("1Pキャラ番号を保存: " + p1Index);
         }
         else
         {
@@ -160,8 +161,9 @@ public class CharacterSelectMenu : MonoBehaviour
             p2Icon.sprite = data.icon;
             p2Icon.color = data.paddleColor;
             p2Icon.enabled = true;
-
             p2NameText.text = data.characterName;
+
+            Debug.Log("2Pキャラ番号を保存: " + p2Index);
         }
     }
 

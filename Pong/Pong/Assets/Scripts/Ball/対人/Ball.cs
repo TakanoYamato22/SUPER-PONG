@@ -134,4 +134,42 @@ public class Ball : MonoBehaviour
         AddStartingForce();
     }
 
+    public void ApplyCharacterSpeedMultiplier(
+    float multiplier,
+    bool allowBelowBaseSpeed
+)
+    {
+        multiplier = Mathf.Max(0.01f, multiplier);
+
+        float targetSpeed =
+            currentSpeed *
+            multiplier;
+
+        if (allowBelowBaseSpeed)
+        {
+            // トリッカー用。
+            // baseSpeed未満にも減速できる。
+            currentSpeed = Mathf.Clamp(
+                targetSpeed,
+                2f,
+                maxSpeed
+            );
+        }
+        else
+        {
+            currentSpeed = Mathf.Clamp(
+                targetSpeed,
+                baseSpeed,
+                maxSpeed
+            );
+        }
+
+        if (rb.linearVelocity.sqrMagnitude > 0f)
+        {
+            rb.linearVelocity =
+                rb.linearVelocity.normalized *
+                currentSpeed;
+        }
+    }
+
 }
