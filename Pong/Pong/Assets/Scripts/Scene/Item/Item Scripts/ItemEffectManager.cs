@@ -1,128 +1,172 @@
 using UnityEngine;
-using System.Collections;
 
-// アイテム効果を実行する管理クラス
 public class ItemEffectManager : MonoBehaviour
 {
     public static ItemEffectManager Instance;
 
     private void Awake()
     {
+        if (
+            Instance != null &&
+            Instance != this
+        )
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
     }
 
-    public void ApplyEffect(ItemData item, GameObject target)
+    public bool ApplyEffect(
+        ItemData item,
+        GameObject target
+    )
     {
         if (item == null || target == null)
-            return;
+        {
+            return false;
+        }
 
         switch (item.itemType)
         {
-            case ItemType.AttackUp:
-                StartCoroutine(AttackUp(target, item));
-                break;
-
             case ItemType.Heal:
-                Heal(target, item);
-                break;
+                return ApplyHeal(item, target);
 
             case ItemType.Barrier:
-                Barrier(target, item);
-                break;
+                return ApplyBarrier(target);
 
             case ItemType.SpeedUp:
-                StartCoroutine(SpeedUp(target, item));
-                break;
-
-            case ItemType.BossStun:
-                BossStun(item);
-                break;
-
-            case ItemType.BossAttackDown:
-                BossAttackDown(item);
-                break;
+                return ApplySpeedUp(item, target);
 
             case ItemType.PaddleExtend:
-                StartCoroutine(PaddleExtend(target, item));
-                break;
+                return ApplyPaddleExtend(
+                    item,
+                    target
+                );
+
+            case ItemType.AttackUp:
+                Debug.Log(
+                    "AttackUpは次にスマッシュ倍率へ接続します"
+                );
+
+                return true;
+
+            case ItemType.BossStun:
+                Debug.Log(
+                    "BossStunはBossスクリプトへ接続が必要です"
+                );
+
+                return true;
         }
+
+        return false;
     }
 
-    private IEnumerator AttackUp(GameObject target, ItemData item)
+    private bool ApplyHeal(
+        ItemData item,
+        GameObject target
+    )
     {
-        Paddle paddle = target.GetComponent<Paddle>();
+        PlayerHealth health =
+            target.GetComponent<PlayerHealth>();
 
-        if (paddle == null)
-            yield break;
+        if (health == null)
+        {
+            Debug.LogWarning(
+                target.name +
+                " にPlayerHealthがありません"
+            );
 
-        paddle.smashPower += item.value;
+            return false;
+        }
 
-        Debug.Log("攻撃UP発動");
+        health.Heal(item.value);
 
-        yield return new WaitForSeconds(item.duration);
+        Debug.Log(
+            target.name +
+            " がHPを " +
+            item.value +
+            " 回復"
+        );
 
-        paddle.smashPower -= item.value;
-
-        Debug.Log("攻撃UP終了");
+        return true;
     }
 
-    private void Heal(GameObject target, ItemData item)
+    private bool ApplyBarrier(
+        GameObject target
+    )
     {
-        Debug.Log("HP回復: " + item.value);
-        // HPシステムができたらここに追加
+        PlayerHealth health =
+            target.GetComponent<PlayerHealth>();
+
+        if (health == null)
+        {
+            Debug.LogWarning(
+                target.name +
+                " にPlayerHealthがありません"
+            );
+
+            return false;
+        }
+
+        health.GiveShield();
+
+        return true;
     }
 
-    private void Barrier(GameObject target, ItemData item)
+    private bool ApplySpeedUp(
+        ItemData item,
+        GameObject target
+    )
     {
-        Debug.Log("バリア発動");
-        // バリアシステムができたらここに追加
+        Paddle[] paddles =
+            target.GetComponents<Paddle>();
+
+        if (paddles.Length == 0)
+        {
+            return false;
+        }
+
+        foreach (Paddle paddle in paddles)
+        {
+            paddle.SpeedUp(item.duration);
+        }
+
+        Debug.Log(
+            target.name +
+            " が " +
+            item.duration +
+            " 秒間スピードアップ"
+        );
+
+        return true;
     }
 
-    private IEnumerator SpeedUp(GameObject target, ItemData item)
+    private bool ApplyPaddleExtend(
+        ItemData item,
+        GameObject target
+    )
     {
-        Paddle paddle = target.GetComponent<Paddle>();
+        Paddle[] paddles =
+            target.GetComponents<Paddle>();
 
-        if (paddle == null)
-            yield break;
+        if (paddles.Length == 0)
+        {
+            return false;
+        }
 
-        paddle.speed += item.value;
+        // 同じGameObjectに複数のPaddleコンポーネントがあっても、
+        // Transformは共通なのでGrowは1回だけでいい
+        paddles[0].Grow(item.duration);
 
-        Debug.Log("スピードUP発動");
+        Debug.Log(
+            target.name +
+            " が " +
+            item.duration +
+            " 秒間パドル延長"
+        );
 
-        yield return new WaitForSeconds(item.duration);
-
-        paddle.speed -= item.value;
-
-        Debug.Log("スピードUP終了");
-    }
-
-    private void BossStun(ItemData item)
-    {
-        Debug.Log("ボススタン発動: " + item.duration);
-        // BossControllerができたらここに追加
-    }
-
-    private void BossAttackDown(ItemData item)
-    {
-        Debug.Log("ボス攻撃力低下: " + item.value);
-        // Boss攻撃処理ができたらここに追加
-    }
-
-    private IEnumerator PaddleExtend(GameObject target, ItemData item)
-    {
-        Vector3 originalScale = target.transform.localScale;
-
-        Vector3 newScale = originalScale;
-        newScale.y += item.value;
-
-        target.transform.localScale = newScale;
-
-        Debug.Log("パドル延長発動");
-
-        yield return new WaitForSeconds(item.duration);
-
-        target.transform.localScale = originalScale;
-
-        Debug.Log("パドル延長終了");
+        return true;
     }
 }

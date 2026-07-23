@@ -1,6 +1,7 @@
 using UnityEngine;
 
-// ‘I‘ğ‚µ‚½ƒLƒƒƒ‰ƒNƒ^[”\—Í‚ğƒpƒhƒ‹‚É”½‰f‚·‚é
+// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½\ï¿½Í‚ï¿½
+// ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ìƒpï¿½hï¿½ï¿½ï¿½Ö”ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½
 public class CharacterApplier : MonoBehaviour
 {
     [Header("Player Number")]
@@ -11,11 +12,19 @@ public class CharacterApplier : MonoBehaviour
     [Header("Database")]
     [SerializeField] private CharacterDatabase characterDatabase;
 
+    private Vector3 initialScale;
+
+    private void Awake()
+    {
+        initialScale = transform.localScale;
+    }
+
     private void Start()
     {
         if (characterDatabase == null)
         {
-            characterDatabase = FindFirstObjectByType<CharacterDatabase>();
+            characterDatabase =
+                FindFirstObjectByType<CharacterDatabase>();
         }
 
         ApplyCharacter();
@@ -23,44 +32,192 @@ public class CharacterApplier : MonoBehaviour
 
     private void ApplyCharacter()
     {
-        int characterIndex;
-
-        if (playerNumber == 1)
+        if (characterDatabase == null)
         {
-            characterIndex = GameSettings.player1CharacterIndex;
-        }
-        else
-        {
-            characterIndex = GameSettings.player2CharacterIndex;
+            Debug.LogError(
+                gameObject.name +
+                " ï¿½ï¿½CharacterDatabaseï¿½ï¿½ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½"
+            );
+
+            return;
         }
 
-        CharacterData data = characterDatabase.GetCharacter(characterIndex);
+        int characterIndex = GetCharacterIndex();
+
+        CharacterData data =
+            characterDatabase.GetCharacter(characterIndex);
 
         if (data == null)
+        {
+            Debug.LogError(
+                gameObject.name +
+                " ï¿½ï¿½CharacterDataï¿½ï¿½ï¿½æ“¾ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½"
+            );
+
             return;
+        }
 
-        Paddle paddle = GetComponent<Paddle>();
+        ApplyPaddleStats(data);
+        ApplyPaddleSize(data);
+        ApplyColor(data);
+        ApplyHealth(data);
+        ApplySmashSettings(data);
+        ApplyRuntimeStats(data);
 
-        if (paddle != null)
+        Debug.Log(
+            gameObject.name +
+            " ï¿½ÉƒLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½f: " +
+            data.characterName
+        );
+
+        Debug.Log(
+            gameObject.name +
+            " / Player Number = " +
+            playerNumber +
+            " / Character Index = " +
+            characterIndex
+        );
+    }
+
+    // ==================================================
+    // ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Ôï¿½ï¿½ï¿½ï¿½æ“¾
+    // ==================================================
+
+    private int GetCharacterIndex()
+    {
+        if (playerNumber == 1)
+        {
+            return GameSettings.player1CharacterIndex;
+        }
+
+        // 1Pï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½CPUï¿½ï¿½Balancedï¿½Å’ï¿½
+        if (GameSettings.playerCount == 1)
+        {
+            return 0;
+        }
+
+        // 2Pï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½2Pï¿½ï¿½ï¿½Iï¿½ñ‚¾ƒLï¿½ï¿½ï¿½ï¿½
+        return GameSettings.player2CharacterIndex;
+    }
+
+    // ==================================================
+    // ï¿½Ú“ï¿½ï¿½ï¿½ï¿½xï¿½ğ”½‰f
+    // ==================================================
+
+    private void ApplyPaddleStats(CharacterData data)
+    {
+        // Computer Paddleï¿½É‚ï¿½
+        // ComputerPaddleï¿½ï¿½Player2Paddleï¿½Ì—ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚½ï¿½ï¿½
+        // ï¿½ï¿½ï¿½×‚Ä‚ï¿½Paddleï¿½nï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½gï¿½É”ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½
+        Paddle[] paddles = GetComponents<Paddle>();
+
+        if (paddles.Length == 0)
+        {
+            Debug.LogWarning(
+                gameObject.name +
+                " ï¿½ï¿½Paddleï¿½nï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½"
+            );
+
+            return;
+        }
+
+        foreach (Paddle paddle in paddles)
         {
             paddle.speed = data.moveSpeed;
-            paddle.smashPower = data.smashPower;
-            //paddle.smashDashDistance = data.smashDashDistance;
+
+            Debug.Log(
+                gameObject.name +
+                " / " +
+                paddle.GetType().Name +
+                " ï¿½ï¿½Speedï¿½ï¿½ " +
+                data.moveSpeed +
+                " ï¿½Éİ’ï¿½"
+            );
         }
+    }
 
-        // ƒpƒhƒ‹‚ÌcƒTƒCƒY•ÏX
-        Vector3 scale = transform.localScale;
-        scale.y = data.paddleHeight;
-        transform.localScale = scale;
+    // ==================================================
+    // ï¿½pï¿½hï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½ğ”½‰f
+    // ==================================================
 
-        // F•ÏX
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+    private void ApplyPaddleSize(CharacterData data)
+    {
+        Vector3 newScale = initialScale;
 
-        if (sr != null)
+        newScale.y =
+            initialScale.y *
+            data.paddleHeightMultiplier;
+
+        transform.localScale = newScale;
+    }
+
+    // ==================================================
+    // ï¿½Fï¿½ğ”½‰f
+    // ==================================================
+
+    private void ApplyColor(CharacterData data)
+    {
+        SpriteRenderer[] spriteRenderers =
+            GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer spriteRenderer in spriteRenderers)
         {
-            sr.color = data.paddleColor;
+            spriteRenderer.color = data.paddleColor;
+        }
+    }
+
+    // ==================================================
+    // HPï¿½ğ”½‰f
+    // ==================================================
+
+    private void ApplyHealth(CharacterData data)
+    {
+        PlayerHealth health =
+            GetComponent<PlayerHealth>();
+
+        if (health == null)
+            return;
+
+        health.SetMaxHP(
+            data.maxHP,
+            true
+        );
+    }
+
+    // ==================================================
+    // ï¿½Xï¿½}ï¿½bï¿½Vï¿½ï¿½ï¿½İ’ï¿½ğ”½‰f
+    // ==================================================
+
+    private void ApplySmashSettings(CharacterData data)
+    {
+        SmashController smashController =
+            GetComponent<SmashController>();
+
+        if (smashController == null)
+            return;
+
+        smashController.ApplyCharacterSettings(
+            data.smashCooldown,
+            data.smashMoveDistance,
+            data.smashMoveSpeed
+        );
+    }
+
+    // ==================================================
+    // ï¿½Êí”½ï¿½ËEï¿½Xï¿½}ï¿½bï¿½Vï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½ğ”½‰f
+    // ==================================================
+
+    private void ApplyRuntimeStats(CharacterData data)
+    {
+        CharacterRuntimeStats stats =
+            GetComponent<CharacterRuntimeStats>();
+
+        if (stats == null)
+        {
+            stats =
+                gameObject.AddComponent<CharacterRuntimeStats>();
         }
 
-        Debug.Log(name + " ‚ÉƒLƒƒƒ‰”½‰f: " + data.characterName);
+        stats.ApplyCharacterData(data);
     }
 }

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681ef73ac5de075409bb00d95abdefec, type: 3}
   m_Name: PaddleExtend
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: P E
   icon: {fileID: 4481166893143591850, guid: a171c941226a60943b2beba92879e804, type: 3}
   itemType: 6
   value: 1
   duration: 5
+  cooldown: 10

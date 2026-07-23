@@ -1,27 +1,42 @@
 using UnityEngine;
 
-// 選択したアイテムを保持して、キー入力で発動する
 public class ItemHolder : MonoBehaviour
 {
     [Header("Player Number")]
     [SerializeField] private int playerNumber = 1;
-    // 1 = Player Paddle
-    // 2 = Computer Paddle / Player2 Paddle
 
-    [Header("Database")]
+    [Header("References")]
     [SerializeField] private ItemDatabase itemDatabase;
+
+    [SerializeField] private ItemCooldownUI cooldownUI;
 
     private ItemData currentItem;
 
-    private float cooldownTimer = 0f;
+    private float cooldownTimer;
+
+    public ItemData CurrentItem
+    {
+        get { return currentItem; }
+    }
+
+    public float CooldownRemaining
+    {
+        get { return cooldownTimer; }
+    }
+
+    public bool CanUseItem
+    {
+        get
+        {
+            return
+                currentItem != null &&
+                cooldownTimer <= 0f;
+        }
+    }
 
     private void Start()
     {
-        if (itemDatabase == null)
-        {
-            itemDatabase = FindFirstObjectByType<ItemDatabase>();
-        }
-
+        FindReferences();
         LoadSelectedItem();
     }
 
@@ -31,29 +46,143 @@ public class ItemHolder : MonoBehaviour
         HandleInput();
     }
 
+    private void FindReferences()
+    {
+        if (itemDatabase == null)
+        {
+            itemDatabase =
+                FindFirstObjectByType<ItemDatabase>();
+        }
+
+        if (cooldownUI == null)
+        {
+            ItemCooldownUI[] allUI =
+                FindObjectsByType<ItemCooldownUI>(
+                    FindObjectsSortMode.None
+                );
+
+            foreach (ItemCooldownUI ui in allUI)
+            {
+                if (ui.PlayerNumber == playerNumber)
+                {
+                    cooldownUI = ui;
+                    break;
+                }
+            }
+        }
+    }
+
     private void LoadSelectedItem()
     {
-        int itemIndex;
+        // 1PモードのCPUにはアイテムを持たせない
+        if (
+            playerNumber == 2 &&
+            GameSettings.playerCount == 1
+        )
+        {
+            currentItem = null;
 
+            if (cooldownUI != null)
+            {
+                cooldownUI.SetVisible(false);
+            }
+
+            enabled = false;
+
+            Debug.Log(
+                gameObject.name +
+                " はCPUなのでアイテムなし"
+            );
+
+            return;
+        }
+
+        if (itemDatabase == null)
+        {
+            Debug.LogError(
+                gameObject.name +
+                " がItemDatabaseを取得できません"
+            );
+
+            return;
+        }
+
+        int itemIndex =
+            playerNumber == 1
+            ? GameSettings.player1ItemIndex
+            : GameSettings.player2ItemIndex;
+
+        Debug.Log(
+            gameObject.name +
+            " の選択アイテム番号: " +
+            itemIndex
+        );
+
+        currentItem =
+            itemDatabase.GetItem(itemIndex);
+
+        if (currentItem == null)
+        {
+            if (cooldownUI != null)
+            {
+                cooldownUI.Clear();
+            }
+
+            return;
+        }
+
+        cooldownTimer = 0f;
+
+        if (cooldownUI != null)
+        {
+            cooldownUI.SetVisible(true);
+            cooldownUI.Setup(currentItem);
+        }
+
+        Debug.Log(
+            gameObject.name +
+            " が持っているアイテム: " +
+            currentItem.itemName
+        );
+    }
+
+    private void HandleInput()
+    {
         if (playerNumber == 1)
         {
-            itemIndex = GameSettings.player1ItemIndex;
-        }
-        else
-        {
-            itemIndex = GameSettings.player2ItemIndex;
+            if (
+                Input.GetKeyDown(
+                    InputConfig.p1UseItem
+                )
+            )
+            {
+                TryUseItem();
+            }
+
+            return;
         }
 
-        currentItem = itemDatabase.GetItem(itemIndex);
-
-        if (currentItem != null)
+        if (
+            playerNumber == 2 &&
+            GameSettings.playerCount == 2
+        )
         {
-            Debug.Log(name + " が持っているアイテム: " + currentItem.itemName);
+            if (
+                Input.GetKeyDown(
+                    InputConfig.p2UseItem
+                )
+            )
+            {
+                TryUseItem();
+            }
         }
     }
 
     private void UpdateCooldown()
     {
+        if (currentItem == null)
+            return;
+
         if (cooldownTimer > 0f)
         {
             cooldownTimer -= Time.deltaTime;
@@ -63,27 +192,13 @@ public class ItemHolder : MonoBehaviour
                 cooldownTimer = 0f;
             }
         }
-    }
 
-    private void HandleInput()
-    {
-        if (playerNumber == 1)
+        if (cooldownUI != null)
         {
-            if (Input.GetKeyDown(InputConfig.p1UseItem))
-            {
-                TryUseItem();
-            }
-        }
-        else if (playerNumber == 2)
-        {
-            // 1Pモードでは2Pアイテムは使わない
-            if (GameSettings.playerCount != 2)
-                return;
-
-            if (Input.GetKeyDown(InputConfig.p2UseItem))
-            {
-                TryUseItem();
-            }
+            cooldownUI.SetCooldown(
+                cooldownTimer,
+                currentItem.cooldown
+            );
         }
     }
 
@@ -91,20 +206,69 @@ public class ItemHolder : MonoBehaviour
     {
         if (currentItem == null)
         {
-            Debug.Log(name + " はアイテムを持っていません");
+            Debug.Log(
+                gameObject.name +
+                " はアイテムを持っていません"
+            );
+
             return;
         }
 
         if (cooldownTimer > 0f)
         {
-            Debug.Log(currentItem.itemName + " はクールタイム中: " + cooldownTimer.ToString("F1"));
+            Debug.Log(
+                currentItem.itemName +
+                " はクールタイム中。残り " +
+                cooldownTimer.ToString("F1") +
+                " 秒"
+            );
+
             return;
         }
 
-        ItemEffectManager.Instance.ApplyEffect(currentItem, gameObject);
+        if (ItemEffectManager.Instance == null)
+        {
+            Debug.LogError(
+                "ItemEffectManagerがSceneにありません"
+            );
 
-        cooldownTimer = currentItem.cooldown;
+            return;
+        }
 
-        Debug.Log(name + " が " + currentItem.itemName + " を使用");
+        bool effectActivated =
+            ItemEffectManager.Instance.ApplyEffect(
+                currentItem,
+                gameObject
+            );
+
+        if (!effectActivated)
+        {
+            Debug.LogWarning(
+                currentItem.itemName +
+                " の効果を発動できませんでした"
+            );
+
+            return;
+        }
+
+        cooldownTimer =
+            Mathf.Max(0f, currentItem.cooldown);
+
+        if (cooldownUI != null)
+        {
+            cooldownUI.SetCooldown(
+                cooldownTimer,
+                currentItem.cooldown
+            );
+        }
+
+        Debug.Log(
+            gameObject.name +
+            " が " +
+            currentItem.itemName +
+            " を使用。CT: " +
+            currentItem.cooldown +
+            " 秒"
+        );
     }
 }

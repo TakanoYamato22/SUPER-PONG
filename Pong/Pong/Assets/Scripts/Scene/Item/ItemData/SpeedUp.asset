@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681ef73ac5de075409bb00d95abdefec, type: 3}
   m_Name: SpeedUp
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Speed up
   icon: {fileID: -9083362998159298969, guid: 9288e35f285e7f8448b4d0fed080e85e, type: 3}
   itemType: 3
   value: 1
   duration: 5
+  cooldown: 10

@@ -18,9 +18,9 @@ public static class InputConfig
     // ÉQÅ[ÉÄíÜóp
     // =========================
 
-    public static KeyCode p1Smash = KeyCode.A;
-    public static KeyCode p1UseItem = KeyCode.D;
+    public static KeyCode p1Smash = KeyCode.D;
+    public static KeyCode p1UseItem = KeyCode.A;
 
-    public static KeyCode p2Smash = KeyCode.RightArrow;
-    public static KeyCode p2UseItem = KeyCode.LeftArrow;
+    public static KeyCode p2Smash = KeyCode.LeftArrow;
+    public static KeyCode p2UseItem = KeyCode.RightArrow;
 }

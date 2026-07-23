@@ -3,11 +3,23 @@ using System.Collections;
 
 public class SmashController : MonoBehaviour
 {
+    // ==================================================
+    // 入力
+    // ==================================================
+
     [Header("Input")]
     [SerializeField] private KeyCode smashKey = KeyCode.D;
 
+    // ==================================================
+    // スマッシュ判定
+    // ==================================================
+
     [Header("Smash Zone")]
     [SerializeField] private SmashZone smashZone;
+
+    // ==================================================
+    // 移動
+    // ==================================================
 
     [Header("Move")]
     [SerializeField] private float moveDistance = 0.5f;
@@ -16,21 +28,30 @@ public class SmashController : MonoBehaviour
     [Header("Direction")]
     [SerializeField] private int smashDirection = 1;
 
+    // ==================================================
+    // クールタイム
+    // ==================================================
+
     [Header("Cooldown")]
     [SerializeField] private float cooldownTime = 7f;
 
-    private bool isCharging = false;
-    private bool isMoving = false;
+    private bool isCharging;
+    private bool isMoving;
 
     private float startX;
-    private float cooldownTimer = 0f;
+    private float cooldownTimer;
+
+    public bool IsCharging => isCharging;
+    public float CooldownTime => cooldownTime;
+    public float CooldownTimer => cooldownTimer;
 
     public bool CanSmashNow()
     {
-        return isCharging &&
-               cooldownTimer <= 0f &&
-               smashZone != null &&
-               smashZone.CanSmash;
+        return
+            isCharging &&
+            cooldownTimer <= 0f &&
+            smashZone != null &&
+            smashZone.CanSmash;
     }
 
     private void Awake()
@@ -40,25 +61,29 @@ public class SmashController : MonoBehaviour
 
     private void Update()
     {
-        // クールタイム
-        if (cooldownTimer > 0f)
-        {
-            cooldownTimer -= Time.deltaTime;
-        }
+        UpdateCooldown();
+        HandleSmashInput();
+    }
 
-        // クールタイム中はスマッシュできない
+    private void UpdateCooldown()
+    {
+        if (cooldownTimer <= 0f)
+            return;
+
+        cooldownTimer -= Time.deltaTime;
+
+        if (cooldownTimer < 0f)
+        {
+            cooldownTimer = 0f;
+        }
+    }
+
+    private void HandleSmashInput()
+    {
         if (cooldownTimer > 0f)
         {
             isCharging = false;
-
-            Vector3 pos = transform.position;
-            pos.x = startX;
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                pos,
-                moveSpeed * Time.deltaTime
-            );
-
+            ReturnTowardsStart();
             return;
         }
 
@@ -66,35 +91,61 @@ public class SmashController : MonoBehaviour
         {
             isCharging = true;
 
-            Vector3 pos = transform.position;
-            pos.x = startX + smashDirection * moveDistance;
+            Vector3 targetPosition = transform.position;
+
+            targetPosition.x =
+                startX +
+                smashDirection *
+                moveDistance;
 
             transform.position = Vector3.MoveTowards(
                 transform.position,
-                pos,
+                targetPosition,
                 moveSpeed * Time.deltaTime
             );
         }
         else
         {
             isCharging = false;
-
-            Vector3 pos = transform.position;
-            pos.x = startX;
-
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                pos,
-                moveSpeed * Time.deltaTime
-            );
+            ReturnTowardsStart();
         }
+    }
+
+    private void ReturnTowardsStart()
+    {
+        Vector3 targetPosition = transform.position;
+        targetPosition.x = startX;
+
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            targetPosition,
+            moveSpeed * Time.deltaTime
+        );
+    }
+
+    // CharacterDataの数値を反映
+    public void ApplyCharacterSettings(
+        float newCooldownTime,
+        float newMoveDistance,
+        float newMoveSpeed
+    )
+    {
+        cooldownTime = Mathf.Max(0f, newCooldownTime);
+        moveDistance = Mathf.Max(0f, newMoveDistance);
+        moveSpeed = Mathf.Max(0.1f, newMoveSpeed);
+
+        Debug.Log(
+            gameObject.name +
+            " Smash設定反映" +
+            " / CT: " + cooldownTime +
+            " / Distance: " + moveDistance +
+            " / Speed: " + moveSpeed
+        );
     }
 
     public void SuccessSmash()
     {
         isCharging = false;
-
-        // クールタイム開始
         cooldownTimer = cooldownTime;
 
         StartCoroutine(ReturnX());
@@ -107,26 +158,31 @@ public class SmashController : MonoBehaviour
 
         isMoving = true;
 
-        while (Mathf.Abs(transform.position.x - startX) > 0.01f)
+        while (
+            Mathf.Abs(
+                transform.position.x -
+                startX
+            ) > 0.01f
+        )
         {
-            Vector3 pos = transform.position;
-            pos.x = Mathf.MoveTowards(
-                pos.x,
+            Vector3 position = transform.position;
+
+            position.x = Mathf.MoveTowards(
+                position.x,
                 startX,
                 moveSpeed * Time.deltaTime
             );
 
-            transform.position = pos;
+            transform.position = position;
 
             yield return null;
         }
 
-        Vector3 finalPos = transform.position;
-        finalPos.x = startX;
-        transform.position = finalPos;
+        Vector3 finalPosition = transform.position;
+        finalPosition.x = startX;
+
+        transform.position = finalPosition;
 
         isMoving = false;
     }
-
-    public bool IsCharging => isCharging;
 }
