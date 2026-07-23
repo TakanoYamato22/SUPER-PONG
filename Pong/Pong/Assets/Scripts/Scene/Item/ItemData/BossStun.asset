@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681ef73ac5de075409bb00d95abdefec, type: 3}
   m_Name: BossStun
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Boss Stun
   icon: {fileID: -127457904994078898, guid: d715f2429e0bdab47a70a03f1035fcc9, type: 3}
   itemType: 4
   value: 1
   duration: 5
+  cooldown: 10

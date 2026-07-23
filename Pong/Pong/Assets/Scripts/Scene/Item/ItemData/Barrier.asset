@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681ef73ac5de075409bb00d95abdefec, type: 3}
   m_Name: Barrier
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Barrier
   icon: {fileID: 2389193319765324094, guid: ffbd723b180aa6f46a57a8fd19a14721, type: 3}
   itemType: 2
   value: 1
   duration: 5
+  cooldown: 10

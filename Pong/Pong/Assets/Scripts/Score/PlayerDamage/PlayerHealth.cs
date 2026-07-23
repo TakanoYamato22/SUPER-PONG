@@ -3,7 +3,10 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("HP")]
     [SerializeField] private float maxHP = 150f;
+
+    [Header("UI")]
     [SerializeField] private Image healthImage;
     [SerializeField] private GameObject gameOverText;
 
@@ -11,7 +14,16 @@ public class PlayerHealth : MonoBehaviour
     private bool isDead;
     private bool hasShield;
 
-    private void Start()
+    public float MaxHP => maxHP;
+    public float CurrentHP => currentHP;
+    public bool IsDead => isDead;
+
+    private void Awake()
+    {
+        InitializeHealth();
+    }
+
+    private void InitializeHealth()
     {
         currentHP = maxHP;
         isDead = false;
@@ -25,14 +37,45 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // キャラ選択結果から最大HPを設定
+    public void SetMaxHP(float newMaxHP, bool fullyHeal = true)
+    {
+        maxHP = Mathf.Max(1f, newMaxHP);
+
+        if (fullyHeal)
+        {
+            currentHP = maxHP;
+            isDead = false;
+        }
+        else
+        {
+            currentHP = Mathf.Clamp(currentHP, 0f, maxHP);
+        }
+
+        UpdateHealthBar();
+
+        Debug.Log(
+            gameObject.name +
+            " の最大HPを " +
+            maxHP +
+            " に設定"
+        );
+    }
+
     public void TakeDamage(float damage)
     {
-        if (isDead) return;
+        if (isDead)
+            return;
 
         if (hasShield)
         {
             hasShield = false;
-            Debug.Log(gameObject.name + " のシールドでダメージ無効！");
+
+            Debug.Log(
+                gameObject.name +
+                " のシールドでダメージ無効！"
+            );
+
             return;
         }
 
@@ -49,7 +92,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void Heal(float amount)
     {
-        if (isDead) return;
+        if (isDead)
+            return;
 
         currentHP += amount;
         currentHP = Mathf.Clamp(currentHP, 0f, maxHP);
@@ -59,15 +103,21 @@ public class PlayerHealth : MonoBehaviour
 
     public void GiveShield()
     {
-        if (isDead) return;
+        if (isDead)
+            return;
 
         hasShield = true;
-        Debug.Log(gameObject.name + " にシールド付与！");
+
+        Debug.Log(
+            gameObject.name +
+            " にシールド付与！"
+        );
     }
 
     private void UpdateHealthBar()
     {
-        if (healthImage == null) return;
+        if (healthImage == null)
+            return;
 
         healthImage.fillAmount = currentHP / maxHP;
     }

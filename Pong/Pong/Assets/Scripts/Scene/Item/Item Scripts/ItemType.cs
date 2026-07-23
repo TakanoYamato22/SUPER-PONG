@@ -5,6 +5,5 @@ public enum ItemType
     Barrier,
     SpeedUp,
     BossStun,
-    BossAttackDown,
     PaddleExtend
 }
