@@ -38,13 +38,11 @@ public class BallSmashManager : MonoBehaviour
     }
 
     private void Awake()
-
     {
-
         ball = GetComponent<Ball>();
 
-        spriteRenderer =
-            GetComponent<SpriteRenderer>();
+        // 子オブジェクトのBallVisualからSpriteRendererを取得
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         normalLayer =
             LayerMask.NameToLayer(normalLayerName);
@@ -55,7 +53,7 @@ public class BallSmashManager : MonoBehaviour
         if (normalLayer == -1)
         {
             Debug.LogError(
-                $"Layer�u{normalLayerName}�v������܂���B",
+                $"Layer「{normalLayerName}」がありません。",
                 this
             );
         }
@@ -63,23 +61,22 @@ public class BallSmashManager : MonoBehaviour
         if (smashLayer == -1)
         {
             Debug.LogError(
-                $"Layer�u{smashLayerName}�v������܂���B",
+                $"Layer「{smashLayerName}」がありません。",
                 this
             );
         }
 
-        if (smashTrigger == null)
-        {
-          
-        }
-
         if (spriteRenderer != null)
-
         {
-            defaultColor =
-                spriteRenderer.color;
+            defaultColor = spriteRenderer.color;
         }
-
+        else
+        {
+            Debug.LogError(
+                "BallVisualのSpriteRendererが見つかりません。",
+                this
+            );
+        }
     }
 
     private void Start()
