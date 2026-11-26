@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: 67257534f0450094ca71d9f8d80ea58c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2788273397275388162
+    second: FirePiller_0
+  - first:
+      213: -40687332412653632
+    second: FirePiller_1
+  - first:
+      213: 970913708019046607
+    second: FirePiller_2
+  - first:
+      213: 8225535387160359740
+    second: FirePiller_3
+  - first:
+      213: -3048894645614956784
+    second: FirePiller_4
+  - first:
+      213: 1258920271383584748
+    second: FirePiller_5
+  - first:
+      213: -4791424256227150571
+    second: FirePiller_6
+  - first:
+      213: 8249086690266928328
+    second: FirePiller_7
+  - first:
+      213: -1632114540196806203
+    second: FirePiller_8
+  - first:
+      213: 7329613251532980626
+    second: FirePiller_9
+  - first:
+      213: -8897893496438640436
+    second: FirePiller_10
+  - first:
+      213: -1441905080766974037
+    second: FirePiller_11
+  - first:
+      213: -5351527193294472649
+    second: FirePiller_12
+  - first:
+      213: 7405903612960780539
+    second: FirePiller_13
+  - first:
+      213: -4244396343224920101
+    second: FirePiller_14
+  - first:
+      213: 5303040933246722922
+    second: FirePiller_15
+  - first:
+      213: 1222646598559551204
+    second: FirePiller_16
+  - first:
+      213: 5425132533741461792
+    second: FirePiller_17
+  - first:
+      213: 3713692765240863735
+    second: FirePiller_18
+  - first:
+      213: -2688939495729292752
+    second: FirePiller_19
+  - first:
+      213: -4578230247862563936
+    second: FirePiller_20
+  - first:
+      213: -7094910642699204513
+    second: FirePiller_21
+  - first:
+      213: -9087921896439675560
+    second: FirePiller_22
+  - first:
+      213: 8557653221960211186
+    second: FirePiller_23
+  - first:
+      213: 3693039371492419581
+    second: FirePiller_24
+  - first:
+      213: 3349729647176913889
+    second: FirePiller_25
+  - first:
+      213: 6971571578477972264
+    second: FirePiller_26
+  - first:
+      213: 1212138380739189634
+    second: FirePiller_27
+  - first:
+      213: 978204924600148453
+    second: FirePiller_28
+  - first:
+      213: -1207530807351521579
+    second: FirePiller_29
+  - first:
+      213: 4061310749717918814
+    second: FirePiller_30
+  - first:
+      213: 2453797580450750941
+    second: FirePiller_31
+  - first:
+      213: -1270865425564556397
+    second: FirePiller_32
+  - first:
+      213: 9164867399089392954
+    second: FirePiller_33
+  - first:
+      213: -5414866989745469046
+    second: FirePiller_34
+  - first:
+      213: 2987415019484099690
+    second: FirePiller_35
+  - first:
+      213: -7176431330765568546
+    second: FirePiller_36
+  - first:
+      213: 1328858185684678028
+    second: FirePiller_37
+  - first:
+      213: 2108254103467267052
+    second: FirePiller_38
+  - first:
+      213: 8032457433647854979
+    second: FirePiller_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FirePiller_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1013
+        height: 1524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef69aba3e101e49d0800000000000000
+      internalID: -2788273397275388162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_1
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1353
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf7fa436137f6ff0800000000000000
+      internalID: -40687332412653632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_2
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 1371
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc858029fd0697d00800000000000000
+      internalID: 970913708019046607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_3
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 1282
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3339179ad8f62270800000000000000
+      internalID: 8225535387160359740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_4
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 1205
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01fa78a397620b5d0800000000000000
+      internalID: -3048894645614956784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_5
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 1175
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef5b581155987110800000000000000
+      internalID: 1258920271383584748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_6
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 1094
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515f3676601718db0800000000000000
+      internalID: -4791424256227150571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_7
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 1103
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c453c6a3a4aa7270800000000000000
+      internalID: 8249086690266928328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_8
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1100
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c1c1d619709959e0800000000000000
+      internalID: -1632114540196806203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_9
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 976
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2918e961b6408b560800000000000000
+      internalID: 7329613251532980626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_10
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 911
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0348f0205548480800000000000000
+      internalID: -8897893496438640436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_11
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 911
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7bd05f7f25dfbe0800000000000000
+      internalID: -1441905080766974037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_12
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 851
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73af6dd0f5e8bb5b0800000000000000
+      internalID: -5351527193294472649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_13
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 847
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf03f4b091e07c660800000000000000
+      internalID: 7405903612960780539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_14
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 717
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd79c1c7300e815c0800000000000000
+      internalID: -4244396343224920101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_15
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 703
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a63e68fc1af289940800000000000000
+      internalID: 5303040933246722922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_16
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 677
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee4bf08a96b7f010800000000000000
+      internalID: 1222646598559551204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_17
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 679
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 021231dbb41f94b40800000000000000
+      internalID: 5425132533741461792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_18
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 571
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fbae1dd4efa98330800000000000000
+      internalID: 3713692765240863735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_19
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 559
+        width: 14
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03a998676c7feaad0800000000000000
+      internalID: -2688939495729292752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_20
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 535
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ab043898dbd670c0800000000000000
+      internalID: -4578230247862563936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_21
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 517
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5886c46c50d98d90800000000000000
+      internalID: -7094910642699204513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_22
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 487
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85508306f2731e180800000000000000
+      internalID: -9087921896439675560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_23
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 453
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa5ae5d344e2c670800000000000000
+      internalID: 8557653221960211186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_24
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 437
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df76657edbf404330800000000000000
+      internalID: 3693039371492419581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_25
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 439
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e31391dd51ac7e20800000000000000
+      internalID: 3349729647176913889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_26
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 399
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82b8365e96fffb060800000000000000
+      internalID: 6971571578477972264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_27
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 391
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b93926f6162d010800000000000000
+      internalID: 1212138380739189634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_28
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 351
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e164583238439d00800000000000000
+      internalID: 978204924600148453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_29
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 329
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dec874e02dfd3fe0800000000000000
+      internalID: -1207530807351521579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_30
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 235
+        width: 9
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e54796feb9cac5830800000000000000
+      internalID: 4061310749717918814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_31
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 245
+        width: 9
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd1ea7d06e3ad0220800000000000000
+      internalID: 2453797580450750941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_32
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 251
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39326e7f0aafc5ee0800000000000000
+      internalID: -1270865425564556397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_33
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 231
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d08488756203f70800000000000000
+      internalID: 9164867399089392954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_34
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 183
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a898b3a79278ad4b0800000000000000
+      internalID: -5414866989745469046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_35
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 159
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a643409d12e657920800000000000000
+      internalID: 2987415019484099690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_36
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 164
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed50cbe1ab1386c90800000000000000
+      internalID: -7176431330765568546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_37
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 97
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c85fa92ba7d017210800000000000000
+      internalID: 1328858185684678028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_38
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 103
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce31d65efe5024d10800000000000000
+      internalID: 2108254103467267052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirePiller_39
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 49
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 385b6066a75097f60800000000000000
+      internalID: 8032457433647854979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FirePiller_0: -2788273397275388162
+      FirePiller_1: -40687332412653632
+      FirePiller_10: -8897893496438640436
+      FirePiller_11: -1441905080766974037
+      FirePiller_12: -5351527193294472649
+      FirePiller_13: 7405903612960780539
+      FirePiller_14: -4244396343224920101
+      FirePiller_15: 5303040933246722922
+      FirePiller_16: 1222646598559551204
+      FirePiller_17: 5425132533741461792
+      FirePiller_18: 3713692765240863735
+      FirePiller_19: -2688939495729292752
+      FirePiller_2: 970913708019046607
+      FirePiller_20: -4578230247862563936
+      FirePiller_21: -7094910642699204513
+      FirePiller_22: -9087921896439675560
+      FirePiller_23: 8557653221960211186
+      FirePiller_24: 3693039371492419581
+      FirePiller_25: 3349729647176913889
+      FirePiller_26: 6971571578477972264
+      FirePiller_27: 1212138380739189634
+      FirePiller_28: 978204924600148453
+      FirePiller_29: -1207530807351521579
+      FirePiller_3: 8225535387160359740
+      FirePiller_30: 4061310749717918814
+      FirePiller_31: 2453797580450750941
+      FirePiller_32: -1270865425564556397
+      FirePiller_33: 9164867399089392954
+      FirePiller_34: -5414866989745469046
+      FirePiller_35: 2987415019484099690
+      FirePiller_36: -7176431330765568546
+      FirePiller_37: 1328858185684678028
+      FirePiller_38: 2108254103467267052
+      FirePiller_39: 8032457433647854979
+      FirePiller_4: -3048894645614956784
+      FirePiller_5: 1258920271383584748
+      FirePiller_6: -4791424256227150571
+      FirePiller_7: 8249086690266928328
+      FirePiller_8: -1632114540196806203
+      FirePiller_9: 7329613251532980626
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

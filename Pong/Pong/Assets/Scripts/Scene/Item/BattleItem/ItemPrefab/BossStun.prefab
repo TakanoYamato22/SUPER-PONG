@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: -7238607039471267272, guid: e5b2bc5b227ff6941834fcb62fe6b652,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -150,3 +150,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   itemSound: {fileID: 8300000, guid: c373286ffb08fab419de55e89f9cdc23, type: 3}
+  soundVolume: 1

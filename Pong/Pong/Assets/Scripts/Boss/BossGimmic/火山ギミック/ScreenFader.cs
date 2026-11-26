@@ -1,3 +1,4 @@
+
 using System.Collections;
 using UnityEngine;
 
@@ -51,7 +52,6 @@ public class ScreenFader : MonoBehaviour
 
         yield return Fade(0f);
 
-        // ç≈å„Ç…ã≠êßìIÇ…ìßñæÇ…Ç∑ÇÈ
         canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;

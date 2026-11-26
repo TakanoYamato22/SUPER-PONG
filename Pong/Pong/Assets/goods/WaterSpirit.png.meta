@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: dc5293b08a602484b90363f220f03520
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -689703254121946527
+    second: WaterSpirit_0
+  - first:
+      213: 2404047377661312080
+    second: WaterSpirit_1
+  - first:
+      213: -3685738995520387797
+    second: WaterSpirit_2
+  - first:
+      213: 4948292817535544060
+    second: WaterSpirit_3
+  - first:
+      213: -8809494925049454624
+    second: WaterSpirit_4
+  - first:
+      213: -2982697686053466538
+    second: WaterSpirit_5
+  - first:
+      213: 9009460249522021566
+    second: WaterSpirit_6
+  - first:
+      213: 5253751388982211641
+    second: WaterSpirit_7
+  - first:
+      213: -2123165436428280731
+    second: WaterSpirit_8
+  - first:
+      213: -1443610965042905780
+    second: WaterSpirit_9
+  - first:
+      213: -7127042263362274750
+    second: WaterSpirit_10
+  - first:
+      213: 4776968677321208712
+    second: WaterSpirit_11
+  - first:
+      213: 1728290937920270184
+    second: WaterSpirit_12
+  - first:
+      213: -5168719086113673009
+    second: WaterSpirit_13
+  - first:
+      213: -4358277887481777516
+    second: WaterSpirit_14
+  - first:
+      213: -563730676494694838
+    second: WaterSpirit_15
+  - first:
+      213: -4114243836724709447
+    second: WaterSpirit_16
+  - first:
+      213: -7730296414734544958
+    second: WaterSpirit_17
+  - first:
+      213: 4455173027545806257
+    second: WaterSpirit_18
+  - first:
+      213: -6711181129542695161
+    second: WaterSpirit_19
+  - first:
+      213: 2660147244479250476
+    second: WaterSpirit_20
+  - first:
+      213: -5472642500267423581
+    second: WaterSpirit_21
+  - first:
+      213: 2119753985055234080
+    second: WaterSpirit_22
+  - first:
+      213: -6222330392105521817
+    second: WaterSpirit_23
+  - first:
+      213: -1933545887282732137
+    second: WaterSpirit_24
+  - first:
+      213: 6439566293174819073
+    second: WaterSpirit_25
+  - first:
+      213: 3088255022998379098
+    second: WaterSpirit_26
+  - first:
+      213: 1809443577047553125
+    second: WaterSpirit_27
+  - first:
+      213: -1934700577218395072
+    second: WaterSpirit_28
+  - first:
+      213: -3237145604297597640
+    second: WaterSpirit_29
+  - first:
+      213: -5034032209310149700
+    second: WaterSpirit_30
+  - first:
+      213: 5952973793860467336
+    second: WaterSpirit_31
+  - first:
+      213: 8877943548074325409
+    second: WaterSpirit_32
+  - first:
+      213: -5496421882828746779
+    second: WaterSpirit_33
+  - first:
+      213: 4148102107030452120
+    second: WaterSpirit_34
+  - first:
+      213: -6375487637809590559
+    second: WaterSpirit_35
+  - first:
+      213: -2735514589110142950
+    second: WaterSpirit_36
+  - first:
+      213: 283524248117120763
+    second: WaterSpirit_37
+  - first:
+      213: 1122233514024473488
+    second: WaterSpirit_38
+  - first:
+      213: -8060770398438010981
+    second: WaterSpirit_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WaterSpirit_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 567
+        width: 418
+        height: 449
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16261a96b8ead66f0800000000000000
+      internalID: -689703254121946527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 759
+        width: 87
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05c36b05a54ec5120800000000000000
+      internalID: 2404047377661312080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 1265
+        height: 1008
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b25c33559ef99dcc0800000000000000
+      internalID: -3685738995520387797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_3
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 977
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfaa2d1b91edba440800000000000000
+      internalID: 4948292817535544060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_4
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 895
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef12d55a036eb580800000000000000
+      internalID: -8809494925049454624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_5
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 918
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e476ee1445b96d0800000000000000
+      internalID: -2982697686053466538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_6
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 913
+        width: 43
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb423cedc58080d70800000000000000
+      internalID: 9009460249522021566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_7
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 893
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 934ff7e7d0319e840800000000000000
+      internalID: 5253751388982211641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_8
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 803
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c1e4ad8400982e0800000000000000
+      internalID: -2123165436428280731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_9
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 777
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4d32c2d97347fbe0800000000000000
+      internalID: -1443610965042905780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_10
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 783
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24a781972d8a71d90800000000000000
+      internalID: -7127042263362274750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_11
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 742
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 883f5ead3b33b4240800000000000000
+      internalID: 4776968677321208712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_12
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 727
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86fa34f737f1cf710800000000000000
+      internalID: 1728290937920270184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_13
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 557
+        width: 37
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc0b96050650548b0800000000000000
+      internalID: -5168719086113673009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_14
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 541
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 492753c3a594483c0800000000000000
+      internalID: -4358277887481777516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 145
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a460b8ebfe93d28f0800000000000000
+      internalID: -563730676494694838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_16
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 172
+        width: 209
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b7fea8570547e6c0800000000000000
+      internalID: -4114243836724709447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_17
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 465
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf854f1e5878b490800000000000000
+      internalID: -7730296414734544958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_18
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 405
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b5f4c79344f3dd30800000000000000
+      internalID: 4455173027545806257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_19
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 408
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7078d4ee1581dd2a0800000000000000
+      internalID: -6711181129542695161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_20
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 381
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c208b6523ddbae420800000000000000
+      internalID: 2660147244479250476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_21
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 231
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a8cadc24a44d04b0800000000000000
+      internalID: -5472642500267423581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_22
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 228
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0289f6ab401ea6d10800000000000000
+      internalID: 2119753985055234080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_23
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 223
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76dee67c977d5a9a0800000000000000
+      internalID: -6222330392105521817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_24
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 237
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7936897824aaa25e0800000000000000
+      internalID: -1933545887282732137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 173
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1099344ec6fed5950800000000000000
+      internalID: 6439566293174819073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_26
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 175
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5a52a5c49fabda20800000000000000
+      internalID: 3088255022998379098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_27
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 161
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5641803b85f6c1910800000000000000
+      internalID: 1809443577047553125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_28
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 117
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 044872453109625e0800000000000000
+      internalID: -1934700577218395072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_29
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 111
+        width: 43
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83ddf9959395313d0800000000000000
+      internalID: -3237145604297597640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_30
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 77
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb391388066832ab0800000000000000
+      internalID: -5034032209310149700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_31
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 113
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a334410263d9250800000000000000
+      internalID: 5952973793860467336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_32
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 49
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5f0fe9e9ac43b70800000000000000
+      internalID: 8877943548074325409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_33
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 61
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ef0f4a3b69c8b3b0800000000000000
+      internalID: -5496421882828746779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_34
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 65
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 897799583e4019930800000000000000
+      internalID: 4148102107030452120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_35
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 55
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ee077ea5c7b587a0800000000000000
+      internalID: -6375487637809590559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_36
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 57
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a18f03e79ff790ad0800000000000000
+      internalID: -2735514589110142950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_37
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 66
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe0b3e2dc74fe300800000000000000
+      internalID: 283524248117120763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_38
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 63
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09397766f69f29f00800000000000000
+      internalID: 1122233514024473488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpirit_39
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 13
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9f4e19c704622090800000000000000
+      internalID: -8060770398438010981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      WaterSpirit_0: -689703254121946527
+      WaterSpirit_1: 2404047377661312080
+      WaterSpirit_10: -7127042263362274750
+      WaterSpirit_11: 4776968677321208712
+      WaterSpirit_12: 1728290937920270184
+      WaterSpirit_13: -5168719086113673009
+      WaterSpirit_14: -4358277887481777516
+      WaterSpirit_15: -563730676494694838
+      WaterSpirit_16: -4114243836724709447
+      WaterSpirit_17: -7730296414734544958
+      WaterSpirit_18: 4455173027545806257
+      WaterSpirit_19: -6711181129542695161
+      WaterSpirit_2: -3685738995520387797
+      WaterSpirit_20: 2660147244479250476
+      WaterSpirit_21: -5472642500267423581
+      WaterSpirit_22: 2119753985055234080
+      WaterSpirit_23: -6222330392105521817
+      WaterSpirit_24: -1933545887282732137
+      WaterSpirit_25: 6439566293174819073
+      WaterSpirit_26: 3088255022998379098
+      WaterSpirit_27: 1809443577047553125
+      WaterSpirit_28: -1934700577218395072
+      WaterSpirit_29: -3237145604297597640
+      WaterSpirit_3: 4948292817535544060
+      WaterSpirit_30: -5034032209310149700
+      WaterSpirit_31: 5952973793860467336
+      WaterSpirit_32: 8877943548074325409
+      WaterSpirit_33: -5496421882828746779
+      WaterSpirit_34: 4148102107030452120
+      WaterSpirit_35: -6375487637809590559
+      WaterSpirit_36: -2735514589110142950
+      WaterSpirit_37: 283524248117120763
+      WaterSpirit_38: 1122233514024473488
+      WaterSpirit_39: -8060770398438010981
+      WaterSpirit_4: -8809494925049454624
+      WaterSpirit_5: -2982697686053466538
+      WaterSpirit_6: 9009460249522021566
+      WaterSpirit_7: 5253751388982211641
+      WaterSpirit_8: -2123165436428280731
+      WaterSpirit_9: -1443610965042905780
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -51,7 +51,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -4942,7 +4942,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -9833,7 +9833,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -14733,7 +14733,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -19624,7 +19624,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -24515,7 +24515,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -29391,7 +29391,7 @@ Transform:
   m_GameObject: {fileID: 8879848542567140356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9575636, y: 0.4321001, z: 0}
+  m_LocalPosition: {x: 1.2399831, y: 0.9442146, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29422,7 +29422,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -34313,7 +34313,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 0
-  useUnscaledTime: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2

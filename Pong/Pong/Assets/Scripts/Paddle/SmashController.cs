@@ -3,37 +3,44 @@ using System.Collections;
 
 public class SmashController : MonoBehaviour
 {
-    // ==================================================
+    // ========================================
     // 入力
-    // ==================================================
+    // ========================================
 
     [Header("Input")]
-    [SerializeField] private KeyCode smashKey = KeyCode.D;
+    [SerializeField]
+    private KeyCode smashKey = KeyCode.D;
 
-    // ==================================================
+    // ========================================
     // スマッシュ判定
-    // ==================================================
+    // ========================================
 
     [Header("Smash Zone")]
-    [SerializeField] private SmashZone smashZone;
+    [SerializeField]
+    private SmashZone smashZone;
 
-    // ==================================================
+    // ========================================
     // 移動
-    // ==================================================
+    // ========================================
 
     [Header("Move")]
-    [SerializeField] private float moveDistance = 0.5f;
-    [SerializeField] private float moveSpeed = 12f;
+    [SerializeField]
+    private float moveDistance = 0.5f;
+
+    [SerializeField]
+    private float moveSpeed = 12f;
 
     [Header("Direction")]
-    [SerializeField] private int smashDirection = 1;
+    [SerializeField]
+    private int smashDirection = 1;
 
-    // ==================================================
+    // ========================================
     // クールタイム
-    // ==================================================
+    // ========================================
 
     [Header("Cooldown")]
-    [SerializeField] private float cooldownTime = 7f;
+    [SerializeField]
+    private float cooldownTime = 7f;
 
     private bool isCharging;
     private bool isMoving;
@@ -41,23 +48,45 @@ public class SmashController : MonoBehaviour
     private float startX;
     private float cooldownTimer;
 
+    // ========================================
+    // サーカスステージ：スマッシュ封印
+    // ========================================
+
+    private bool smashLocked;
+    private Coroutine smashLockCoroutine;
+
     public bool IsCharging => isCharging;
+    public bool IsSmashLocked => smashLocked;
+
     public float CooldownTime => cooldownTime;
     public float CooldownTimer => cooldownTimer;
+
+    // ========================================
+    // スマッシュ可能判定
+    // ========================================
 
     public bool CanSmashNow()
     {
         return
+            !smashLocked &&
             isCharging &&
             cooldownTimer <= 0f &&
             smashZone != null &&
             smashZone.CanSmash;
     }
 
+    // ========================================
+    // 初期化
+    // ========================================
+
     private void Awake()
     {
         startX = transform.position.x;
     }
+
+    // ========================================
+    // 更新
+    // ========================================
 
     private void Update()
     {
@@ -65,10 +94,16 @@ public class SmashController : MonoBehaviour
         HandleSmashInput();
     }
 
+    // ========================================
+    // クールタイム更新
+    // ========================================
+
     private void UpdateCooldown()
     {
         if (cooldownTimer <= 0f)
+        {
             return;
+        }
 
         cooldownTimer -= Time.deltaTime;
 
@@ -78,8 +113,21 @@ public class SmashController : MonoBehaviour
         }
     }
 
+    // ========================================
+    // スマッシュ入力
+    // ========================================
+
     private void HandleSmashInput()
     {
+        // スマッシュ封印中
+        if (smashLocked)
+        {
+            isCharging = false;
+            ReturnTowardsStart();
+            return;
+        }
+
+        // クールタイム中
         if (cooldownTimer > 0f)
         {
             isCharging = false;
@@ -111,6 +159,10 @@ public class SmashController : MonoBehaviour
         }
     }
 
+    // ========================================
+    // 通常位置へ戻る
+    // ========================================
+
     private void ReturnTowardsStart()
     {
         Vector3 targetPosition = transform.position;
@@ -123,16 +175,28 @@ public class SmashController : MonoBehaviour
         );
     }
 
-    // CharacterDataの数値を反映
+    // ========================================
+    // キャラクター設定反映
+    // ========================================
+
     public void ApplyCharacterSettings(
         float newCooldownTime,
         float newMoveDistance,
         float newMoveSpeed
     )
     {
-        cooldownTime = Mathf.Max(0f, newCooldownTime);
-        moveDistance = Mathf.Max(0f, newMoveDistance);
-        moveSpeed = Mathf.Max(0.1f, newMoveSpeed);
+        cooldownTime = Mathf.Max(
+            0f,
+            newCooldownTime
+        );
+
+        // マイナス方向への移動も許可
+        moveDistance = newMoveDistance;
+
+        moveSpeed = Mathf.Max(
+            0.1f,
+            newMoveSpeed
+        );
 
         Debug.Log(
             gameObject.name +
@@ -143,8 +207,18 @@ public class SmashController : MonoBehaviour
         );
     }
 
+    // ========================================
+    // スマッシュ成功
+    // ========================================
+
     public void SuccessSmash()
     {
+        // 封印中はスマッシュ成功を受け付けない
+        if (smashLocked)
+        {
+            return;
+        }
+
         isCharging = false;
         cooldownTimer = cooldownTime;
 
@@ -154,14 +228,15 @@ public class SmashController : MonoBehaviour
     private IEnumerator ReturnX()
     {
         if (isMoving)
+        {
             yield break;
+        }
 
         isMoving = true;
 
         while (
             Mathf.Abs(
-                transform.position.x -
-                startX
+                transform.position.x - startX
             ) > 0.01f
         )
         {
@@ -184,5 +259,77 @@ public class SmashController : MonoBehaviour
         transform.position = finalPosition;
 
         isMoving = false;
+    }
+
+    // ========================================
+    // スマッシュ封印
+    // ========================================
+
+    public void LockSmash(float duration)
+    {
+        // 前回の封印タイマーを停止
+        if (smashLockCoroutine != null)
+        {
+            StopCoroutine(smashLockCoroutine);
+            smashLockCoroutine = null;
+        }
+
+        if (duration <= 0f)
+        {
+            UnlockSmash();
+            return;
+        }
+
+        smashLocked = true;
+        isCharging = false;
+
+        Debug.Log(
+            $"{gameObject.name}：スマッシュ封印！" +
+            $"{duration}秒間",
+            this
+        );
+
+        smashLockCoroutine = StartCoroutine(
+            SmashLockRoutine(duration)
+        );
+    }
+
+    private IEnumerator SmashLockRoutine(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        UnlockSmash();
+    }
+
+    // ========================================
+    // スマッシュ封印解除
+    // ========================================
+
+    public void UnlockSmash()
+    {
+        if (smashLockCoroutine != null)
+        {
+            StopCoroutine(smashLockCoroutine);
+            smashLockCoroutine = null;
+        }
+
+        smashLocked = false;
+        isCharging = false;
+
+        Debug.Log(
+            $"{gameObject.name}：スマッシュ封印解除！",
+            this
+        );
+    }
+
+    // ========================================
+    // 無効化時
+    // ========================================
+
+    private void OnDisable()
+    {
+        smashLocked = false;
+        isCharging = false;
+        smashLockCoroutine = null;
     }
 }

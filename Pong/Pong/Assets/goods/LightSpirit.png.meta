@@ -1,0 +1,1040 @@
+fileFormatVersion: 2
+guid: 0ab0b753d94be504abca3663807db5d8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5223421518943053419
+    second: LightSpirit_0
+  - first:
+      213: -8283277918894671102
+    second: LightSpirit_1
+  - first:
+      213: 2412816833612058675
+    second: LightSpirit_2
+  - first:
+      213: 4179166245585274928
+    second: LightSpirit_3
+  - first:
+      213: 8406776847439074908
+    second: LightSpirit_4
+  - first:
+      213: -7755869262378845853
+    second: LightSpirit_5
+  - first:
+      213: -173349518786490859
+    second: LightSpirit_6
+  - first:
+      213: -2784543916769408098
+    second: LightSpirit_7
+  - first:
+      213: -1233360012582667815
+    second: LightSpirit_8
+  - first:
+      213: -1481761316793487741
+    second: LightSpirit_9
+  - first:
+      213: -333319776085870801
+    second: LightSpirit_10
+  - first:
+      213: -4229818524970272236
+    second: LightSpirit_11
+  - first:
+      213: -6424913621851338645
+    second: LightSpirit_12
+  - first:
+      213: -623086841186858544
+    second: LightSpirit_13
+  - first:
+      213: 3845733089679922844
+    second: LightSpirit_14
+  - first:
+      213: 40929381612288416
+    second: LightSpirit_15
+  - first:
+      213: 2812589230085624130
+    second: LightSpirit_16
+  - first:
+      213: -127130520892048549
+    second: LightSpirit_17
+  - first:
+      213: 7159384553725206127
+    second: LightSpirit_18
+  - first:
+      213: -2610773612364608636
+    second: LightSpirit_19
+  - first:
+      213: -6531468264324858108
+    second: LightSpirit_20
+  - first:
+      213: -768374603368306753
+    second: LightSpirit_21
+  - first:
+      213: -6585744619599148357
+    second: LightSpirit_22
+  - first:
+      213: -545903734102393432
+    second: LightSpirit_23
+  - first:
+      213: 974652757047269414
+    second: LightSpirit_24
+  - first:
+      213: -4913518139626660665
+    second: LightSpirit_25
+  - first:
+      213: 4517041088442899687
+    second: LightSpirit_26
+  - first:
+      213: 7146889867046816173
+    second: LightSpirit_27
+  - first:
+      213: 4860419221055027417
+    second: LightSpirit_28
+  - first:
+      213: -8521154711118982719
+    second: LightSpirit_29
+  - first:
+      213: -9048377830093943823
+    second: LightSpirit_30
+  - first:
+      213: -2015374596778167828
+    second: LightSpirit_31
+  - first:
+      213: 8084982782850063204
+    second: LightSpirit_32
+  - first:
+      213: 8974098062951990654
+    second: LightSpirit_33
+  - first:
+      213: -956817937429300455
+    second: LightSpirit_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LightSpirit_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1523
+        height: 1010
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b666bb452325d7840800000000000000
+      internalID: 5223421518943053419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_1
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 991
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20b32749e92eb0d80800000000000000
+      internalID: -8283277918894671102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_2
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 991
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3309783602c0c7120800000000000000
+      internalID: 2412816833612058675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_3
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 991
+        width: 29
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 038c965ee816ff930800000000000000
+      internalID: 4179166245585274928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_4
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 945
+        width: 125
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c569591700fdaa470800000000000000
+      internalID: 8406776847439074908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_5
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 965
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 369b98b8ffd9d5490800000000000000
+      internalID: -7755869262378845853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_6
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 975
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51e0fb6f783289df0800000000000000
+      internalID: -173349518786490859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_7
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 955
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b0c739f005b59d0800000000000000
+      internalID: -2784543916769408098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_8
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 961
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d9b6d96a9932eee0800000000000000
+      internalID: -1233360012582667815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_9
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 924
+        width: 67
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38eeb9edee9bf6be0800000000000000
+      internalID: -1481761316793487741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_10
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 945
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f27f9cdfd6fcf5bf0800000000000000
+      internalID: -333319776085870801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_11
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 943
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ab7ca467aac45c0800000000000000
+      internalID: -4229818524970272236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_12
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 949
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b688bf00a1f16d6a0800000000000000
+      internalID: -6424913621851338645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_13
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 796
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d946d6b1d95a57f0800000000000000
+      internalID: -623086841186858544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_14
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 783
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9656579ed9ce5530800000000000000
+      internalID: 3845733089679922844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 727
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a970e34e09619000800000000000000
+      internalID: 40929381612288416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_16
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 705
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241d756c003580720800000000000000
+      internalID: 2812589230085624130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_17
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 655
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5b7e1ef6775c3ef0800000000000000
+      internalID: -127130520892048549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_18
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 673
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6e953fc15e3b5360800000000000000
+      internalID: 7159384553725206127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_19
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 618
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48b4b066b3ba4cbd0800000000000000
+      internalID: -2610773612364608636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_20
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 631
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ffd2308309b55a0800000000000000
+      internalID: -6531468264324858108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_21
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 623
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb7ecc78e5f2655f0800000000000000
+      internalID: -768374603368306753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_22
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 575
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bba4a57492cba94a0800000000000000
+      internalID: -6585744619599148357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_23
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 509
+        width: 63
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad7447327f8c68f0800000000000000
+      internalID: -545903734102393432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 373
+        width: 5
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6285823c489a68d00800000000000000
+      internalID: 974652757047269414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_25
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 409
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cc5d12f84dafcbb0800000000000000
+      internalID: -4913518139626660665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_26
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 325
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec9b7800f0cfae30800000000000000
+      internalID: 4517041088442899687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_27
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 337
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da90a2ed77ade2360800000000000000
+      internalID: 7146889867046816173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_28
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 327
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d8377aa78da37340800000000000000
+      internalID: 4860419221055027417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_29
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 306
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c15b9fefe6ceb980800000000000000
+      internalID: -8521154711118982719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_30
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 267
+        width: 29
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb0bbbcd44bd6280800000000000000
+      internalID: -9048377830093943823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_31
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 119
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce1f0bd6b73f704e0800000000000000
+      internalID: -2015374596778167828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_32
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 49
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b5de24101a33070800000000000000
+      internalID: 8084982782850063204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_33
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 19
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7546c534a66a8c70800000000000000
+      internalID: 8974098062951990654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LightSpirit_34
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 31
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bfdc4c723b8b2f0800000000000000
+      internalID: -956817937429300455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      LightSpirit_0: 5223421518943053419
+      LightSpirit_1: -8283277918894671102
+      LightSpirit_10: -333319776085870801
+      LightSpirit_11: -4229818524970272236
+      LightSpirit_12: -6424913621851338645
+      LightSpirit_13: -623086841186858544
+      LightSpirit_14: 3845733089679922844
+      LightSpirit_15: 40929381612288416
+      LightSpirit_16: 2812589230085624130
+      LightSpirit_17: -127130520892048549
+      LightSpirit_18: 7159384553725206127
+      LightSpirit_19: -2610773612364608636
+      LightSpirit_2: 2412816833612058675
+      LightSpirit_20: -6531468264324858108
+      LightSpirit_21: -768374603368306753
+      LightSpirit_22: -6585744619599148357
+      LightSpirit_23: -545903734102393432
+      LightSpirit_24: 974652757047269414
+      LightSpirit_25: -4913518139626660665
+      LightSpirit_26: 4517041088442899687
+      LightSpirit_27: 7146889867046816173
+      LightSpirit_28: 4860419221055027417
+      LightSpirit_29: -8521154711118982719
+      LightSpirit_3: 4179166245585274928
+      LightSpirit_30: -9048377830093943823
+      LightSpirit_31: -2015374596778167828
+      LightSpirit_32: 8084982782850063204
+      LightSpirit_33: 8974098062951990654
+      LightSpirit_34: -956817937429300455
+      LightSpirit_4: 8406776847439074908
+      LightSpirit_5: -7755869262378845853
+      LightSpirit_6: -173349518786490859
+      LightSpirit_7: -2784543916769408098
+      LightSpirit_8: -1233360012582667815
+      LightSpirit_9: -1481761316793487741
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

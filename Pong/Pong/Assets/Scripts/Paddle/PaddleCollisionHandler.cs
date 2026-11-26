@@ -1,49 +1,102 @@
+
 using UnityEngine;
 
 [RequireComponent(typeof(Paddle))]
 public class PaddleCollisionHandler : MonoBehaviour
 {
+    // ========================================
+    // 通常反射
+    // ========================================
+
     [Header("通常反射時の基本加速量")]
-    [SerializeField] private float baseSpeedIncrease = 1.5f;
+    [SerializeField]
+    private float baseSpeedIncrease = 1.5f;
 
     [Header("反射角度")]
-    [SerializeField] private float maxBounceAngle = 45f;
+    [SerializeField]
+    private float maxBounceAngle = 45f;
+
+    // ========================================
+    // 参照
+    // ========================================
 
     private CharacterRuntimeStats characterStats;
 
     private void Awake()
     {
-        characterStats = GetComponent<CharacterRuntimeStats>();
+        characterStats =
+            GetComponent<CharacterRuntimeStats>();
     }
+
+    // ========================================
+    // 衝突処理
+    // ========================================
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Ballタグ以外は無視
-        if (!collision.gameObject.CompareTag("Ball"))
-            return;
+        // ====================================
+        // FireBallの反射
+        // ====================================
 
-        Ball ball = collision.gameObject.GetComponent<Ball>();
+        FireSpiritProjectile fireBall =
+            collision.gameObject
+                .GetComponent<FireSpiritProjectile>();
+
+        if (fireBall != null)
+        {
+            fireBall.ReflectByPaddle(
+                collision.otherCollider,
+                maxBounceAngle
+            );
+
+            return;
+        }
+
+        // ====================================
+        // 通常Ball以外は無視
+        // ====================================
+
+        if (!collision.gameObject.CompareTag("Ball"))
+        {
+            return;
+        }
+
+        Ball ball =
+            collision.gameObject.GetComponent<Ball>();
 
         if (ball == null)
+        {
             return;
+        }
 
-        Collider2D paddleCollider = collision.otherCollider;
+        Collider2D paddleCollider =
+            collision.otherCollider;
 
-        // パドルのどの高さに当たったかを -1 ～ 1 で取得
         float contactY =
-            (ball.transform.position.y - paddleCollider.bounds.center.y)
-            / (paddleCollider.bounds.size.y / 2f);
+            (ball.transform.position.y -
+             paddleCollider.bounds.center.y) /
+            (paddleCollider.bounds.size.y / 2f);
 
-        contactY = Mathf.Clamp(contactY, -1f, 1f);
+        contactY = Mathf.Clamp(
+            contactY,
+            -1f,
+            1f
+        );
 
-        // 接触位置に応じて反射角度を決める
-        float bounceAngle = contactY * maxBounceAngle;
-        float radians = bounceAngle * Mathf.Deg2Rad;
+        // ====================================
+        // 反射角度
+        // ====================================
 
-        // 左右どちらへ跳ね返すか
+        float bounceAngle =
+            contactY * maxBounceAngle;
+
+        float radians =
+            bounceAngle * Mathf.Deg2Rad;
+
         float horizontalDirection;
 
-        if (transform.position.x < ball.transform.position.x)
+        if (transform.position.x <
+            ball.transform.position.x)
         {
             horizontalDirection = 1f;
         }
@@ -57,13 +110,15 @@ public class PaddleCollisionHandler : MonoBehaviour
             Mathf.Sin(radians)
         ).normalized;
 
-        // まず反射方向を変更
-        ball.velocity = newDirection * ball.currentSpeed;
+        // ====================================
+        // 通常Ballの速度処理
+        // ====================================
 
-        // 全キャラ共通の通常加速
+        ball.velocity =
+            newDirection * ball.currentSpeed;
+
         ball.IncreaseSpeed(baseSpeedIncrease);
 
-        // Speedsterなどのキャラ固有倍率を反映
         float characterMultiplier = 1f;
 
         if (characterStats != null)
@@ -72,7 +127,9 @@ public class PaddleCollisionHandler : MonoBehaviour
                 characterStats.NormalHitSpeedMultiplier;
         }
 
-        if (!Mathf.Approximately(characterMultiplier, 1f))
+        if (!Mathf.Approximately(
+            characterMultiplier,
+            1f))
         {
             ball.ApplyCharacterSpeedMultiplier(
                 characterMultiplier,
@@ -80,13 +137,17 @@ public class PaddleCollisionHandler : MonoBehaviour
             );
         }
 
-        // ボールがパドル内部に残らないように少し外へ出す
+        // ====================================
+        // パドル外へ押し出す
+        // ====================================
+
         float pushDistance = 0.1f;
 
         ball.transform.position = new Vector2(
-            paddleCollider.bounds.center.x
-            + horizontalDirection
-            * (paddleCollider.bounds.extents.x + pushDistance),
+            paddleCollider.bounds.center.x +
+            horizontalDirection *
+            (paddleCollider.bounds.extents.x +
+             pushDistance),
 
             ball.transform.position.y
         );

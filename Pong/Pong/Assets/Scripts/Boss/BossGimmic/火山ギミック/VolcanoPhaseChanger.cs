@@ -22,6 +22,12 @@ public class VolcanoPhaseChanger :
     [SerializeField]
     private GameObject mixedBackground;
 
+    [Header("第2形態 Paddleギミック")]
+    [SerializeField] private float firstInertiaDuration = 30f;
+    [SerializeField] private float speedSwitchInterval = 20f;
+
+    private Coroutine paddleGimmickCoroutine;
+
     [Header("Bossの見た目")]
     [Tooltip(
         "Dragon本体ではなく、" +
@@ -182,15 +188,29 @@ public class VolcanoPhaseChanger :
 
         onPhaseChangeFinished = null;
 
-        callback?.Invoke();
+        if (callback == null)
+        {
+            Debug.LogError(
+                "形態変化のコールバックが設定されていない！",
+                this
+            );
+        }
+        else
+        {
+            Debug.Log("形態変化コールバック実行！", this);
+            callback.Invoke();
+        }
 
         if (bossController != null)
         {
-            bossController
-                .StartMoveAfterPhaseChange();
+            bossController.SetBattleStarted(true);
         }
 
         EnablePaddleInertia();
+
+
+        paddleGimmickCoroutine =
+    StartCoroutine(PaddleGimmickRoutine());
 
         Debug.Log(
             "火山Boss：第2形態への移行完了",
@@ -359,8 +379,71 @@ public class VolcanoPhaseChanger :
         }
     }
 
+    private IEnumerator PaddleGimmickRoutine()
+    {
+        yield return new WaitForSeconds(firstInertiaDuration);
+
+        if (paddles == null ||
+            paddles.Length < 2 ||
+            paddles[0] == null ||
+            paddles[1] == null)
+
+        {
+            Debug.LogWarning(
+                "1Pと2PのPaddleを設定してください。",
+                this
+            );
+
+            paddleGimmickCoroutine = null;
+            yield break;
+        }
+
+        int speedUpIndex = 0;
+
+        while (phaseChanged)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                paddles[i].DisableBossSpeedUp();
+            }
+
+            paddles[speedUpIndex].EnableBossSpeedUp();
+
+            Debug.Log(
+                $"{speedUpIndex + 1}P：高速・慣性OFF",
+                this
+            );
+
+            yield return new WaitForSeconds(
+            speedSwitchInterval
+        );
+
+            speedUpIndex = 1 - speedUpIndex;
+        }
+
+        paddleGimmickCoroutine = null;
+    }
+
     private void OnDisable()
     {
+
+        if (paddleGimmickCoroutine != null)
+        {
+            StopCoroutine(paddleGimmickCoroutine);
+            paddleGimmickCoroutine = null;
+        }
+
+        if (paddles != null)
+        {
+            foreach (Paddle paddle in paddles)
+            {
+                if (paddle != null && paddle.IsBossSpeedUp())
+                {
+                    paddle.DisableBossSpeedUp();
+                }
+            }
+        }
+
         if (phaseChanging &&
             Time.timeScale == 0f)
         {

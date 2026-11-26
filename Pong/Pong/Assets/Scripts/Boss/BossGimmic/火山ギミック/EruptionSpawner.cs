@@ -1,0 +1,74 @@
+
+using System.Collections;
+using UnityEngine;
+
+public class EruptionSpawner : MonoBehaviour
+{
+    [Header("ï¨âŒPrefab")]
+    [SerializeField] private GameObject eruptionPrefab;
+
+    [Header("ï¨âŒÇÃê∂ê¨îÕàÕ")]
+    [SerializeField] private float minX = -7f;
+    [SerializeField] private float maxX = 7f;
+    [SerializeField] private float spawnY = -4f;
+
+    [Header("ï¨âŒèIóπå„ÇÃë“ã@éûä‘")]
+    [SerializeField] private float spawnInterval = 15f;
+
+    [Header("ï¨âŒÇ…Ç©Ç©ÇÈéûä‘")]
+    [SerializeField] private float eruptionDuration = 7f;
+
+    private Coroutine spawnCoroutine;
+    private bool isSpawning = false;
+
+    public void StartSpawning()
+    {
+        if (isSpawning) return;
+
+        if (eruptionPrefab == null)
+        {
+            Debug.LogError("ï¨âŒPrefabÇ™ê›íËÇ≥ÇÍÇƒÇ¢Ç‹ÇπÇÒÅI");
+            return;
+        }
+
+        isSpawning = true;
+        spawnCoroutine = StartCoroutine(SpawnRoutine());
+    }
+
+    public void StopSpawning()
+    {
+        isSpawning = false;
+
+        if (spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+            spawnCoroutine = null;
+        }
+    }
+
+    private IEnumerator SpawnRoutine()
+    {
+        while (isSpawning)
+        {
+            float randomX = Random.Range(minX, maxX);
+
+            Vector3 spawnPosition = new Vector3(
+                randomX,
+                spawnY,
+                0f
+            );
+
+            Instantiate(
+                eruptionPrefab,
+                spawnPosition,
+                Quaternion.identity
+            );
+
+            yield return new WaitForSeconds(eruptionDuration);
+
+            yield return new WaitForSeconds(spawnInterval);
+        }
+
+        spawnCoroutine = null;
+    }
+}

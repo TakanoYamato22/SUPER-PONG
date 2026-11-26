@@ -1,245 +1,187 @@
+
 using System.Collections;
 using UnityEngine;
 
-public class VolcanoBossController :
-    BossController
+public class VolcanoBossController : BossController
 {
     [Header("第2形態の移動")]
-    [SerializeField]
-    private float directionChangeInterval = 1.5f;
+    [SerializeField] private float directionChangeInterval = 1.5f;
 
-    [Header("第2形態の攻撃")]
-    [SerializeField]
-    private GameObject stonePrefab;
+    [Header("移動開始HP")]
+    [SerializeField, Range(0f, 1f)]
+    private float moveStartHpRatio = 0.3f;
 
-    [SerializeField]
-    private Transform stoneSpawnPoint;
+    [Header("氷柱ギミック")]
+    [SerializeField] private IcicleSpawner icicleSpawner;
+    [SerializeField, Range(0f, 1f)] private float icicleStartHpRatio = 0.5f;
 
-    [SerializeField]
-    private float stoneFireInterval = 2f;
-
-    [SerializeField]
-    private float stoneSpeed = 5f;
+    // ★追加：噴火ギミック
+    [Header("噴火ギミック")]
+    [SerializeField] private EruptionSpawner eruptionSpawner;
+    [SerializeField, Range(0f, 1f)] private float eruptionStartHpRatio = 0.75f;
 
     [Header("形態変化時の揺れ")]
-    [SerializeField]
-    private float shakePower = 0.15f;
+    [SerializeField] private float shakePower = 0.15f;
 
     private bool secondPhaseBehaviourStarted;
+    private bool icicleStarted;
+
+    // ★追加
+    private bool eruptionStarted;
 
     private Vector2 moveDirection;
     private float directionTimer;
-    private float stoneTimer;
-
     private Vector3 basePosition;
 
     protected override void Start()
     {
         base.Start();
 
-        basePosition =
-            transform.position;
-
-        /*
-         * 第1形態は動かない。
-         * 第2形態開始まで行動停止。
-         */
+        basePosition = transform.position;
         secondPhaseBehaviourStarted = false;
 
         ChangeMoveDirection();
     }
 
+
+
     protected override void Update()
     {
-        /*
-         * BossController側のUpdateは呼ばない。
-         * 第1形態では絶対にMoveさせないため、
-         * 第2形態開始後だけ独自行動を実行。
-         */
-        if (!secondPhaseBehaviourStarted)
-        {
-            return;
-        }
-
         if (!BattleStarted ||
             IsDead ||
             IsPhaseChanging)
-        {
             return;
+
+        if (IsSecondPhase &&
+            MaxHP > 0f &&
+            CurrentHP <= MaxHP * moveStartHpRatio)
+        {
+            if (!secondPhaseBehaviourStarted)
+            {
+                StartMoveAfterPhaseChange();
+            }
+
+            Move();
         }
 
-        Move();
-        UpdateStoneAttack();
+        UpdateEruptionAttack();
+        UpdateIcicleAttack();
     }
+
 
     protected override void Move()
     {
-        directionTimer -=
-            Time.deltaTime;
+        directionTimer -= Time.deltaTime;
 
         if (directionTimer <= 0f)
         {
             ChangeMoveDirection();
         }
 
-        Vector3 movement =
-            new Vector3(
-                moveDirection.x,
-                moveDirection.y,
-                0f
-            ) *
-            moveSpeed *
-            Time.deltaTime;
+        Vector3 pos = transform.position;
 
-        transform.position +=
-            movement;
+        pos += (Vector3)moveDirection
+            * moveSpeed
+            * Time.deltaTime;
 
-        ClampPosition();
+        float minX = basePosition.x - moveRangeX;
+        float maxX = basePosition.x + moveRangeX;
+
+        float minY = basePosition.y - moveRangeY;
+        float maxY = basePosition.y + moveRangeY;
+
+        // 左右の端に到達したら反射
+        if (pos.x <= minX || pos.x >= maxX)
+        {
+            moveDirection.x *= -1f;
+            pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        }
+
+        // 上下の端に到達したら反射
+        if (pos.y <= minY || pos.y >= maxY)
+        {
+            moveDirection.y *= -1f;
+            pos.y = Mathf.Clamp(pos.y, minY, maxY);
+        }
+
+        transform.position = pos;
     }
 
-    /// <summary>
-    /// 形態変化演出が完全に終了した後に呼ぶ。
-    /// </summary>
     public void StartMoveAfterPhaseChange()
     {
-        secondPhaseBehaviourStarted =
-            true;
-
+        secondPhaseBehaviourStarted = true;
         directionTimer = 0f;
-        stoneTimer = stoneFireInterval;
-
         ChangeMoveDirection();
-
-        Debug.Log(
-            "火山Boss第2形態：移動と攻撃を開始",
-            this
-        );
     }
 
     private void ChangeMoveDirection()
     {
-        moveDirection =
-            Random.insideUnitCircle.normalized;
-
-        directionTimer =
-            directionChangeInterval;
+        moveDirection = Random.insideUnitCircle.normalized;
+        directionTimer = directionChangeInterval;
     }
 
-    private void ClampPosition()
+    // ==========================================
+    // ★追加：HP75%以下で噴火開始
+    // ==========================================
+
+    private void UpdateEruptionAttack()
     {
-        Vector3 position =
-            transform.position;
-
-        position.x =
-            Mathf.Clamp(
-                position.x,
-                basePosition.x - moveRangeX,
-                basePosition.x + moveRangeX
-            );
-
-        position.y =
-            Mathf.Clamp(
-                position.y,
-                basePosition.y - moveRangeY,
-                basePosition.y + moveRangeY
-            );
-
-        transform.position =
-            position;
-    }
-
-    private void UpdateStoneAttack()
-    {
-        if (stonePrefab == null ||
-            stoneSpawnPoint == null)
-        {
+        if (eruptionStarted || eruptionSpawner == null)
             return;
-        }
 
-        stoneTimer -=
-            Time.deltaTime;
-
-        if (stoneTimer > 0f)
-        {
+        if (!IsSecondPhase || MaxHP <= 0f)
             return;
-        }
 
-        FireStone();
+        if (CurrentHP > MaxHP * eruptionStartHpRatio)
+            return;
 
-        stoneTimer =
-            stoneFireInterval;
+        eruptionStarted = true;
+        eruptionSpawner.StartSpawning();
+
+        Debug.Log("BossのHPが75％以下！噴火攻撃開始！");
     }
 
-    private void FireStone()
+    // ==========================================
+    // HP50%以下で氷柱開始（既存処理）
+    // ==========================================
+
+    private void UpdateIcicleAttack()
     {
-        GameObject stone =
-            Instantiate(
-                stonePrefab,
-                stoneSpawnPoint.position,
-                Quaternion.identity
-            );
-
-        Rigidbody2D rb =
-            stone.GetComponent<Rigidbody2D>();
-
-        if (rb == null)
-        {
+        if (icicleStarted || icicleSpawner == null)
             return;
-        }
 
-        Vector2 direction =
-            Vector2.down;
+        if (!IsSecondPhase || MaxHP <= 0f)
+            return;
 
-        rb.linearVelocity =
-            direction * stoneSpeed;
+        if (CurrentHP > MaxHP * icicleStartHpRatio)
+            return;
+
+        icicleStarted = true;
+        icicleSpawner.StartSpawning();
+
+        Debug.Log("BossのHPが50％以下！氷柱攻撃開始！");
     }
 
-    /// <summary>
-    /// 形態変化開始時の揺れ。
-    /// Time.timeScaleが0でも動く。
-    /// </summary>
-    public IEnumerator PlayPhaseChangeShake(
-        float duration
-    )
+    public IEnumerator PlayPhaseChangeShake(float duration)
     {
-        Vector3 startPosition =
-            transform.position;
-
+        Vector3 startPosition = transform.position;
         float elapsed = 0f;
 
         while (elapsed < duration)
         {
-            float offsetX =
-                Random.Range(
-                    -shakePower,
-                    shakePower
-                );
-
-            float offsetY =
-                Random.Range(
-                    -shakePower,
-                    shakePower
-                );
-
-            transform.position =
-                startPosition +
+            transform.position = startPosition +
                 new Vector3(
-                    offsetX,
-                    offsetY,
+                    Random.Range(-shakePower, shakePower),
+                    Random.Range(-shakePower, shakePower),
                     0f
                 );
 
-            elapsed +=
-                Time.unscaledDeltaTime;
-
+            elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
 
-        transform.position =
-            startPosition;
-
-        basePosition =
-            startPosition;
+        transform.position = startPosition;
+        basePosition = startPosition;
     }
 
     public void Stun(float duration)
@@ -249,17 +191,12 @@ public class VolcanoBossController :
 
     private IEnumerator StunCoroutine(float duration)
     {
-        bool previousState =
-            secondPhaseBehaviourStarted;
-
+        bool previousState = secondPhaseBehaviourStarted;
         secondPhaseBehaviourStarted = false;
 
         yield return new WaitForSeconds(duration);
 
         if (IsSecondPhase)
-        {
-            secondPhaseBehaviourStarted =
-                previousState;
-        }
+            secondPhaseBehaviourStarted = previousState;
     }
 }

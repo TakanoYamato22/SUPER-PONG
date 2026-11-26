@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class BossStunItem : MonoBehaviour
@@ -5,7 +6,7 @@ public class BossStunItem : MonoBehaviour
     [Header("スタン設定")]
     [SerializeField] private float duration = 5f;
 
-    [Header("効果音")]
+    [Header("取得音")]
     [SerializeField] private AudioClip itemSound;
 
     [SerializeField]
@@ -16,13 +17,10 @@ public class BossStunItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 一度だけ発動
         if (hasActivated)
-        {
             return;
-        }
 
-        // 当たったCollider、または親にBallがあるか確認
+        // Ballかどうか確認
         Ball ball = collision.GetComponent<Ball>();
 
         if (ball == null)
@@ -30,17 +28,17 @@ public class BossStunItem : MonoBehaviour
             ball = collision.GetComponentInParent<Ball>();
         }
 
-        // Ball以外では発動しない
         if (ball == null)
-        {
             return;
-        }
 
         hasActivated = true;
 
         bool stunnedBoss = false;
 
-        // Giusがいるステージ
+        // ========================================
+        // Giusステージ
+        // ========================================
+
         GiusController giusBoss =
             FindFirstObjectByType<GiusController>();
 
@@ -48,14 +46,12 @@ public class BossStunItem : MonoBehaviour
         {
             giusBoss.Stun(duration);
             stunnedBoss = true;
-
-            Debug.Log(
-                $"Giusを{duration}秒スタンさせました。",
-                giusBoss
-            );
         }
 
-        // VolcanoBossがいるステージ
+        // ========================================
+        // 火山ステージ
+        // ========================================
+
         VolcanoBossController volcanoBoss =
             FindFirstObjectByType<VolcanoBossController>();
 
@@ -63,12 +59,45 @@ public class BossStunItem : MonoBehaviour
         {
             volcanoBoss.Stun(duration);
             stunnedBoss = true;
+        }
+
+        // ========================================
+        // 宇宙ステージ
+        // ========================================
+
+        SpaceBossController spaceBoss =
+            FindFirstObjectByType<SpaceBossController>();
+
+        if (spaceBoss != null)
+        {
+            spaceBoss.Stun(duration);
+            stunnedBoss = true;
 
             Debug.Log(
-                $"VolcanoBossを{duration}秒スタンさせました。",
-                volcanoBoss
+                $"宇宙ボスを{duration}秒スタンさせました！"
             );
         }
+
+        // ========================================
+        // アトランティスステージ追加！
+        // ========================================
+
+        AtlantisBossController atlantisBoss =
+            FindFirstObjectByType<AtlantisBossController>();
+
+        if (atlantisBoss != null)
+        {
+            atlantisBoss.Stun(duration);
+            stunnedBoss = true;
+
+            Debug.Log(
+                $"アトランティスボスを{duration}秒スタンさせました！"
+            );
+        }
+
+        // ========================================
+        // スタン対象がいない場合
+        // ========================================
 
         if (!stunnedBoss)
         {
@@ -81,7 +110,10 @@ public class BossStunItem : MonoBehaviour
             return;
         }
 
-        // 効果音
+        // ========================================
+        // 取得音
+        // ========================================
+
         if (itemSound != null)
         {
             AudioSource.PlayClipAtPoint(
@@ -91,6 +123,7 @@ public class BossStunItem : MonoBehaviour
             );
         }
 
+        // アイテムを削除
         Destroy(gameObject);
     }
 }

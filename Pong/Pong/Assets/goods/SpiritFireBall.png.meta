@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: ef9d442ed2bde2c41b70baea8d75c0a2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3465454434038900353
+    second: SpiritFireBall_0
+  - first:
+      213: -8134876114932122239
+    second: SpiritFireBall_1
+  - first:
+      213: -3857644785087634553
+    second: SpiritFireBall_2
+  - first:
+      213: 3670194262600592852
+    second: SpiritFireBall_3
+  - first:
+      213: 1231564902212021597
+    second: SpiritFireBall_4
+  - first:
+      213: -2663235189744324340
+    second: SpiritFireBall_5
+  - first:
+      213: -571136091123564514
+    second: SpiritFireBall_6
+  - first:
+      213: 7300423993492476478
+    second: SpiritFireBall_7
+  - first:
+      213: -1960282467593274414
+    second: SpiritFireBall_8
+  - first:
+      213: 8949328038669966735
+    second: SpiritFireBall_9
+  - first:
+      213: 1627495367553969766
+    second: SpiritFireBall_10
+  - first:
+      213: -1264977765883102697
+    second: SpiritFireBall_11
+  - first:
+      213: 1145151979289308134
+    second: SpiritFireBall_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpiritFireBall_0
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 573
+        width: 277
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 186e03e6274c71030800000000000000
+      internalID: 3465454434038900353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_1
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 0
+        width: 1101
+        height: 970
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18d39ad164d1b1f80800000000000000
+      internalID: -8134876114932122239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 871
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 783a633b184e67ac0800000000000000
+      internalID: -3857644785087634553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_3
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 715
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd2cfe7c362fe230800000000000000
+      internalID: 3670194262600592852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_4
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 589
+        width: 88
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5daf22e0c5671110800000000000000
+      internalID: 1231564902212021597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 418
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0138f194b94a0bd0800000000000000
+      internalID: -2663235189744324340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_6
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 291
+        width: 91
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e10cc2a40cae218f0800000000000000
+      internalID: -571136091123564514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_7
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 107
+        width: 7
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e329bd951f0505560800000000000000
+      internalID: 7300423993492476478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_8
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 95
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db3da35b7dabc4e0800000000000000
+      internalID: -1960282467593274414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_9
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 174
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ddd538f66623c70800000000000000
+      internalID: 8949328038669966735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_10
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 405
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66ee5a8f966069610800000000000000
+      internalID: 1627495367553969766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_11
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 385
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a35cf8c65e17ee0800000000000000
+      internalID: -1264977765883102697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritFireBall_12
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 375
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ebef5b68a564ef00800000000000000
+      internalID: 1145151979289308134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SpiritFireBall_0: 3465454434038900353
+      SpiritFireBall_1: -8134876114932122239
+      SpiritFireBall_10: 1627495367553969766
+      SpiritFireBall_11: -1264977765883102697
+      SpiritFireBall_12: 1145151979289308134
+      SpiritFireBall_2: -3857644785087634553
+      SpiritFireBall_3: 3670194262600592852
+      SpiritFireBall_4: 1231564902212021597
+      SpiritFireBall_5: -2663235189744324340
+      SpiritFireBall_6: -571136091123564514
+      SpiritFireBall_7: 7300423993492476478
+      SpiritFireBall_8: -1960282467593274414
+      SpiritFireBall_9: 8949328038669966735
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

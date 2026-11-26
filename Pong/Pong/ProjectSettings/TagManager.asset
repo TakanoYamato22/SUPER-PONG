@@ -10,6 +10,7 @@ TagManager:
   - WallBlock
   - Gimmic
   - Drone
+  - Goal
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - UI
   - Ball
   - SmashBall
-  - 
-  - 
+  - SpiritFireBall
+  - FakeBall
   - 
   - 
   - 

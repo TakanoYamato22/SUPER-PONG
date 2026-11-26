@@ -85,19 +85,49 @@ public class CharacterApplier : MonoBehaviour
 
     private int GetCharacterIndex()
     {
+        // 1P
         if (playerNumber == 1)
         {
+            Debug.Log(
+                gameObject.name +
+                "：1Pキャラクター番号 = " +
+                GameSettings.player1CharacterIndex
+            );
+
             return GameSettings.player1CharacterIndex;
         }
 
-        // 1P���[�h����CPU��Balanced�Œ�
-        if (GameSettings.playerCount == 1)
+        // 2P
+        if (playerNumber == 2)
         {
+            // 2人プレイのとき
+            if (GameSettings.playerCount >= 2)
+            {
+                Debug.Log(
+                    gameObject.name +
+                    "：2Pキャラクター番号 = " +
+                    GameSettings.player2CharacterIndex
+                );
+
+                return GameSettings.player2CharacterIndex;
+            }
+
+            // 1人プレイのCPU
+            Debug.Log(
+                gameObject.name +
+                "：CPUなのでキャラクター番号0を使用"
+            );
+
             return 0;
         }
 
-        // 2P���[�h����2P���I�񂾃L����
-        return GameSettings.player2CharacterIndex;
+        Debug.LogWarning(
+            gameObject.name +
+            "：playerNumberが1か2ではありません。現在値：" +
+            playerNumber
+        );
+
+        return 0;
     }
 
     // ==================================================
@@ -154,18 +184,51 @@ public class CharacterApplier : MonoBehaviour
     // ==================================================
     // �F�𔽉f
     // ==================================================
+    private SpriteRenderer targetSpriteRenderer;
+    private Color appliedColor;
 
     private void ApplyColor(CharacterData data)
     {
-        SpriteRenderer[] spriteRenderers =
-            GetComponentsInChildren<SpriteRenderer>();
+        appliedColor = data.paddleColor;
 
-        foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+        targetSpriteRenderer =
+            GetComponent<SpriteRenderer>();
+
+        if (targetSpriteRenderer == null)
         {
-            spriteRenderer.color = data.paddleColor;
+            Debug.LogError(
+                gameObject.name +
+                "：SpriteRendererがありません"
+            );
+
+            return;
         }
+
+        targetSpriteRenderer.color = appliedColor;
+
+        Debug.Log(
+            gameObject.name +
+            "：色を設定しました " +
+            targetSpriteRenderer.color
+        );
     }
 
+    private void LateUpdate()
+    {
+        if (targetSpriteRenderer == null)
+            return;
+
+        if (targetSpriteRenderer.color != appliedColor)
+        {
+            Debug.LogWarning(
+                gameObject.name +
+                "：色が別処理で変更されました。現在色 = " +
+                targetSpriteRenderer.color
+            );
+        }
+
+        targetSpriteRenderer.color = appliedColor;
+    }
     // ==================================================
     // HP�𔽉f
     // ==================================================
