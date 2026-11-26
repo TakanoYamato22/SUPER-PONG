@@ -972,7 +972,41 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpaceBall_0: -6275945040208421426
+      SpaceBall_1: -823742503643326546
+      SpaceBall_10: -1458647398743369497
+      SpaceBall_11: -4739164525048583032
+      SpaceBall_12: 1663786631271202792
+      SpaceBall_13: -2454288878420220234
+      SpaceBall_14: 1511229181779580617
+      SpaceBall_15: 5796238254839066393
+      SpaceBall_16: 4949769491565548588
+      SpaceBall_17: 4812467476093586660
+      SpaceBall_18: 6255589605166743162
+      SpaceBall_19: 6547113697098438905
+      SpaceBall_2: 8270631399652815498
+      SpaceBall_20: -2183630263325008549
+      SpaceBall_21: 8382060826179754773
+      SpaceBall_22: -7127749629406243466
+      SpaceBall_23: -7708691568291617114
+      SpaceBall_24: 4770126258086356651
+      SpaceBall_25: 1683480578203784382
+      SpaceBall_26: 45597772636677247
+      SpaceBall_27: -3404888075931435087
+      SpaceBall_28: -5278482068971885987
+      SpaceBall_29: -8471773335118031565
+      SpaceBall_3: 8884459395621069101
+      SpaceBall_30: 303544025698522670
+      SpaceBall_31: 7251398441817515583
+      SpaceBall_32: -2811462204811969838
+      SpaceBall_33: 950172515551235724
+      SpaceBall_4: 6638398081121854668
+      SpaceBall_5: -8102731740640639487
+      SpaceBall_6: 6781251428703840580
+      SpaceBall_7: -798672387236741903
+      SpaceBall_8: -5688088637154694011
+      SpaceBall_9: 2963790233133839997
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
