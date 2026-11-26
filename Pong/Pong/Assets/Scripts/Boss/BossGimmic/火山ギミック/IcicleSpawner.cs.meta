@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: ebcbde7edebd29f46af8ea7046a10c34
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - iciclePrefab: {fileID: 2463497078794261685, guid: af1c3166559804347911f0e7acb805a9,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

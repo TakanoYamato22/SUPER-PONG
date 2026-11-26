@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -7,6 +8,10 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody2D rb;
     private BallSmashManager smashManager;
+
+    // ==================================================
+    // 速度
+    // ==================================================
 
     [Header("速度")]
     public float baseSpeed = 10f;
@@ -20,77 +25,87 @@ public class Ball : MonoBehaviour
 
     public bool ignoreMaxSpeed;
 
+    // ==================================================
+    // パワーアップ
+    // ==================================================
+
     [Header("パワーアップ")]
     public bool hasPowerUp;
     public float powerMultiplier = 1.5f;
 
+    // ==================================================
+    // スマッシュ時のDrone破壊
+    // ==================================================
+
     [Header("スマッシュ時のDrone破壊")]
-    [Tooltip("スマッシュ中にDroneを検出する太さ")]
+
+    [Tooltip("スマッシュ中にDroneを検出する範囲の太さ")]
     [Min(0.01f)]
     [SerializeField]
-    private float smashBreakRadius = 0.35f;
+    private float smashBreakRadius = 0.6f;
 
-    [Tooltip("Drone Layerだけを選択")]
+    [Tooltip("DroneのLayerだけを選択")]
     [SerializeField]
     private LayerMask droneLayer;
+
+    // ==================================================
+    // エフェクト
+    // ==================================================
 
     [Header("エフェクト")]
     public ParticleSystem hitEffect;
     public ParticleSystem smashEffect;
 
-    private Vector2 previousPosition;
+    // ==================================================
+    // 初期化
+    // ==================================================
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        smashManager =
-            GetComponent<BallSmashManager>();
+        smashManager = GetComponent<BallSmashManager>();
 
         currentSpeed = baseSpeed;
-        previousPosition = rb.position;
     }
 
-    private void OnEnable()
-    {
-        if (rb != null)
-        {
-            previousPosition = rb.position;
-        }
-    }
+    // ==================================================
+    // スマッシュ中のDrone検出
+    // ==================================================
 
     private void FixedUpdate()
     {
-        if (smashManager != null &&
-            smashManager.IsSmashed)
+        if (smashManager == null)
         {
-            BreakDronesOnSmashPath();
+            return;
         }
 
-        previousPosition = rb.position;
+        if (!smashManager.IsSmashed)
+        {
+            return;
+        }
+
+        BreakDronesOnSmashPath();
     }
 
     private void BreakDronesOnSmashPath()
     {
-        Vector2 currentPosition =
-            rb.position;
+        Vector2 startPosition = rb.position;
 
+        // 次の物理フレームで進む予定の移動量
         Vector2 movement =
-            currentPosition -
-            previousPosition;
+            rb.linearVelocity * Time.fixedDeltaTime;
 
-        float distance =
-            movement.magnitude;
+        float distance = movement.magnitude;
 
-        // 移動経路上のDroneを検出
+        // ボールの進行経路上にあるDroneを検出
         if (distance > 0.001f)
         {
             RaycastHit2D[] hits =
                 Physics2D.CircleCastAll(
-                    previousPosition,
+                    startPosition,
                     smashBreakRadius,
                     movement.normalized,
-                    distance,
+                    distance + smashBreakRadius,
                     droneLayer
                 );
 
@@ -101,16 +116,14 @@ public class Ball : MonoBehaviour
                     continue;
                 }
 
-                BreakDrone(
-                    hit.collider
-                );
+                BreakDrone(hit.collider);
             }
         }
 
-        // 現在位置に重なっているDroneも検出
+        // 現在位置ですでに重なっているDroneも検出
         Collider2D[] overlaps =
             Physics2D.OverlapCircleAll(
-                currentPosition,
+                startPosition,
                 smashBreakRadius,
                 droneLayer
             );
@@ -126,10 +139,13 @@ public class Ball : MonoBehaviour
         }
     }
 
-    private void BreakDrone(
-        Collider2D target
-    )
+    private void BreakDrone(Collider2D target)
     {
+        if (target == null)
+        {
+            return;
+        }
+
         Drone drone =
             target.GetComponent<Drone>();
 
@@ -139,22 +155,27 @@ public class Ball : MonoBehaviour
                 target.GetComponentInParent<Drone>();
         }
 
-        if (drone != null)
+        if (drone == null)
         {
-            drone.BreakDrone();
+            return;
         }
+
+        Debug.Log(
+            "スマッシュボールがDroneを破壊：" +
+            drone.gameObject.name
+        );
+
+        drone.BreakDrone();
     }
+
+    // ==================================================
+    // ボールのリセット
+    // ==================================================
 
     public void ResetPosition()
     {
-        rb.linearVelocity =
-            Vector2.zero;
-
-        rb.position =
-            Vector2.zero;
-
-        previousPosition =
-            rb.position;
+        rb.linearVelocity = Vector2.zero;
+        rb.position = Vector2.zero;
 
         if (smashManager != null)
         {
@@ -182,8 +203,7 @@ public class Ball : MonoBehaviour
             );
 
         Vector2 direction =
-            new Vector2(x, y)
-                .normalized;
+            new Vector2(x, y).normalized;
 
         rb.linearVelocity =
             direction * baseSpeed;
@@ -191,17 +211,18 @@ public class Ball : MonoBehaviour
         currentSpeed = baseSpeed;
     }
 
-    public void IncreaseSpeed(
-        float amount
-    )
+    // ==================================================
+    // 速度操作
+    // ==================================================
+
+    public void IncreaseSpeed(float amount)
     {
         float targetSpeed =
             currentSpeed + amount;
 
         if (ignoreMaxSpeed)
         {
-            currentSpeed =
-                targetSpeed;
+            currentSpeed = targetSpeed;
         }
         else
         {
@@ -216,14 +237,11 @@ public class Ball : MonoBehaviour
         ApplyCurrentSpeed();
     }
 
-    public void SetSpeed(
-        float newSpeed
-    )
+    public void SetSpeed(float newSpeed)
     {
         if (ignoreMaxSpeed)
         {
-            currentSpeed =
-                newSpeed;
+            currentSpeed = newSpeed;
         }
         else
         {
@@ -240,8 +258,7 @@ public class Ball : MonoBehaviour
 
     private void ApplyCurrentSpeed()
     {
-        if (rb.linearVelocity.sqrMagnitude
-            <= 0.001f)
+        if (rb.linearVelocity.sqrMagnitude <= 0.001f)
         {
             return;
         }
@@ -251,39 +268,130 @@ public class Ball : MonoBehaviour
             currentSpeed;
     }
 
-    public Vector2 velocity
+    // ==================================================
+    // 氷柱による減速（追加）
+    // ==================================================
+
+    public void ReduceSpeedByIcicle()
     {
-        get => rb.linearVelocity;
-        set => rb.linearVelocity = value;
+        // 現在速度から5減らす（最低15）
+        float newSpeed =
+            Mathf.Max(15f, currentSpeed - 5f);
+
+        // 進行方向は変えずに速度だけ減らす
+        currentSpeed = newSpeed;
+        ApplyCurrentSpeed();
+
+        Debug.Log(
+            $"氷柱に衝突！Ball速度：{currentSpeed}"
+        );
     }
 
-    public void GivePowerUp(
-        float multiplier
-    )
+
+    public void ReflectByIcicle(Vector2 normal)
+    {
+        Vector2 direction = rb.linearVelocity.normalized;
+
+        if (direction.sqrMagnitude <= 0.001f)
+            return;
+
+        // 氷柱に向かって進んでいる場合だけ反射
+        if (Vector2.Dot(direction, normal) < 0f)
+        {
+            direction = Vector2.Reflect(direction, normal);
+        }
+
+        rb.linearVelocity = direction * currentSpeed;
+    }
+
+
+    public Vector2 velocity
+    {
+        get
+        {
+            return rb.linearVelocity;
+        }
+
+        set
+        {
+            rb.linearVelocity = value;
+        }
+    }
+
+    // ==================================================
+    // パワーアップ
+    // ==================================================
+
+    public void GivePowerUp(float multiplier)
     {
         hasPowerUp = true;
         powerMultiplier = multiplier;
     }
 
-    public void ResetAndStartWithDelay(
-        float delay
-    )
+    // ==================================================
+    // 遅延リスタート
+    // ==================================================
+
+    public void ResetAndStartWithDelay(float delay)
     {
         StartCoroutine(
             StartAfterDelay(delay)
         );
     }
 
-    private IEnumerator StartAfterDelay(
-        float delay
-    )
+    private IEnumerator StartAfterDelay(float delay)
     {
         ResetPosition();
 
-        yield return
-            new WaitForSeconds(delay);
+        yield return new WaitForSeconds(delay);
 
         AddStartingForce();
+    }
+
+    // ==================================================
+    // キャラクター倍率
+    // ==================================================
+
+    public void ApplyCharacterSpeedMultiplier(
+        float multiplier,
+        bool allowBelowBaseSpeed
+    )
+    {
+        multiplier =
+            Mathf.Max(
+                0.01f,
+                multiplier
+            );
+
+        float targetSpeed =
+            currentSpeed *
+            multiplier;
+
+        if (allowBelowBaseSpeed)
+        {
+            currentSpeed =
+                Mathf.Clamp(
+                    targetSpeed,
+                    2f,
+                    maxSpeed
+                );
+        }
+        else
+        {
+            currentSpeed =
+                Mathf.Clamp(
+                    targetSpeed,
+                    baseSpeed,
+                    maxSpeed
+                );
+        }
+
+        if (rb.linearVelocity.sqrMagnitude > 0f)
+        {
+            rb.linearVelocity =
+                rb.linearVelocity.normalized *
+                currentSpeed;
+        }
     }
 
 #if UNITY_EDITOR
@@ -295,42 +403,4 @@ public class Ball : MonoBehaviour
         );
     }
 #endif
-    public void ApplyCharacterSpeedMultiplier(
-    float multiplier,
-    bool allowBelowBaseSpeed
-)
-    {
-        multiplier = Mathf.Max(0.01f, multiplier);
-
-        float targetSpeed =
-            currentSpeed *
-            multiplier;
-
-        if (allowBelowBaseSpeed)
-        {
-            // トリッカー用。
-            // baseSpeed未満にも減速できる。
-            currentSpeed = Mathf.Clamp(
-                targetSpeed,
-                2f,
-                maxSpeed
-            );
-        }
-        else
-        {
-            currentSpeed = Mathf.Clamp(
-                targetSpeed,
-                baseSpeed,
-                maxSpeed
-            );
-        }
-
-        if (rb.linearVelocity.sqrMagnitude > 0f)
-        {
-            rb.linearVelocity =
-                rb.linearVelocity.normalized *
-                currentSpeed;
-        }
-    }
-
 }

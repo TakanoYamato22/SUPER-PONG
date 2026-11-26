@@ -1,20 +1,53 @@
+
 using UnityEngine;
 
 public class VolcanoBossBall : MonoBehaviour
 {
+    [Header("Ball設定")]
     [SerializeField] private Ball ball;
 
-    [SerializeField] private float minimumDamageSpeed = 25f; // ダメージを与えられる最低速度
+    [Header("Bossへのダメージ条件")]
+    [SerializeField] private float minimumDamageSpeed = 25f;
+
+    private void Awake()
+    {
+        // Ballが同じGameObjectにある場合は自動取得
+        if (ball == null)
+        {
+            ball = GetComponent<Ball>();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.TryGetComponent(out BossController boss))
-            return;
+        // 親オブジェクトも含めてBossを探す
+        BossController boss =
+            collision.GetComponentInParent<BossController>();
 
-        // 速度が25未満ならダメージを与えない
+        // Boss以外に当たった場合は何もしない
+        if (boss == null)
+        {
+            return;
+        }
+
+        if (ball == null)
+        {
+            Debug.LogError("Ballが設定されていません！");
+            return;
+        }
+
+        // 速度25未満ならダメージを与えない
         if (ball.currentSpeed < minimumDamageSpeed)
         {
             Debug.Log($"速度不足！ 現在速度：{ball.currentSpeed}");
+            return;
+        }
+
+        // Bossが戦闘中でなければ攻撃しない
+        if (!boss.BattleStarted ||
+            boss.IsDead ||
+            boss.IsPhaseChanging)
+        {
             return;
         }
 
@@ -24,17 +57,32 @@ public class VolcanoBossBall : MonoBehaviour
         if (ball.hasPowerUp)
         {
             damage *= ball.powerMultiplier;
-            ball.hasPowerUp = false;
-
-            Debug.Log("攻撃力アップ発動！ ダメージ : " + damage);
         }
 
-        // ボスにダメージ
+        // 攻撃前のHPを保存
+        float previousHP = boss.CurrentHP;
+
+        // Bossにダメージ
         boss.TakeDamage(damage);
 
-        // ダメージを与えたら速度をBaseSpeedに戻す
+        // 無敵時間などでダメージが入らなかった場合
+        if (boss.CurrentHP >= previousHP)
+        {
+            return;
+        }
+
+        // ダメージ成功時だけ攻撃力アップを消費
+        if (ball.hasPowerUp)
+        {
+            ball.hasPowerUp = false;
+        }
+
+        // ダメージ成功時だけBallを減速
         ball.SetSpeed(ball.baseSpeed);
 
-        Debug.Log($"ボスに {damage} ダメージ！ スピードをBaseSpeed({ball.baseSpeed})に戻しました。");
+        Debug.Log(
+            $"Bossに{damage}ダメージ！ " +
+            $"残りHP：{boss.CurrentHP}/{boss.MaxHP}"
+        );
     }
 }

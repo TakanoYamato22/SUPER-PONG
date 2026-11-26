@@ -242,9 +242,6 @@ public class BossController : MonoBehaviour
         Die();
     }
 
-    /// <summary>
-    /// 第2形態へ移行可能か。
-    /// </summary>
     private bool CanStartSecondPhase()
     {
         if (secondPhaseStarted)
@@ -270,31 +267,26 @@ public class BossController : MonoBehaviour
         return true;
     }
 
-    /// <summary>
-    /// 第2形態への移行演出を開始する。
-    /// </summary>
     private void StartSecondPhase()
     {
+
         secondPhaseStarted = true;
         phaseChanging = true;
 
-        // 演出中はダメージや通常処理を止める
-        battleStarted = false;
-
         Debug.Log(
-            "第1形態のHPが0：形態変化開始",
-            this
-        );
+    $"形態変化開始：Boss={name}、" +
+    $"ID={GetInstanceID()}、" +
+    $"第2形態={IsSecondPhase}",
+    this
+);
+
+        battleStarted = false;
 
         phaseChanger.StartPhaseChange(
             CompleteSecondPhase
         );
     }
 
-    /// <summary>
-    /// 形態変化演出終了後に呼ばれる。
-    /// 第2形態のBossDataを適用する。
-    /// </summary>
     private void CompleteSecondPhase()
     {
         if (isDead)
@@ -304,10 +296,6 @@ public class BossController : MonoBehaviour
 
         if (secondPhaseData == null)
         {
-            Debug.LogError(
-                "第2形態のBossDataが設定されていません。",
-                this
-            );
 
             phaseChanging = false;
             Die();
@@ -317,10 +305,6 @@ public class BossController : MonoBehaviour
         currentData =
             secondPhaseData;
 
-        /*
-         * 第2形態データを適用し、
-         * HPを第2形態の最大HPまで回復する。
-         */
         ApplyBossData(
             currentData,
             true
@@ -332,10 +316,6 @@ public class BossController : MonoBehaviour
         phaseChanging = false;
         battleStarted = true;
 
-        /*
-         * 明転直後にBallが重なっていて
-         * 即ダメージを受けるのを防ぐ。
-         */
         if (damageManager != null)
         {
             StartCoroutine(
@@ -351,9 +331,6 @@ public class BossController : MonoBehaviour
         );
     }
 
-    /// <summary>
-    /// BossDataのステータスを適用する。
-    /// </summary>
     private void ApplyBossData(
         BossData bossData,
         bool recoverHp
@@ -382,9 +359,6 @@ public class BossController : MonoBehaviour
             bossData.moveRangeY;
     }
 
-    /// <summary>
-    /// HPバーを更新する。
-    /// </summary>
     private void UpdateHpBar()
     {
         if (hpFill == null)
@@ -411,10 +385,6 @@ public class BossController : MonoBehaviour
                 hpFillStartScale.z
             );
 
-        /*
-         * 左端を固定して、
-         * 右側からHPバーが減るように調整。
-         */
         hpFill.localPosition =
             new Vector3(
                 hpFillStartPosition.x -

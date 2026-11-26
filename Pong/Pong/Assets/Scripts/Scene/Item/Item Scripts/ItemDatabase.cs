@@ -27,10 +27,8 @@ public class ItemDatabase : MonoBehaviour
 
         if (index < 0 || index >= items.Length)
         {
-            Debug.LogError(
-                "アイテム番号が範囲外です: " +
-                index
-            );
+           
+            
 
             return null;
         }

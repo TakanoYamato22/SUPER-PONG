@@ -1,10 +1,17 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 public abstract class Paddle : MonoBehaviour
 {
     [Header("通常移動")]
     public float speed = 5f;
+
+    [Header("ボスギミック用スピード")]
+    [SerializeField] private float bossSpeedMultiplier = 1.5f;
+
+    private float normalSpeed;
+    private bool bossSpeedUp;
 
     [Header("慣性")]
     [Tooltip("最初から慣性を有効にする")]
@@ -22,6 +29,26 @@ public abstract class Paddle : MonoBehaviour
     [Min(0f)]
     [SerializeField] private float turnAcceleration = 28f;
 
+    // ========================================
+    // 水中ステージ
+    // ========================================
+
+    [Header("水中ステージ")]
+    [Tooltip("水中ステージのギミックを有効にする")]
+    [SerializeField] private bool underwaterEnabled = false;
+
+    [Tooltip("上昇速度の倍率")]
+    [SerializeField, Range(0f, 1f)]
+    private float underwaterUpMultiplier = 0.6f;
+
+    [Tooltip("入力していない時の沈下速度")]
+    [Min(0f)]
+    [SerializeField] private float underwaterSinkSpeed = 2f;
+
+    // ========================================
+    // Smash
+    // ========================================
+
     [Header("Smash")]
     public float smashPower = 2f;
 
@@ -34,7 +61,14 @@ public abstract class Paddle : MonoBehaviour
     protected virtual void Awake()
     {
         originalScale = transform.localScale;
+
+        // 通常時の速度を保存
+        normalSpeed = speed;
     }
+
+    // ========================================
+    // 移動速度計算
+    // ========================================
 
     /// <summary>
     /// Paddleの移動速度を計算する。
@@ -51,7 +85,44 @@ public abstract class Paddle : MonoBehaviour
             1f
         );
 
-        // 慣性OFFなら、今までどおり即座に移動
+        // ====================================
+        // 水中ステージ専用処理
+        // ====================================
+
+        if (underwaterEnabled)
+        {
+            float velocity;
+
+            if (moveInput > 0f)
+            {
+                // 上方向：通常より遅く上昇
+                velocity =
+                    moveInput *
+                    speed *
+                    underwaterUpMultiplier;
+            }
+            else if (moveInput < 0f)
+            {
+                // 下方向：通常速度で下降
+                velocity =
+                    moveInput * speed;
+            }
+            else
+            {
+                // 入力なし：自動的に沈む
+                velocity = -underwaterSinkSpeed;
+            }
+
+            inertiaVelocity = velocity;
+
+            return velocity;
+        }
+
+        // ====================================
+        // 通常ステージの処理
+        // ====================================
+
+        // 慣性OFFなら即座に移動
         if (!inertiaEnabled)
         {
             inertiaVelocity =
@@ -96,6 +167,33 @@ public abstract class Paddle : MonoBehaviour
         return inertiaVelocity;
     }
 
+    // ========================================
+    // 水中ギミック切り替え
+    // ========================================
+
+    public void SetUnderwaterEnabled(bool enabled)
+    {
+        underwaterEnabled = enabled;
+
+        // 切り替え時に慣性をリセット
+        StopInertia();
+
+        Debug.Log(
+            $"{gameObject.name}：水中ギミック" +
+            (enabled ? "ON" : "OFF"),
+            this
+        );
+    }
+
+    public bool IsUnderwaterEnabled()
+    {
+        return underwaterEnabled;
+    }
+
+    // ========================================
+    // 慣性
+    // ========================================
+
     public void EnableInertia()
     {
         inertiaEnabled = true;
@@ -139,6 +237,46 @@ public abstract class Paddle : MonoBehaviour
         return inertiaEnabled;
     }
 
+    // ========================================
+    // ボスギミック用高速化
+    // ========================================
+
+    public void EnableBossSpeedUp()
+    {
+        bossSpeedUp = true;
+
+        // 高速状態では慣性を切る
+        DisableInertia();
+
+        speed =
+            normalSpeed * bossSpeedMultiplier;
+
+        Debug.Log(
+            $"{gameObject.name}：高速モードON",
+            this
+        );
+    }
+
+    public void DisableBossSpeedUp()
+    {
+        bossSpeedUp = false;
+
+        // 通常速度に戻す
+        speed = normalSpeed;
+
+        // 既存の氷ステージ用処理
+        EnableInertia();
+    }
+
+    public bool IsBossSpeedUp()
+    {
+        return bossSpeedUp;
+    }
+
+    // ========================================
+    // 位置リセット
+    // ========================================
+
     public void ResetPosition()
     {
         inertiaVelocity = 0f;
@@ -150,6 +288,10 @@ public abstract class Paddle : MonoBehaviour
             );
     }
 
+    // ========================================
+    // パドル縮小
+    // ========================================
+
     public void Shrink(float duration)
     {
         PaddleSizeController size =
@@ -160,6 +302,10 @@ public abstract class Paddle : MonoBehaviour
             size.Shrink(duration);
         }
     }
+
+    // ========================================
+    // パドル拡大
+    // ========================================
 
     public void Grow(float duration)
     {
@@ -186,8 +332,13 @@ public abstract class Paddle : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         transform.localScale = originalScale;
+
         growCoroutine = null;
     }
+
+    // ========================================
+    // 一時的な速度上昇
+    // ========================================
 
     public void SpeedUp(float duration)
     {
@@ -212,6 +363,7 @@ public abstract class Paddle : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         speed = originalSpeed;
+
         speedCoroutine = null;
     }
 }

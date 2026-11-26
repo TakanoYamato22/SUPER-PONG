@@ -1,0 +1,988 @@
+fileFormatVersion: 2
+guid: bb4898d46c2dfe9479095032c262475c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4257361723846041921
+    second: SpaceBoss2Phase_0
+  - first:
+      213: -7501042378701755899
+    second: SpaceBoss2Phase_1
+  - first:
+      213: 6096672952367903321
+    second: SpaceBoss2Phase_2
+  - first:
+      213: -8434788157481965792
+    second: SpaceBoss2Phase_3
+  - first:
+      213: -2016999490265898913
+    second: SpaceBoss2Phase_4
+  - first:
+      213: 5704431234881486044
+    second: SpaceBoss2Phase_5
+  - first:
+      213: -7112519177457435484
+    second: SpaceBoss2Phase_6
+  - first:
+      213: 3756898088816519486
+    second: SpaceBoss2Phase_7
+  - first:
+      213: -7632972813249901326
+    second: SpaceBoss2Phase_8
+  - first:
+      213: 3827257620238446049
+    second: SpaceBoss2Phase_9
+  - first:
+      213: -2707989087649361264
+    second: SpaceBoss2Phase_10
+  - first:
+      213: 8636558926261835257
+    second: SpaceBoss2Phase_11
+  - first:
+      213: 2107333740975647840
+    second: SpaceBoss2Phase_12
+  - first:
+      213: -1212783958244761890
+    second: SpaceBoss2Phase_13
+  - first:
+      213: -7317910117335144960
+    second: SpaceBoss2Phase_14
+  - first:
+      213: -550088268031726740
+    second: SpaceBoss2Phase_15
+  - first:
+      213: -3680712486894766776
+    second: SpaceBoss2Phase_16
+  - first:
+      213: -4533101070127726988
+    second: SpaceBoss2Phase_17
+  - first:
+      213: 6111081887325377884
+    second: SpaceBoss2Phase_18
+  - first:
+      213: 8401448566738678527
+    second: SpaceBoss2Phase_19
+  - first:
+      213: -8624831838169078803
+    second: SpaceBoss2Phase_20
+  - first:
+      213: -3000107676367946082
+    second: SpaceBoss2Phase_21
+  - first:
+      213: 8120015623612101476
+    second: SpaceBoss2Phase_22
+  - first:
+      213: -5623257616955386671
+    second: SpaceBoss2Phase_23
+  - first:
+      213: 7351053238384254175
+    second: SpaceBoss2Phase_24
+  - first:
+      213: -6985499534811064654
+    second: SpaceBoss2Phase_25
+  - first:
+      213: 4685443195406932145
+    second: SpaceBoss2Phase_26
+  - first:
+      213: 6099184845147052561
+    second: SpaceBoss2Phase_27
+  - first:
+      213: 8127808456833648918
+    second: SpaceBoss2Phase_28
+  - first:
+      213: -6287580018668533751
+    second: SpaceBoss2Phase_29
+  - first:
+      213: -8957065610144052817
+    second: SpaceBoss2Phase_30
+  - first:
+      213: -3117975972305443645
+    second: SpaceBoss2Phase_31
+  - first:
+      213: -5069840291132537679
+    second: SpaceBoss2Phase_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1482
+        height: 1058
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbedfc19110dae4c0800000000000000
+      internalID: -4257361723846041921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 855
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50aa454e2b1f6e790800000000000000
+      internalID: -7501042378701755899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_2
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 861
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952fe95afbbbb9450800000000000000
+      internalID: 6096672952367903321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 728
+        width: 38
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 027ad953cdc91fa80800000000000000
+      internalID: -8434788157481965792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_4
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 792
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f50ae8e66ad2204e0800000000000000
+      internalID: -2016999490265898913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 736
+        width: 15
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdcf0c81cf53a2f40800000000000000
+      internalID: 5704431234881486044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_6
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 752
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4acfe79ed714b4d90800000000000000
+      internalID: -7112519177457435484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_7
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 760
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e39a04928ee232430800000000000000
+      internalID: 3756898088816519486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_8
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 678
+        width: 46
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fc8606eaab321690800000000000000
+      internalID: -7632972813249901326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_9
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 726
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ed283627862d1530800000000000000
+      internalID: 3827257620238446049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_10
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 714
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0929607b54a4b6ad0800000000000000
+      internalID: -2707989087649361264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 586
+        width: 6
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f5d091c5983bd770800000000000000
+      internalID: 8636558926261835257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 608
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06c6c0e4fd0ce3d10800000000000000
+      internalID: 2107333740975647840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_13
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 496
+        width: 60
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ede57836a635b2fe0800000000000000
+      internalID: -1212783958244761890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_14
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 578
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 006600e258f817a90800000000000000
+      internalID: -7317910117335144960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 504
+        width: 15
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6bebdc72a1bd58f0800000000000000
+      internalID: -550088268031726740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_16
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 546
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 845fa429e7b7becc0800000000000000
+      internalID: -3680712486894766776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_17
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 510
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ef71818903711c0800000000000000
+      internalID: -4533101070127726988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 451
+        width: 33
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c555a5f399ceec450800000000000000
+      internalID: 6111081887325377884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_19
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 476
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff27c2b65f0f79470800000000000000
+      internalID: 8401448566738678527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_20
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 375
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de3e376b3217e4880800000000000000
+      internalID: -8624831838169078803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_21
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 380
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9e7a2ea6f97d56d0800000000000000
+      internalID: -3000107676367946082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_22
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 338
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4637500203710b070800000000000000
+      internalID: 8120015623612101476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_23
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 290
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d45ddc9dfc26f1b0800000000000000
+      internalID: -5623257616955386671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_24
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 282
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdcd0e609ff240660800000000000000
+      internalID: 7351053238384254175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_25
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 279
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b61ee01f258e0f90800000000000000
+      internalID: -6985499534811064654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_26
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 275
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b8508df2c9060140800000000000000
+      internalID: 4685443195406932145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_27
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 258
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a9f624d48a4a450800000000000000
+      internalID: 6099184845147052561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_28
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 257
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6194cff7ab6cbc070800000000000000
+      internalID: 8127808456833648918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_29
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 261
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9080b6a39470eb8a0800000000000000
+      internalID: -6287580018668533751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_30
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 213
+        width: 7
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa90f7db84c12b380800000000000000
+      internalID: -8957065610144052817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_31
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 181
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c4e7887f59bab4d0800000000000000
+      internalID: -3117975972305443645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceBoss2Phase_32
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 205
+        width: 51
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4051bcd1f44a9b0800000000000000
+      internalID: -5069840291132537679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SpaceBoss2Phase_0: -4257361723846041921
+      SpaceBoss2Phase_1: -7501042378701755899
+      SpaceBoss2Phase_10: -2707989087649361264
+      SpaceBoss2Phase_11: 8636558926261835257
+      SpaceBoss2Phase_12: 2107333740975647840
+      SpaceBoss2Phase_13: -1212783958244761890
+      SpaceBoss2Phase_14: -7317910117335144960
+      SpaceBoss2Phase_15: -550088268031726740
+      SpaceBoss2Phase_16: -3680712486894766776
+      SpaceBoss2Phase_17: -4533101070127726988
+      SpaceBoss2Phase_18: 6111081887325377884
+      SpaceBoss2Phase_19: 8401448566738678527
+      SpaceBoss2Phase_2: 6096672952367903321
+      SpaceBoss2Phase_20: -8624831838169078803
+      SpaceBoss2Phase_21: -3000107676367946082
+      SpaceBoss2Phase_22: 8120015623612101476
+      SpaceBoss2Phase_23: -5623257616955386671
+      SpaceBoss2Phase_24: 7351053238384254175
+      SpaceBoss2Phase_25: -6985499534811064654
+      SpaceBoss2Phase_26: 4685443195406932145
+      SpaceBoss2Phase_27: 6099184845147052561
+      SpaceBoss2Phase_28: 8127808456833648918
+      SpaceBoss2Phase_29: -6287580018668533751
+      SpaceBoss2Phase_3: -8434788157481965792
+      SpaceBoss2Phase_30: -8957065610144052817
+      SpaceBoss2Phase_31: -3117975972305443645
+      SpaceBoss2Phase_32: -5069840291132537679
+      SpaceBoss2Phase_4: -2016999490265898913
+      SpaceBoss2Phase_5: 5704431234881486044
+      SpaceBoss2Phase_6: -7112519177457435484
+      SpaceBoss2Phase_7: 3756898088816519486
+      SpaceBoss2Phase_8: -7632972813249901326
+      SpaceBoss2Phase_9: 3827257620238446049
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

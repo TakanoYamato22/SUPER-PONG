@@ -124,6 +124,7 @@ public class SmashController : MonoBehaviour
     }
 
     // CharacterDataの数値を反映
+    // CharacterDataの数値を反映
     public void ApplyCharacterSettings(
         float newCooldownTime,
         float newMoveDistance,
@@ -131,7 +132,10 @@ public class SmashController : MonoBehaviour
     )
     {
         cooldownTime = Mathf.Max(0f, newCooldownTime);
-        moveDistance = Mathf.Max(0f, newMoveDistance);
+
+        // マイナス値も許可
+        moveDistance = newMoveDistance;
+
         moveSpeed = Mathf.Max(0.1f, newMoveSpeed);
 
         Debug.Log(
